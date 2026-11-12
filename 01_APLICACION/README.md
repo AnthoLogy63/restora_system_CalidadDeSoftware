@@ -3,6 +3,128 @@
   <em>Gestión inteligente de residuos para restaurantes turísticos de Arequipa</em>
 </p>
 
+## Cómo ejecutar RESTORA en Windows
+
+Esta carpeta (`01_APLICACION`) contiene el backend. La interfaz está en `frontend/`. Para trabajar localmente se ejecutan ambos procesos en terminales separadas.
+
+La aplicación ya incluye la conexión a **SQLite mediante Prisma**. No se necesita instalar un servidor MySQL o PostgreSQL: las migraciones crean la base de datos local. El archivo `.env` se crea a partir del ejemplo; no se descarga.
+
+### 1. Instalar las dependencias
+
+Necesitas Node.js y npm. Se recomienda Node.js 22 LTS actualizado o una versión compatible más reciente. Abre PowerShell desde esta carpeta; si estás en la raíz `LAB`, entra con:
+
+```powershell
+cd .\proyecto-Calidad\01_APLICACION
+```
+
+Comprueba las herramientas e instala las dependencias del backend y del frontend:
+
+```powershell
+node --version
+npm --version
+npm ci
+cd frontend
+npm ci
+cd ..
+```
+
+La instalación puede tardar varios minutos. Se realiza la primera vez y cuando cambian las dependencias del proyecto.
+
+### 2. Crear la configuración local
+
+Desde `01_APLICACION`, copia el ejemplo **solo si todavía no tienes un `.env`**:
+
+```powershell
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+notepad .env
+```
+
+Para las pruebas locales puedes conservar estos valores del ejemplo:
+
+```env
+DATABASE_URL="file:./dev.db"
+AUTH_SECRET="change-me-to-a-long-random-string"
+```
+
+`AUTH_SECRET` es necesario para firmar las sesiones. El valor de ejemplo permite probar localmente sin generar otra clave; antes de publicar la aplicación debe reemplazarse por un secreto aleatorio propio. No es la contraseña del usuario de demostración.
+
+Las claves `GEMINI_API_KEY` y `GROQ_API_KEY` pueden quedar vacías. El asistente dispone de un modo guiado sin proveedores externos. El archivo `.env` contiene configuración privada y está excluido de Git.
+
+### 3. Crear la base de datos y cargar la demostración
+
+Ejecuta desde `01_APLICACION`:
+
+```powershell
+npx prisma generate
+npx prisma migrate deploy
+npx prisma db seed
+```
+
+- `generate` crea el cliente Prisma que utiliza el backend.
+- `migrate deploy` aplica las migraciones existentes y crea las tablas locales.
+- `db seed` carga el restaurante, el usuario y los registros de demostración.
+
+Estos comandos preparan la copia local; no se ejecutan cada vez que abres la aplicación. **No repitas el seed para iniciar el sistema:** si ya existe el restaurante de demostración, el script elimina sus datos y los vuelve a crear.
+
+El seed también intenta entrenar un modelo predictivo. Si faltan Python o sus paquetes, puede advertir que no pudo entrenarlo y aun así terminar la carga principal. La preparación opcional del predictor se explica más abajo.
+
+### 4. Iniciar la aplicación
+
+**Terminal 1 — backend**, ubicada en `01_APLICACION`:
+
+```powershell
+npm run dev
+```
+
+**Terminal 2 — frontend**, también partiendo de `01_APLICACION`:
+
+```powershell
+cd frontend
+npm run dev -- --port 8080
+```
+
+Mantén ambas terminales abiertas. Entra a [http://localhost:8080](http://localhost:8080).
+
+| Dato de demostración | Valor |
+| --- | --- |
+| Correo | `demo@circularaqp.pe` |
+| Contraseña | `demo1234` |
+| Restaurante | El Buen Sabor AQP |
+
+Para detener los procesos, presiona `Ctrl+C` en cada terminal. En las siguientes sesiones basta con ejecutar los dos comandos de inicio; los datos permanecen guardados en SQLite.
+
+### 5. Comprobaciones rápidas y errores frecuentes
+
+El backend responde en [http://localhost:3000/api/health](http://localhost:3000/api/health). Esta ruta comprueba que la API está levantada; el inicio de sesión permite comprobar además el acceso a los datos.
+
+| Situación | Qué revisar |
+| --- | --- |
+| Falta el cliente Prisma o aparece un error sobre `generated/prisma` | Ejecuta `npx prisma generate` desde `01_APLICACION`. |
+| Aparece `no such table` o no existe la base local | Ejecuta `npx prisma migrate deploy`. |
+| No puedes ingresar con el usuario de demostración | Confirma que el seed terminó y usa las credenciales de la tabla anterior. |
+| La interfaz abre, pero las peticiones a `/api` fallan | Mantén el backend ejecutándose en el puerto 3000. |
+| No abre la página | Revisa que el frontend indique el puerto 8080 y que ambas terminales sigan abiertas. |
+| El puerto está ocupado | Detén la instancia anterior antes de iniciar otra; el frontend espera la API en el puerto 3000. |
+| `npm ci` muestra un error de permisos | Ejecuta la instalación en tu PowerShell habitual, fuera de un entorno restringido, y revisa el mensaje concreto. |
+
+### Opcional — habilitar las predicciones con Python
+
+El módulo de predicciones necesita Python y los paquetes de `predictor/requirements.txt`. Desde `01_APLICACION`, crea un entorno local e instala sus dependencias:
+
+```powershell
+python --version
+python -m venv predictor/.venv
+./predictor/.venv/Scripts/python.exe -m pip install -r predictor/requirements.txt
+```
+
+Configura el ejecutable en `.env`:
+
+```env
+PYTHON_BIN="predictor/.venv/Scripts/python.exe"
+```
+
+Reinicia el backend después de cambiar esta variable. No necesitas activar el entorno virtual: el backend utiliza directamente el ejecutable indicado. Puedes usar el módulo de predicciones para entrenar con los datos disponibles, sin volver a cargar el seed.
+
 ---
 
 ## 📌 Descripción
@@ -130,75 +252,9 @@ Proyecto desarrollado para el reto **TURISTÓN 2026**.
 
 ---
 
-## ⚡ Instalación
+## Instalación, configuración y ejecución
 
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/RyanValdivia/turiston-project.git
-cd turiston-project
-
-# 2. Instalar dependencias del backend
-npm install
-
-# 3. Instalar dependencias del frontend
-cd frontend && npm install && cd ..
-
-# 4. (Opcional) Instalar dependencias de Python para predicciones
-pip install -r predictor/requirements.txt
-```
-
----
-
-## ⚙️ Configuración
-
-Copia el archivo de ejemplo y edita con tus valores:
-
-```bash
-cp .env.example .env
-```
-
-Variables clave en `.env`:
-
-| Variable | Descripción | Requerida |
-|----------|-------------|-----------|
-| `DATABASE_URL` | Ruta a la base SQLite | ✅ (default: `file:./dev.db`) |
-| `AUTH_SECRET` | Secreto para firmar JWTs | ✅ |
-| `GEMINI_API_KEY` | API key de Google Gemini | ❌ (el asistente funciona sin ella) |
-| `GEMINI_MODEL` | Modelo Gemini a usar | ❌ (default: `gemini-2.5-flash`) |
-| `GROQ_API_KEY` | API key de Groq (respaldo) | ❌ |
-| `GROQ_MODEL` | Modelo Groq a usar | ❌ (default: `llama-3.3-70b-versatile`) |
-| `ASISTENTE_HABILITADO` | `"true"` / `"false"` | ❌ (default: `true`) |
-| `PYTHON_BIN` | Ejecutable de Python | ❌ (default: `python`) |
-
-> 💡 El asistente funciona **sin API keys**: si Gemini y Groq no están disponibles, cae automáticamente al **modo guiado determinista**.
-
----
-
-## 🚀 Ejecución
-
-### Desarrollo (dos terminales)
-
-```bash
-# Terminal 1 — Backend (API, :3000)
-npx prisma generate
-npx prisma migrate dev
-npx prisma db seed        # Carga datos de demostración
-npm run dev
-
-# Terminal 2 — Frontend (UI, :8080)
-cd frontend
-npm run dev
-```
-
-Abre **http://localhost:8080** en el navegador.
-
-### Credenciales de demostración
-
-| Campo | Valor |
-|-------|-------|
-| Email | `demo@circularaqp.pe` |
-| Contraseña | `demo1234` |
-| Restaurante | El Buen Sabor AQP |
+Consulta **Cómo ejecutar RESTORA en Windows**, al inicio de este documento. Allí están los pasos vigentes para instalar dependencias, crear `.env`, preparar SQLite, iniciar ambos servicios y acceder con el usuario de demostración.
 
 ---
 

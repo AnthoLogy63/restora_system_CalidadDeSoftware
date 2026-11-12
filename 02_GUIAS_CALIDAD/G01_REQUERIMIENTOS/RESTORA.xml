@@ -1,0 +1,1620 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE rem:requirementsProject SYSTEM "C:\Program Files (x86)\REM 1.2.2\xml\REM_1_2_2.dtd">
+<rem:requirementsProject
+xmlns:rem="http://rem.lsi.us.es">
+<rem:name>RESTORA</rem:name>
+<rem:c_requirementsSpecification oid = "CRS-0001">
+<rem:name>Documento de Requisitos del Sistema RESTORA</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Version inicial propuesta; pendiente de validacion.
+</rem:comments>
+	 <rem:preparedFor organizations = "ORG-0001 "/>
+	 <rem:preparedBy organizations = "ORG-0002 "/>
+<rem:section
+ oid = "SEC-0001">
+<rem:name>
+INTRODUCCIÓN</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:level>1</rem:level>
+<rem:number>1 </rem:number>
+<rem:paragraph
+ oid = "PRG-0001">
+<rem:name>
+Propósito y alcance</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:text>RESTORA centralizará producción, ventas y desperdicios de un restaurante, estimará pérdidas económicas y ofrecerá indicadores, historial y reportes. Se distinguen administradores y personal operativo. Quedan fuera de esta versión las predicciones mediante IA, las integraciones automáticas, los pagos, la facturación y la gestión de múltiples sucursales. Este documento especifica necesidades propuestas, no certifica funcionalidades implementadas. Fuentes: Propuesta_Sistema_RESTORA.docx y Descripción-Restora.txt.</rem:text>
+</rem:paragraph>
+<rem:paragraph
+ oid = "PRG-0002">
+<rem:name>
+Reglas de registro y validación</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:text>Se conservarán identificadores FRQ y NFR en las guías posteriores. Las cantidades se agruparán solo si comparten unidad; no se sumarán kilogramos con porciones. La pérdida se calculará con cantidad y costo en la misma unidad, conservando el costo usado al registrar el desperdicio. Las metas de rendimiento y compatibilidad son propuestas del equipo pendientes de acuerdo. El umbral de alerta se definirá por alimento, unidad y periodo antes de su verificación. No se realizaron entrevistas ni pruebas de la aplicación como parte de esta especificación.</rem:text>
+</rem:paragraph>
+</rem:section>
+<rem:section
+ oid = "SEC-0002">
+<rem:name>
+ORGANIZACIONES</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:level>1</rem:level>
+<rem:number>2 </rem:number>
+<rem:organization
+ oid = "ORG-0001">
+<rem:name>
+Restaurante destinatario de RESTORA</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:address>Por definir con el establecimiento participante</rem:address>
+<rem:telephone>No solicitado</rem:telephone>
+<rem:fax>No aplica</rem:fax>
+</rem:organization>
+<rem:organization
+ oid = "ORG-0002">
+<rem:name>
+Equipo RESTORA - Calidad de Software UNSA</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:address>Arequipa, Perú</rem:address>
+<rem:telephone>No solicitado</rem:telephone>
+<rem:fax>No aplica</rem:fax>
+</rem:organization>
+</rem:section>
+<rem:section
+ oid = "SEC-0003">
+<rem:name>
+PARTICIPANTES</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:level>1</rem:level>
+<rem:number>3 </rem:number>
+<rem:stakeholder
+ oid = "STK-0001">
+<rem:name>
+Administrador del restaurante</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:stakeholderRole>Gestionar cuentas, consultar indicadores y reportes, revisar pérdidas y planificar la operación.</rem:stakeholderRole>
+<rem:isCustomer/>
+<rem:isUser/>
+<rem:worksFor organization = "ORG-0001"/>
+</rem:stakeholder>
+<rem:stakeholder
+ oid = "STK-0002">
+<rem:name>
+Personal operativo</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:stakeholderRole>Registrar y corregir producción, ventas y desperdicios según sus permisos.</rem:stakeholderRole>
+<rem:isUser/>
+<rem:worksFor organization = "ORG-0001"/>
+</rem:stakeholder>
+<rem:stakeholder
+ oid = "STK-0003">
+<rem:name>
+Ajra Huacso Jeans Anthony</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:stakeholderRole>Coordinación y análisis de requisitos</rem:stakeholderRole>
+<rem:isDeveloper/>
+<rem:worksFor organization = "ORG-0002"/>
+</rem:stakeholder>
+<rem:stakeholder
+ oid = "STK-0004">
+<rem:name>
+Mathias Alonso Barrios Medina</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:stakeholderRole>Interfaz y revisión de claridad de interacción</rem:stakeholderRole>
+<rem:isDeveloper/>
+<rem:worksFor organization = "ORG-0002"/>
+</rem:stakeholder>
+<rem:stakeholder
+ oid = "STK-0005">
+<rem:name>
+Sergio Danilo Hancco Mullisaca</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:stakeholderRole>Lógica del sistema y coherencia de datos</rem:stakeholderRole>
+<rem:isDeveloper/>
+<rem:worksFor organization = "ORG-0002"/>
+</rem:stakeholder>
+<rem:stakeholder
+ oid = "STK-0006">
+<rem:name>
+Ryan Fabian Valdivia Segovia</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:stakeholderRole>Calidad, trazabilidad y revisión de criterios</rem:stakeholderRole>
+<rem:isDeveloper/>
+<rem:worksFor organization = "ORG-0002"/>
+</rem:stakeholder>
+</rem:section>
+<rem:section
+ oid = "SEC-0004">
+<rem:name>
+OBJETIVOS</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:level>1</rem:level>
+<rem:number>4 </rem:number>
+<rem:objective
+ oid = "OBJ-0001">
+<rem:name>
+Centralizar producción y ventas</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+Reunir los registros diarios de preparación y venta con información coherente por alimento, fecha y turno.</rem:description>
+</rem:objective>
+<rem:objective
+ oid = "OBJ-0002">
+<rem:name>
+Identificar desperdicios y pérdidas</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+Clasificar los alimentos descartados y estimar su impacto económico para orientar acciones de mejora.</rem:description>
+</rem:objective>
+<rem:objective
+ oid = "OBJ-0003">
+<rem:name>
+Facilitar seguimiento e información histórica</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+Consultar, comparar y resumir los registros operativos para apoyar la planificación del restaurante.</rem:description>
+</rem:objective>
+<rem:objective
+ oid = "OBJ-0004">
+<rem:name>
+Controlar el acceso y mantener información confiable</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+Diferenciar responsabilidades de usuarios y proteger el acceso, la integridad y la configuración del sistema.</rem:description>
+</rem:objective>
+</rem:section>
+<rem:section
+ oid = "SEC-0005">
+<rem:name>
+REQUERIMIENTOS FUNCIONALES</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:level>1</rem:level>
+<rem:number>5 </rem:number>
+<rem:functionalRequirement
+ oid = "FRQ-0001">
+<rem:name>
+Iniciar sesión</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Autenticación. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Con credenciales válidas, se inicia una sesión y se accede a las funciones autorizadas. Con credenciales incorrectas, se rechaza el acceso sin indicar cuál dato es incorrecto.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir iniciar sesión con correo y contraseña de una cuenta habilitada.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0002">
+<rem:name>
+Cerrar sesión</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Autenticación. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: FRQ-0001. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Después del cierre, una nueva solicitud a una función protegida debe requerir autenticación y no debe mostrar información privada con la sesión cerrada.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir cerrar la sesión del usuario autenticado.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0003">
+<rem:name>
+Administrar cuentas de usuario</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Usuarios. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: FRQ-0001. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Una cuenta creada queda vinculada al restaurante; un correo duplicado se rechaza. Una cuenta deshabilitada no puede iniciar una nueva sesión.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir al administrador crear cuentas y habilitar o deshabilitar el acceso de los usuarios del restaurante.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0004">
+<rem:name>
+Asignar permisos por rol</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Usuarios. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: FRQ-0003. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: El personal operativo puede registrar producción, ventas y desperdicios, pero no administrar cuentas. La restricción debe aplicarse también al acceso directo a las operaciones protegidas.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+distinguir los roles de administrador y personal operativo y restringir las funciones de cada cuenta según su rol.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0005">
+<rem:name>
+Mantener el catálogo de alimentos</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Catálogo. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0004. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Se rechazan nombres vacíos, costos negativos y unidades no definidas. Los alimentos referenciados por operaciones históricas se inactivan en lugar de eliminar sus antecedentes.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir registrar y actualizar los alimentos del restaurante con nombre, unidad de registro y costo unitario de referencia.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0006">
+<rem:name>
+Registrar producción diaria</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Producción. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0005. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Un registro con alimento activo, fecha, turno y cantidad mayor que cero se guarda y puede consultarse. Si falta un dato obligatorio o la cantidad no es válida, se informa el motivo y no se guarda.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir registrar la cantidad preparada de un alimento, la fecha de producción y el turno de la operación.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0007">
+<rem:name>
+Consultar y corregir producción</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Producción. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0006. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Una corrección válida se refleja en la consulta y en los indicadores del periodo. Una cuenta sin autorización no puede modificar el registro.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir consultar y corregir los registros de producción dentro del restaurante y de los permisos de la cuenta.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0008">
+<rem:name>
+Registrar ventas por alimento</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Ventas. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0005. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Se conserva el registro con cantidad mayor que cero y alimento existente. Los datos inválidos se rechazan sin generar un registro parcial; la consulta permite identificar la venta guardada.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir registrar el alimento vendido, la cantidad, la fecha y el turno de venta.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0009">
+<rem:name>
+Consultar y corregir ventas</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Ventas. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0008. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Las correcciones autorizadas se reflejan en los totales de ventas y en las consultas del periodo, sin alterar registros de otro restaurante.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir consultar y corregir las cantidades vendidas registradas para un alimento y periodo.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0010">
+<rem:name>
+Registrar desperdicios</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Desperdicios. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0005. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Un desperdicio válido queda disponible en el historial. Se rechazan cantidades menores o iguales a cero y registros sin alimento, unidad, fecha o causa.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir registrar el alimento descartado, su cantidad, unidad, fecha, turno y causa de desperdicio.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0011">
+<rem:name>
+Clasificar causas de desperdicio</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Desperdicios. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0010. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: La causa seleccionada se conserva y puede utilizarse como criterio de consulta. Un valor que no pertenece al catálogo de causas se rechaza.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir clasificar cada desperdicio mediante una causa identificable, como sobreproducción, deterioro o restos del cliente.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0012">
+<rem:name>
+Consultar y corregir desperdicios</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0002 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Desperdicios. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0010, FRQ-0011. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: La corrección válida actualiza las consultas y los totales asociados. La operación exige los mismos campos y validaciones que el registro inicial.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir consultar y corregir registros de desperdicio conforme a los permisos de la cuenta.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0013">
+<rem:name>
+Estimar la pérdida por desperdicio</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Costos. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0005, FRQ-0010. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Con 2 kg y un costo de S/ 3.50 por kg, la pérdida es S/ 7.00. Una unidad incompatible impide el cálculo. Se conserva el costo usado al registrar el desperdicio para que un cambio posterior de catálogo no revalorice el historial.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+estimar la pérdida de un desperdicio multiplicando su cantidad por el costo unitario de referencia expresado en la misma unidad.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0014">
+<rem:name>
+Consultar el historial por periodo</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Historial. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: FRQ-0006, FRQ-0008, FRQ-0010. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: La consulta incluye únicamente registros dentro de las fechas seleccionadas. Un intervalo con inicio posterior al fin se rechaza; un periodo vacío muestra que no existen registros.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir consultar producción, ventas y desperdicios del restaurante dentro de un intervalo de fechas.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0015">
+<rem:name>
+Buscar operaciones por alimento y causa</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Historial. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: FRQ-0014. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Los resultados cumplen simultáneamente los filtros activos. Al limpiar los filtros se recupera la consulta del periodo sin restricciones por alimento o causa.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir filtrar las operaciones por alimento y, en los desperdicios, por causa.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0016">
+<rem:name>
+Visualizar indicadores operativos</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Indicadores. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: FRQ-0006, FRQ-0008, FRQ-0010, FRQ-0013, FRQ-0014. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Los totales coinciden con los registros del mismo restaurante y periodo. Solo se suman cantidades de una unidad compatible; las monedas se presentan con dos decimales.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+mostrar indicadores de producción, ventas, desperdicios y pérdida económica estimada para el periodo seleccionado.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0017">
+<rem:name>
+Comparar periodos de operación</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Indicadores. Actor: Administrador. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: FRQ-0016. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Cada periodo presenta sus fechas y totales. Si la base de comparación es cero, la variación porcentual se indica como no calculable, sin división por cero.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir comparar indicadores entre dos periodos elegidos por el administrador.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0018">
+<rem:name>
+Generar reportes resumidos</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Reportes. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: FRQ-0014, FRQ-0016. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: El reporte identifica restaurante, periodo y fecha de generación. Sus valores coinciden con el historial consultado bajo los mismos criterios y pueden consultarse en el sistema.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+generar un reporte resumido de producción, ventas, desperdicios y pérdidas del periodo solicitado.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0019">
+<rem:name>
+Señalar desperdicios elevados</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Alertas. Actor: Administrador. Prioridad: Media. Objetivo: OBJ-0002. Dependencias: FRQ-0016. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Con un umbral de referencia previamente definido, un valor superior genera una señal visible; un valor inferior o igual no la genera. Si no existe umbral, se indica que falta definirlo y no se presume una condición normal.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+señalar los alimentos cuyo desperdicio supere el umbral de referencia definido para su unidad y periodo.</rem:description>
+</rem:functionalRequirement>
+<rem:functionalRequirement
+ oid = "FRQ-0020">
+<rem:name>
+Presentar recomendaciones básicas</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0001 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Recomendaciones. Actor: Administrador. Prioridad: Media. Objetivo: OBJ-0002. Dependencias: FRQ-0011, FRQ-0016, FRQ-0019. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Cada recomendación muestra la causa o indicador que la origina. Si no hay información suficiente, se informa esa condición; las sugerencias no se presentan como predicciones ni resultados de ahorro garantizado.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+presentar recomendaciones básicas asociadas a las causas y señales de desperdicio registradas.</rem:description>
+</rem:functionalRequirement>
+</rem:section>
+<rem:section
+ oid = "SEC-0006">
+<rem:name>
+REQUERIMIENTOS NO FUNCIONALES</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Versión inicial propuesta; pendiente de validación con los usuarios.</rem:comments>
+<rem:level>1</rem:level>
+<rem:number>6 </rem:number>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0001">
+<rem:name>
+Confidencialidad y aislamiento de datos</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Seguridad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Una solicitud sin sesión se rechaza. Una cuenta autenticada de un restaurante no puede consultar ni modificar registros de otro restaurante mediante identificadores ajenos.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+restringir la consulta y modificación de información a usuarios autenticados del restaurante correspondiente.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0002">
+<rem:name>
+Protección de contraseñas y sesiones</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Seguridad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: La base de datos no contiene contraseñas en texto legible. Una credencial de sesión alterada se rechaza; la cookie de sesión no es accesible desde JavaScript del navegador.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+almacenar contraseñas mediante un hash con sal y proteger las sesiones frente a modificaciones del cliente.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0003">
+<rem:name>
+Integridad de las operaciones</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Integridad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Una operación rechazada no deja registros parciales. Se impiden referencias a alimentos inexistentes y se aplican las mismas validaciones al crear y corregir datos.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+conservar la consistencia de los registros ante entradas inválidas o fallos de una operación compuesta.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0004">
+<rem:name>
+Persistencia de la información</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Persistencia. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Tras registrar una operación y reiniciar los servicios usando la misma base, el registro conserva sus datos y puede recuperarse mediante el historial.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+mantener los registros confirmados después de detener y volver a iniciar los servicios de la aplicación.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0005">
+<rem:name>
+Claridad de formularios y mensajes</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Usabilidad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Los formularios de producción, ventas y desperdicios muestran sus campos obligatorios y unidades. Un error indica el campo y el motivo; los datos válidos ya ingresados no se pierden al corregirlo.</rem:comments>
+<rem:importance value = "IMV-0002"/>
+<rem:urgency value = "URV-0002"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+identificar campos obligatorios, unidades y errores de validación en español.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0006">
+<rem:name>
+Tiempo de respuesta de consultas</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Rendimiento. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Meta propuesta: 10 usuarios concurrentes, 1000 operaciones almacenadas y 100 consultas por función en un entorno local documentado. El percentil 95 no supera 2 segundos. Su cumplimiento queda pendiente de medición; no se considera un resultado de esta guía.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+responder las consultas de historial e indicadores en un máximo de 2 segundos para al menos el 95 % de las solicitudes del escenario de referencia.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0007">
+<rem:name>
+Compatibilidad con navegadores</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Compatibilidad. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: En las versiones registradas durante la verificación, se puede iniciar sesión y completar los formularios sin controles inaccesibles ni superposición de mensajes. La comprobación se realizará en una etapa posterior.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir utilizar los flujos principales en Chrome y Edge de escritorio con una ventana de 1366 por 768 píxeles.</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
+ oid = "NFR-0008">
+<rem:name>
+Configuración y mantenibilidad</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0005 STK-0006 STK-0003 STK-0004 "/>
+<rem:sources stakeholders ="STK-0003 "/>
+<rem:comments>
+Estado documental: completado. Validación funcional: pendiente. Módulo: Mantenibilidad. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: El README identifica las variables y comandos necesarios; el ejemplo no contiene secretos reales. Un integrante puede preparar una copia local siguiendo esas instrucciones. La revisión de ejecución queda pendiente de evidencia propia.</rem:comments>
+<rem:importance value = "IMV-0003"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+separar la configuración local del código y documentar la preparación de la base y el inicio de los servicios.</rem:description>
+</rem:nonFunctionalRequirement>
+</rem:section>
+</rem:c_requirementsSpecification>
+<rem:d_requirementsSpecification oid = "DRS-0002">
+<rem:name>Documento de Analisis del Sistema RESTORA</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Version inicial propuesta; pendiente de validacion.
+</rem:comments>
+</rem:d_requirementsSpecification>
+<rem:defectsSpecification oid = "DFS-0003">
+<rem:name>Registro de Conflictos y Defectos RESTORA</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Version inicial propuesta; pendiente de validacion.
+</rem:comments>
+</rem:defectsSpecification>
+<rem:changeRequestsSpecification oid = "CHS-0004">
+<rem:name>Registro de Peticiones de Cambio RESTORA</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2026</rem:year>
+<rem:month>11</rem:month>
+<rem:day>11</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Version inicial propuesta; pendiente de validacion.
+</rem:comments>
+</rem:changeRequestsSpecification>
+<rem:trace source = "FRQ-0012"  target = "FRQ-0011" >
+</rem:trace>
+<rem:trace source = "FRQ-0014"  target = "FRQ-0006" >
+</rem:trace>
+<rem:trace source = "FRQ-0015"  target = "FRQ-0014" >
+</rem:trace>
+<rem:trace source = "FRQ-0006"  target = "FRQ-0005" >
+</rem:trace>
+<rem:trace source = "FRQ-0012"  target = "FRQ-0010" >
+</rem:trace>
+<rem:trace source = "FRQ-0010"  target = "FRQ-0005" >
+</rem:trace>
+<rem:trace source = "FRQ-0011"  target = "FRQ-0010" >
+</rem:trace>
+<rem:trace source = "FRQ-0007"  target = "FRQ-0006" >
+</rem:trace>
+<rem:trace source = "FRQ-0008"  target = "FRQ-0005" >
+</rem:trace>
+<rem:trace source = "FRQ-0009"  target = "FRQ-0008" >
+</rem:trace>
+<rem:trace source = "FRQ-0013"  target = "FRQ-0010" >
+</rem:trace>
+<rem:trace source = "FRQ-0014"  target = "FRQ-0008" >
+</rem:trace>
+<rem:trace source = "FRQ-0014"  target = "FRQ-0010" >
+</rem:trace>
+<rem:trace source = "FRQ-0013"  target = "FRQ-0005" >
+</rem:trace>
+<rem:trace source = "FRQ-0011"  target = "OBJ-0002" >
+</rem:trace>
+<rem:trace source = "NFR-0002"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "NFR-0004"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "NFR-0006"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "NFR-0008"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "FRQ-0003"  target = "FRQ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0016"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0020"  target = "OBJ-0002" >
+</rem:trace>
+<rem:trace source = "NFR-0001"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "NFR-0003"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0002"  target = "FRQ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0017"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0013"  target = "OBJ-0002" >
+</rem:trace>
+<rem:trace source = "FRQ-0004"  target = "FRQ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0005"  target = "FRQ-0004" >
+</rem:trace>
+<rem:trace source = "FRQ-0010"  target = "OBJ-0002" >
+</rem:trace>
+<rem:trace source = "NFR-0007"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0009"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0015"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0012"  target = "OBJ-0002" >
+</rem:trace>
+<rem:trace source = "NFR-0005"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0014"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0018"  target = "OBJ-0003" >
+</rem:trace>
+<rem:trace source = "FRQ-0019"  target = "OBJ-0002" >
+</rem:trace>
+<rem:trace source = "FRQ-0006"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0003"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "FRQ-0005"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0007"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0008"  target = "OBJ-0001" >
+</rem:trace>
+<rem:trace source = "FRQ-0002"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "FRQ-0001"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "FRQ-0004"  target = "OBJ-0004" >
+</rem:trace>
+<rem:trace source = "FRQ-0020"  target = "FRQ-0016" >
+</rem:trace>
+<rem:trace source = "FRQ-0016"  target = "FRQ-0008" >
+</rem:trace>
+<rem:trace source = "FRQ-0016"  target = "FRQ-0014" >
+</rem:trace>
+<rem:trace source = "FRQ-0016"  target = "FRQ-0006" >
+</rem:trace>
+<rem:trace source = "FRQ-0017"  target = "FRQ-0016" >
+</rem:trace>
+<rem:trace source = "FRQ-0018"  target = "FRQ-0016" >
+</rem:trace>
+<rem:trace source = "FRQ-0016"  target = "FRQ-0010" >
+</rem:trace>
+<rem:trace source = "FRQ-0019"  target = "FRQ-0016" >
+</rem:trace>
+<rem:trace source = "FRQ-0020"  target = "FRQ-0011" >
+</rem:trace>
+<rem:trace source = "FRQ-0018"  target = "FRQ-0014" >
+</rem:trace>
+<rem:trace source = "FRQ-0016"  target = "FRQ-0013" >
+</rem:trace>
+<rem:trace source = "FRQ-0020"  target = "FRQ-0019" >
+</rem:trace>
+<rem:predefinedValueTypes>
+<rem:predefinedValueType
+ oid = "PVT-0002">
+<rem:name>
+Integer</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2000</rem:year>
+<rem:month>10</rem:month>
+<rem:day>30</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Predefined OCL type</rem:comments>
+<rem:description>
+Integer numbers</rem:description>
+<rem:definition>
+(null)
+</rem:definition>
+</rem:predefinedValueType>
+<rem:predefinedValueType
+ oid = "PVT-0003">
+<rem:name>
+Natural</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2000</rem:year>
+<rem:month>10</rem:month>
+<rem:day>30</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Predefined OCL type</rem:comments>
+<rem:description>
+Natural numbers</rem:description>
+<rem:definition>
+(null)
+</rem:definition>
+</rem:predefinedValueType>
+<rem:predefinedValueType
+ oid = "PVT-0006">
+<rem:name>
+Time</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2000</rem:year>
+<rem:month>10</rem:month>
+<rem:day>30</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Predefined OCL type (non-standard)</rem:comments>
+<rem:description>
+Hour:minutes:seconds</rem:description>
+<rem:definition>
+(null)
+</rem:definition>
+</rem:predefinedValueType>
+<rem:predefinedValueType
+ oid = "PVT-0004">
+<rem:name>
+String</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2000</rem:year>
+<rem:month>10</rem:month>
+<rem:day>30</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Predefined OCL type</rem:comments>
+<rem:description>
+Alphanumeric strings</rem:description>
+<rem:definition>
+(null)
+</rem:definition>
+</rem:predefinedValueType>
+<rem:predefinedValueType
+ oid = "PVT-0005">
+<rem:name>
+Date</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2000</rem:year>
+<rem:month>10</rem:month>
+<rem:day>30</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Predefined OCL type (non-standard)</rem:comments>
+<rem:description>
+Dates</rem:description>
+<rem:definition>
+(null)
+</rem:definition>
+</rem:predefinedValueType>
+<rem:predefinedValueType
+ oid = "PVT-0001">
+<rem:name>
+Real</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2000</rem:year>
+<rem:month>10</rem:month>
+<rem:day>30</rem:day>
+</rem:date>
+</rem:version>
+<rem:comments>
+Predefined OCL type</rem:comments>
+<rem:description>
+Real numbers</rem:description>
+<rem:definition>
+(null)
+</rem:definition>
+</rem:predefinedValueType>
+</rem:predefinedValueTypes>
+<rem:predefinedValues>
+<rem:changeRequestStatusValue oid = "CRV-0001">
+<rem:name>PD</rem:name>
+</rem:changeRequestStatusValue>
+<rem:changeRequestStatusValue oid = "CRV-0002">
+<rem:name>pendiente de análisis</rem:name>
+</rem:changeRequestStatusValue>
+<rem:changeRequestStatusValue oid = "CRV-0003">
+<rem:name>pendiente de aprobar/rechazar</rem:name>
+</rem:changeRequestStatusValue>
+<rem:changeRequestStatusValue oid = "CRV-0004">
+<rem:name>pendiente de realización</rem:name>
+</rem:changeRequestStatusValue>
+<rem:changeRequestStatusValue oid = "CRV-0005">
+<rem:name>verificado</rem:name>
+</rem:changeRequestStatusValue>
+<rem:changeRequestStatusValue oid = "CRV-0006">
+<rem:name>rechazado</rem:name>
+</rem:changeRequestStatusValue>
+<rem:conflictStatusValue oid = "CSV-0003">
+<rem:name>en proceso de negociación</rem:name>
+</rem:conflictStatusValue>
+<rem:conflictStatusValue oid = "CSV-0004">
+<rem:name>resuelto</rem:name>
+</rem:conflictStatusValue>
+<rem:conflictStatusValue oid = "CSV-0001">
+<rem:name>PD</rem:name>
+</rem:conflictStatusValue>
+<rem:conflictStatusValue oid = "CSV-0002">
+<rem:name>no resuelto</rem:name>
+</rem:conflictStatusValue>
+<rem:defectStatusValue oid = "DSV-0001">
+<rem:name>PD</rem:name>
+</rem:defectStatusValue>
+<rem:defectStatusValue oid = "DSV-0003">
+<rem:name>en proceso de negociación</rem:name>
+</rem:defectStatusValue>
+<rem:defectStatusValue oid = "DSV-0002">
+<rem:name>no eliminado</rem:name>
+</rem:defectStatusValue>
+<rem:defectStatusValue oid = "DSV-0004">
+<rem:name>eliminado</rem:name>
+</rem:defectStatusValue>
+<rem:defectTypeValue oid = "DTV-0010">
+<rem:name>Redundancia</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos son redundantes o contienen elementos redundantes]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0013">
+<rem:name>Prioridad no establecida</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no tienen establecida su prioridad, es decir, su importancia y su urgencia]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0014">
+<rem:name>Estabilidad no establecida</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no tienen estimada su estabilidad]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0008">
+<rem:name>Verbosidad excesiva</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos pueden expresarse de forma más concisa sin alterar su significado]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0009">
+<rem:name>Dependiente del diseño</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos incluyen elementos dependientes del diseño del sistema]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0003">
+<rem:name>No necesidad</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no son necesarios porque no contribuyen a satisfacer ninguna necesidad de clientes o usuarios]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0015">
+<rem:name>Nivel incorrecto de detalle</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no están expresados con el nivel adecuado de detalle, es decir, son demasiado abstractos o demasiado detallados]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0001">
+<rem:name>PD</rem:name>
+<rem:description>
+<![CDATA[Por Determinar]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0002">
+<rem:name>Ambigüedad</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos, aunque comprensibles, tienen más de una interpretación posible]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0005">
+<rem:name>No verificabilidad</rem:name>
+<rem:description>
+<![CDATA[No se puede comprobar que el sistema satisface el requisito o requisitos]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0007">
+<rem:name>No implementabilidad</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no pueden ser implementados con la tecnología actual o dentro de un coste razonable]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0011">
+<rem:name>Imprecisión</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no se expresan de forma precisa, es decir, usando cantidades numéricas siempre que sea posible con el nivel adecuado de precisión]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0012">
+<rem:name>Incompleción</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no describen todo lo que el sistema se supone que deberá hacer, no describen las respuestas del sistema a todas las posibles situaciones o incluyen elementos por determinar (PD)]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0004">
+<rem:name>Incomprensibilidad</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no pueden ser entendidos por algún lector]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0006">
+<rem:name>Inconsistencia</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no son consistentes, es decir, presentan contradicciones internas o entre varios]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0023">
+<rem:name>Otro</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos presentan otro tipo de defecto]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0016">
+<rem:name>No rastreabilidad</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no están trazados hacia sus orígenes, bien requisitos de nivel superior (objetivos), bien clientes y usuarios]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:defectTypeValue oid = "DTV-0017">
+<rem:name>Organización incorrecta</rem:name>
+<rem:description>
+<![CDATA[El requisito o requisitos no están organizados correctamente según la normativa aplicada o el documento no contiene las secciones obligatorias]]>
+</rem:description>
+</rem:defectTypeValue>
+<rem:importanceValue oid = "IMV-0003">
+<rem:name>importante</rem:name>
+</rem:importanceValue>
+<rem:importanceValue oid = "IMV-0001">
+<rem:name>PD</rem:name>
+</rem:importanceValue>
+<rem:importanceValue oid = "IMV-0004">
+<rem:name>quedaría bien</rem:name>
+</rem:importanceValue>
+<rem:importanceValue oid = "IMV-0002">
+<rem:name>vital</rem:name>
+</rem:importanceValue>
+<rem:stabilityValue oid = "SBV-0004">
+<rem:name>alta</rem:name>
+</rem:stabilityValue>
+<rem:stabilityValue oid = "SBV-0003">
+<rem:name>media</rem:name>
+</rem:stabilityValue>
+<rem:stabilityValue oid = "SBV-0002">
+<rem:name>baja</rem:name>
+</rem:stabilityValue>
+<rem:stabilityValue oid = "SBV-0001">
+<rem:name>PD</rem:name>
+</rem:stabilityValue>
+<rem:statusValue oid = "STV-0001">
+<rem:name>PD</rem:name>
+</rem:statusValue>
+<rem:statusValue oid = "STV-0003">
+<rem:name>documentación completada</rem:name>
+</rem:statusValue>
+<rem:statusValue oid = "STV-0002">
+<rem:name>en construcción</rem:name>
+</rem:statusValue>
+<rem:statusValue oid = "STV-0004">
+<rem:name>pendiente de validación</rem:name>
+</rem:statusValue>
+<rem:statusValue oid = "STV-0005">
+<rem:name>validado</rem:name>
+</rem:statusValue>
+<rem:terminationValue oid = "TEV-0003">
+<rem:name>queda sin efecto</rem:name>
+</rem:terminationValue>
+<rem:terminationValue oid = "TEV-0001">
+<rem:name>PD</rem:name>
+</rem:terminationValue>
+<rem:terminationValue oid = "TEV-0002">
+<rem:name>continúa</rem:name>
+</rem:terminationValue>
+<rem:timeUnitValue oid = "TUV-0001">
+<rem:name>PD</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0005">
+<rem:name>mes(es)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0002">
+<rem:name>año(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0007">
+<rem:name>semana(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0009">
+<rem:name>hora(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0014">
+<rem:name>milisegundo(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0008">
+<rem:name>día(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0011">
+<rem:name>segundo(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0012">
+<rem:name>décima(s) de segundo</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0010">
+<rem:name>minuto(s)</rem:name>
+</rem:timeUnitValue>
+<rem:timeUnitValue oid = "TUV-0013">
+<rem:name>centésima(s) de segundo</rem:name>
+</rem:timeUnitValue>
+<rem:urgencyValue oid = "URV-0002">
+<rem:name>inmediatamente</rem:name>
+</rem:urgencyValue>
+<rem:urgencyValue oid = "URV-0001">
+<rem:name>PD</rem:name>
+</rem:urgencyValue>
+<rem:urgencyValue oid = "URV-0003">
+<rem:name>hay presión</rem:name>
+</rem:urgencyValue>
+<rem:urgencyValue oid = "URV-0004">
+<rem:name>puede esperar</rem:name>
+</rem:urgencyValue>
+</rem:predefinedValues>
+</rem:requirementsProject>

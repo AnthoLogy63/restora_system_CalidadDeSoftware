@@ -1,0 +1,3475 @@
+<html xmlns:rem="http://rem.lsi.us.es">
+<head>
+<meta charset="iso-8859-1">
+<title>Proyecto RESTORA</title>
+<style type="text/css">
+<!--
+            body {
+                font-family: arial,verdana;
+                font-size: 10pt;
+                text-align: justify
+            }
+
+            h1 { font-size: 14pt }
+            h2 { font-size: 13pt }
+            h3 { font-size: 12pt }
+            h4 { font-size: 11pt }
+            h5 { font-size: 10pt }
+            h6 { font-size: 10pt }
+
+            h1.cover { font-size: 20pt }
+
+            tr { font-size: 10pt }
+
+            table { border: black solid; }
+            table.TOC { border: none; }
+            ul {
+                margin-top:    0pt;
+                margin-bottom: 0pt;
+                margin-left:   12pt
+            }
+        -->
+</style>
+</head>
+<body>
+<center>
+<h3>Proyecto RESTORA</h3>
+<p></p>
+<h1 class="cover">Documento de Requisitos del Sistema RESTORA</h1>
+<p></p>
+<h3>Versión 1.0</h3>
+<h3>Fecha 11/11/2026</h3>
+<p></p>
+<h3>Preparado para:</h3>
+<a href="#ORG-0001" title="Restaurante El Jere">
+<p>
+Restaurante El Jere</p>
+</a>
+<p></p>
+<h3>Preparado por:</h3>
+<a href="#ORG-0002" title="Equipo RESTORA - Calidad de Software UNSA">
+<p>
+Equipo RESTORA - Calidad de Software UNSA</p>
+</a>
+<p></p>
+</center>
+<hr size="4">
+<p></p>
+<h1 align="left">Índice</h1>
+<p></p>
+<table border="0" width="100%" class="TOC">
+<tr>
+<th align="left" valign="top">1 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0001">
+INTRODUCCIÓN</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">2 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0002">
+ORGANIZACIONES</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">3 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0003">
+PARTICIPANTES</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">4 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0004">
+OBJETIVOS</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">5 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0005">
+REQUERIMIENTOS FUNCIONALES</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">6 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0006">
+REQUERIMIENTOS NO FUNCIONALES</a>
+</th>
+</tr>
+</table>
+<p></p>
+<hr size="4">
+<p></p>
+<a name="SEC-0001"></a>
+<h1 align="left">1 
+INTRODUCCIÓN</h1><a name="PRG-0001"></a>
+<p>RESTORA centralizará producción, ventas y desperdicios de un restaurante, estimará pérdidas económicas y ofrecerá indicadores, historial y reportes. Se distinguen administradores y personal operativo. Quedan fuera de esta versión las predicciones mediante IA, las integraciones automáticas, los pagos, la facturación y la gestión de múltiples sucursales. Este documento especifica necesidades propuestas, no certifica funcionalidades implementadas. Fuentes: Propuesta_Sistema_RESTORA.docx y Descripción-Restora.txt.</p>
+<a name="PRG-0002"></a>
+<p>Se conservarán identificadores FRQ y NFR en las guías posteriores. Las cantidades se agruparán solo si comparten unidad; no se sumarán kilogramos con porciones. La pérdida se calculará con cantidad y costo en la misma unidad, conservando el costo usado al registrar el desperdicio. Las metas de rendimiento y compatibilidad son propuestas del equipo pendientes de acuerdo. El umbral de alerta se definirá por alimento, unidad y periodo antes de su verificación. No se realizaron entrevistas ni pruebas de la aplicación como parte de esta especificación.</p>
+<a name="SEC-0002"></a>
+<h1 align="left">2 
+ORGANIZACIONES</h1><a name="ORG-0001"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Organización</th>
+<th align="left" valign="top" width="100%">
+Restaurante El Jere</th>
+</tr>
+<tr>
+<th align="left" valign="top">Dirección</th>
+<td align="left" valign="top" colspan="1">Por definir con el establecimiento participante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Teléfono</th>
+<td align="left" valign="top" colspan="1">No solicitado</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fax</th>
+<td align="left" valign="top" colspan="1">No aplica</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">Restaurante El Jere es el nombre de referencia utilizado para el caso de estudio de RESTORA. Los datos de contacto no han sido proporcionados.</td>
+</tr>
+</table>
+<p></p>
+<a name="ORG-0002"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Organización</th>
+<th align="left" valign="top" width="100%">
+Equipo RESTORA - Calidad de Software UNSA</th>
+</tr>
+<tr>
+<th align="left" valign="top">Dirección</th>
+<td align="left" valign="top" colspan="1">Arequipa, Perú</td>
+</tr>
+<tr>
+<th align="left" valign="top">Teléfono</th>
+<td align="left" valign="top" colspan="1">No solicitado</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fax</th>
+<td align="left" valign="top" colspan="1">No aplica</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="SEC-0003"></a>
+<h1 align="left">3 
+PARTICIPANTES</h1><a name="STK-0001"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Administrador del restaurante</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0001">
+Restaurante El Jere</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Gestionar cuentas, consultar indicadores y reportes, revisar pérdidas y planificar la operación.</td>
+</tr>
+<tr><th align="left" valign="top" nowrap>Es desarrollador</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="STK-0002"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Personal operativo</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0001">
+Restaurante El Jere</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Registrar y corregir producción, ventas y desperdicios según sus permisos.</td>
+</tr>
+<tr><th align="left" valign="top" nowrap>Es desarrollador</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="STK-0003"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Ajra Huacso Jeans Anthony</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Equipo RESTORA - Calidad de Software UNSA</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Coordinación y análisis de requisitos</td>
+</tr>
+<tr><th align="left" valign="top" nowrap>Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="STK-0004"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Mathias Alonso Barrios Medina</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Equipo RESTORA - Calidad de Software UNSA</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Interfaz y revisión de claridad de interacción</td>
+</tr>
+<tr><th align="left" valign="top" nowrap>Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="STK-0005"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Sergio Danilo Hancco Mullisaca</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Equipo RESTORA - Calidad de Software UNSA</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Lógica del sistema y coherencia de datos</td>
+</tr>
+<tr><th align="left" valign="top" nowrap>Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="STK-0006"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Ryan Fabian Valdivia Segovia</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Equipo RESTORA - Calidad de Software UNSA</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Calidad, trazabilidad y revisión de criterios</td>
+</tr>
+<tr><th align="left" valign="top" nowrap>Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="SEC-0004"></a>
+<h1 align="left">4 
+OBJETIVOS</h1><a name="OBJ-0001"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0001</th>
+<th align="left" valign="top" width="100%">
+Centralizar producción y ventas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+Reunir los registros diarios de preparación y venta con información coherente por alimento, fecha y turno.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="OBJ-0002"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0002</th>
+<th align="left" valign="top" width="100%">
+Identificar desperdicios y pérdidas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+Clasificar los alimentos descartados y estimar su impacto económico para orientar acciones de mejora.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="OBJ-0003"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0003</th>
+<th align="left" valign="top" width="100%">
+Facilitar seguimiento e información histórica</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+Consultar, comparar y resumir los registros operativos para apoyar la planificación del restaurante.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="OBJ-0004"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0004</th>
+<th align="left" valign="top" width="100%">
+Controlar el acceso y mantener información confiable</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+Diferenciar responsabilidades de usuarios y proteger el acceso, la integridad y la configuración del sistema.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Versión inicial propuesta; pendiente de validación con los usuarios.</td>
+</tr>
+</table>
+<p></p>
+<a name="SEC-0005"></a>
+<h1 align="left">5 
+REQUERIMIENTOS FUNCIONALES</h1><a name="FRQ-0001"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0001</th>
+<th align="left" valign="top" width="100%">
+Iniciar sesión</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir iniciar sesión con correo y contraseña de una cuenta habilitada.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Autenticación. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Con credenciales válidas, se inicia una sesión y se accede a las funciones autorizadas. Con credenciales incorrectas, se rechaza el acceso sin indicar cuál dato es incorrecto.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0002"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0002</th>
+<th align="left" valign="top" width="100%">
+Cerrar sesión</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0001" title="Iniciar sesión">
+                                [FRQ-0001] 
+Iniciar sesión</a>
+</li>
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir cerrar la sesión del usuario autenticado.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Autenticación. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: FRQ-0001. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Después del cierre, una nueva solicitud a una función protegida debe requerir autenticación y no debe mostrar información privada con la sesión cerrada.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0003"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0003</th>
+<th align="left" valign="top" width="100%">
+Administrar cuentas de usuario</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0001" title="Iniciar sesión">
+                                [FRQ-0001] 
+Iniciar sesión</a>
+</li>
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir al administrador crear cuentas y habilitar o deshabilitar el acceso de los usuarios del restaurante.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Usuarios. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: FRQ-0001. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Una cuenta creada queda vinculada al restaurante; un correo duplicado se rechaza. Una cuenta deshabilitada no puede iniciar una nueva sesión.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0004"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0004</th>
+<th align="left" valign="top" width="100%">
+Asignar permisos por rol</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0003" title="Administrar cuentas de usuario">
+                                [FRQ-0003] 
+Administrar cuentas de usuario</a>
+</li>
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+distinguir los roles de administrador y personal operativo y restringir las funciones de cada cuenta según su rol.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Usuarios. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: FRQ-0003. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: El personal operativo puede registrar producción, ventas y desperdicios, pero no administrar cuentas. La restricción debe aplicarse también al acceso directo a las operaciones protegidas.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0005"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0005</th>
+<th align="left" valign="top" width="100%">
+Mantener el catálogo de alimentos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0004" title="Asignar permisos por rol">
+                                [FRQ-0004] 
+Asignar permisos por rol</a>
+</li>
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir registrar y actualizar los alimentos del restaurante con nombre, unidad de registro y costo unitario de referencia.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Catálogo. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0004. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Se rechazan nombres vacíos, costos negativos y unidades no definidas. Los alimentos referenciados por operaciones históricas se inactivan en lugar de eliminar sus antecedentes.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0006"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0006</th>
+<th align="left" valign="top" width="100%">
+Registrar producción diaria</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0005" title="Mantener el catálogo de alimentos">
+                                [FRQ-0005] 
+Mantener el catálogo de alimentos</a>
+</li>
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir registrar la cantidad preparada de un alimento, la fecha de producción y el turno de la operación.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Producción. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0005. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Un registro con alimento activo, fecha, turno y cantidad mayor que cero se guarda y puede consultarse. Si falta un dato obligatorio o la cantidad no es válida, se informa el motivo y no se guarda.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0007"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0007</th>
+<th align="left" valign="top" width="100%">
+Consultar y corregir producción</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0006" title="Registrar producción diaria">
+                                [FRQ-0006] 
+Registrar producción diaria</a>
+</li>
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir consultar y corregir los registros de producción dentro del restaurante y de los permisos de la cuenta.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Producción. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0006. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Una corrección válida se refleja en la consulta y en los indicadores del periodo. Una cuenta sin autorización no puede modificar el registro.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0008"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0008</th>
+<th align="left" valign="top" width="100%">
+Registrar ventas por alimento</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0005" title="Mantener el catálogo de alimentos">
+                                [FRQ-0005] 
+Mantener el catálogo de alimentos</a>
+</li>
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir registrar el alimento vendido, la cantidad, la fecha y el turno de venta.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Ventas. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0005. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Se conserva el registro con cantidad mayor que cero y alimento existente. Los datos inválidos se rechazan sin generar un registro parcial; la consulta permite identificar la venta guardada.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0009"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0009</th>
+<th align="left" valign="top" width="100%">
+Consultar y corregir ventas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0008" title="Registrar ventas por alimento">
+                                [FRQ-0008] 
+Registrar ventas por alimento</a>
+</li>
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir consultar y corregir las cantidades vendidas registradas para un alimento y periodo.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Ventas. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: FRQ-0008. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Las correcciones autorizadas se reflejan en los totales de ventas y en las consultas del periodo, sin alterar registros de otro restaurante.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0010"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0010</th>
+<th align="left" valign="top" width="100%">
+Registrar desperdicios</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0005" title="Mantener el catálogo de alimentos">
+                                [FRQ-0005] 
+Mantener el catálogo de alimentos</a>
+</li>
+<li>
+<a href="#OBJ-0002" title="Identificar desperdicios y pérdidas">
+                                [OBJ-0002] 
+Identificar desperdicios y pérdidas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir registrar el alimento descartado, su cantidad, unidad, fecha, turno y causa de desperdicio.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Desperdicios. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0005. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Un desperdicio válido queda disponible en el historial. Se rechazan cantidades menores o iguales a cero y registros sin alimento, unidad, fecha o causa.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0011"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0011</th>
+<th align="left" valign="top" width="100%">
+Clasificar causas de desperdicio</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0010" title="Registrar desperdicios">
+                                [FRQ-0010] 
+Registrar desperdicios</a>
+</li>
+<li>
+<a href="#OBJ-0002" title="Identificar desperdicios y pérdidas">
+                                [OBJ-0002] 
+Identificar desperdicios y pérdidas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir clasificar cada desperdicio mediante una causa identificable, como sobreproducción, deterioro o restos del cliente.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Desperdicios. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0010. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: La causa seleccionada se conserva y puede utilizarse como criterio de consulta. Un valor que no pertenece al catálogo de causas se rechaza.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0012"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0012</th>
+<th align="left" valign="top" width="100%">
+Consultar y corregir desperdicios</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0002">
+Personal operativo</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0011" title="Clasificar causas de desperdicio">
+                                [FRQ-0011] 
+Clasificar causas de desperdicio</a>
+</li>
+<li>
+<a href="#FRQ-0010" title="Registrar desperdicios">
+                                [FRQ-0010] 
+Registrar desperdicios</a>
+</li>
+<li>
+<a href="#OBJ-0002" title="Identificar desperdicios y pérdidas">
+                                [OBJ-0002] 
+Identificar desperdicios y pérdidas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir consultar y corregir registros de desperdicio conforme a los permisos de la cuenta.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Desperdicios. Actor: Personal operativo. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0010, FRQ-0011. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: La corrección válida actualiza las consultas y los totales asociados. La operación exige los mismos campos y validaciones que el registro inicial.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0013"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0013</th>
+<th align="left" valign="top" width="100%">
+Estimar la pérdida por desperdicio</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0010" title="Registrar desperdicios">
+                                [FRQ-0010] 
+Registrar desperdicios</a>
+</li>
+<li>
+<a href="#FRQ-0005" title="Mantener el catálogo de alimentos">
+                                [FRQ-0005] 
+Mantener el catálogo de alimentos</a>
+</li>
+<li>
+<a href="#OBJ-0002" title="Identificar desperdicios y pérdidas">
+                                [OBJ-0002] 
+Identificar desperdicios y pérdidas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+estimar la pérdida de un desperdicio multiplicando su cantidad por el costo unitario de referencia expresado en la misma unidad.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Costos. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0002. Dependencias: FRQ-0005, FRQ-0010. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Con 2 kg y un costo de S/ 3.50 por kg, la pérdida es S/ 7.00. Una unidad incompatible impide el cálculo. Se conserva el costo usado al registrar el desperdicio para que un cambio posterior de catálogo no revalorice el historial.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0014"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0014</th>
+<th align="left" valign="top" width="100%">
+Consultar el historial por periodo</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0006" title="Registrar producción diaria">
+                                [FRQ-0006] 
+Registrar producción diaria</a>
+</li>
+<li>
+<a href="#FRQ-0008" title="Registrar ventas por alimento">
+                                [FRQ-0008] 
+Registrar ventas por alimento</a>
+</li>
+<li>
+<a href="#FRQ-0010" title="Registrar desperdicios">
+                                [FRQ-0010] 
+Registrar desperdicios</a>
+</li>
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir consultar producción, ventas y desperdicios del restaurante dentro de un intervalo de fechas.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Historial. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: FRQ-0006, FRQ-0008, FRQ-0010. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: La consulta incluye únicamente registros dentro de las fechas seleccionadas. Un intervalo con inicio posterior al fin se rechaza; un periodo vacío muestra que no existen registros.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0015"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0015</th>
+<th align="left" valign="top" width="100%">
+Buscar operaciones por alimento y causa</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#FRQ-0014" title="Consultar el historial por periodo">
+                                [FRQ-0014] 
+Consultar el historial por periodo</a>
+</li>
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir filtrar las operaciones por alimento y, en los desperdicios, por causa.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Historial. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: FRQ-0014. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Los resultados cumplen simultáneamente los filtros activos. Al limpiar los filtros se recupera la consulta del periodo sin restricciones por alimento o causa.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0016"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0016</th>
+<th align="left" valign="top" width="100%">
+Visualizar indicadores operativos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+<li>
+<a href="#FRQ-0008" title="Registrar ventas por alimento">
+                                [FRQ-0008] 
+Registrar ventas por alimento</a>
+</li>
+<li>
+<a href="#FRQ-0014" title="Consultar el historial por periodo">
+                                [FRQ-0014] 
+Consultar el historial por periodo</a>
+</li>
+<li>
+<a href="#FRQ-0006" title="Registrar producción diaria">
+                                [FRQ-0006] 
+Registrar producción diaria</a>
+</li>
+<li>
+<a href="#FRQ-0010" title="Registrar desperdicios">
+                                [FRQ-0010] 
+Registrar desperdicios</a>
+</li>
+<li>
+<a href="#FRQ-0013" title="Estimar la pérdida por desperdicio">
+                                [FRQ-0013] 
+Estimar la pérdida por desperdicio</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+mostrar indicadores de producción, ventas, desperdicios y pérdida económica estimada para el periodo seleccionado.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Indicadores. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: FRQ-0006, FRQ-0008, FRQ-0010, FRQ-0013, FRQ-0014. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Los totales coinciden con los registros del mismo restaurante y periodo. Solo se suman cantidades de una unidad compatible; las monedas se presentan con dos decimales.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0017"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0017</th>
+<th align="left" valign="top" width="100%">
+Comparar periodos de operación</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+<li>
+<a href="#FRQ-0016" title="Visualizar indicadores operativos">
+                                [FRQ-0016] 
+Visualizar indicadores operativos</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir comparar indicadores entre dos periodos elegidos por el administrador.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Indicadores. Actor: Administrador. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: FRQ-0016. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Cada periodo presenta sus fechas y totales. Si la base de comparación es cero, la variación porcentual se indica como no calculable, sin división por cero.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0018"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0018</th>
+<th align="left" valign="top" width="100%">
+Generar reportes resumidos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+<li>
+<a href="#FRQ-0016" title="Visualizar indicadores operativos">
+                                [FRQ-0016] 
+Visualizar indicadores operativos</a>
+</li>
+<li>
+<a href="#FRQ-0014" title="Consultar el historial por periodo">
+                                [FRQ-0014] 
+Consultar el historial por periodo</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+generar un reporte resumido de producción, ventas, desperdicios y pérdidas del periodo solicitado.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Reportes. Actor: Administrador. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: FRQ-0014, FRQ-0016. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: El reporte identifica restaurante, periodo y fecha de generación. Sus valores coinciden con el historial consultado bajo los mismos criterios y pueden consultarse en el sistema.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0019"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0019</th>
+<th align="left" valign="top" width="100%">
+Señalar desperdicios elevados</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0002" title="Identificar desperdicios y pérdidas">
+                                [OBJ-0002] 
+Identificar desperdicios y pérdidas</a>
+</li>
+<li>
+<a href="#FRQ-0016" title="Visualizar indicadores operativos">
+                                [FRQ-0016] 
+Visualizar indicadores operativos</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+señalar los alimentos cuyo desperdicio supere el umbral de referencia definido para su unidad y periodo.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Alertas. Actor: Administrador. Prioridad: Media. Objetivo: OBJ-0002. Dependencias: FRQ-0016. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Con un umbral de referencia previamente definido, un valor superior genera una señal visible; un valor inferior o igual no la genera. Si no existe umbral, se indica que falta definirlo y no se presume una condición normal.</td>
+</tr>
+</table>
+<p></p>
+<a name="FRQ-0020"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">FRQ-0020</th>
+<th align="left" valign="top" width="100%">
+Presentar recomendaciones básicas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0001">
+Administrador del restaurante</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0002" title="Identificar desperdicios y pérdidas">
+                                [OBJ-0002] 
+Identificar desperdicios y pérdidas</a>
+</li>
+<li>
+<a href="#FRQ-0016" title="Visualizar indicadores operativos">
+                                [FRQ-0016] 
+Visualizar indicadores operativos</a>
+</li>
+<li>
+<a href="#FRQ-0011" title="Clasificar causas de desperdicio">
+                                [FRQ-0011] 
+Clasificar causas de desperdicio</a>
+</li>
+<li>
+<a href="#FRQ-0019" title="Señalar desperdicios elevados">
+                                [FRQ-0019] 
+Señalar desperdicios elevados</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+presentar recomendaciones básicas asociadas a las causas y señales de desperdicio registradas.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Recomendaciones. Actor: Administrador. Prioridad: Media. Objetivo: OBJ-0002. Dependencias: FRQ-0011, FRQ-0016, FRQ-0019. Fuente documental: Propuesta_Sistema_RESTORA.docx; Descripción-Restora.txt. Criterio de aceptación: Cada recomendación muestra la causa o indicador que la origina. Si no hay información suficiente, se informa esa condición; las sugerencias no se presentan como predicciones ni resultados de ahorro garantizado.</td>
+</tr>
+</table>
+<p></p>
+<a name="SEC-0006"></a>
+<h1 align="left">6 
+REQUERIMIENTOS NO FUNCIONALES</h1><a name="NFR-0001"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0001</th>
+<th align="left" valign="top" width="100%">
+Confidencialidad y aislamiento de datos</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+restringir la consulta y modificación de información a usuarios autenticados del restaurante correspondiente.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Seguridad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Una solicitud sin sesión se rechaza. Una cuenta autenticada de un restaurante no puede consultar ni modificar registros de otro restaurante mediante identificadores ajenos.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0002"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0002</th>
+<th align="left" valign="top" width="100%">
+Protección de contraseñas y sesiones</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+almacenar contraseñas mediante un hash con sal y proteger las sesiones frente a modificaciones del cliente.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Seguridad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: La base de datos no contiene contraseñas en texto legible. Una credencial de sesión alterada se rechaza; la cookie de sesión no es accesible desde JavaScript del navegador.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0003"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0003</th>
+<th align="left" valign="top" width="100%">
+Integridad de las operaciones</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+conservar la consistencia de los registros ante entradas inválidas o fallos de una operación compuesta.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Integridad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Una operación rechazada no deja registros parciales. Se impiden referencias a alimentos inexistentes y se aplican las mismas validaciones al crear y corregir datos.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0004"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0004</th>
+<th align="left" valign="top" width="100%">
+Persistencia de la información</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0001" title="Centralizar producción y ventas">
+                                [OBJ-0001] 
+Centralizar producción y ventas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+mantener los registros confirmados después de detener y volver a iniciar los servicios de la aplicación.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Persistencia. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0001. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Tras registrar una operación y reiniciar los servicios usando la misma base, el registro conserva sus datos y puede recuperarse mediante el historial.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0005"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0005</th>
+<th align="left" valign="top" width="100%">
+Claridad de formularios y mensajes</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+identificar campos obligatorios, unidades y errores de validación en español.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Usabilidad. Actor: Administrador y personal operativo. Prioridad: Alta. Objetivo: OBJ-0003. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Los formularios de producción, ventas y desperdicios muestran sus campos obligatorios y unidades. Un error indica el campo y el motivo; los datos válidos ya ingresados no se pierden al corregirlo.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0006"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0006</th>
+<th align="left" valign="top" width="100%">
+Tiempo de respuesta de consultas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+responder las consultas de historial e indicadores en un máximo de 2 segundos para al menos el 95 % de las solicitudes del escenario de referencia.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Rendimiento. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: Meta propuesta: 10 usuarios concurrentes, 1000 operaciones almacenadas y 100 consultas por función en un entorno local documentado. El percentil 95 no supera 2 segundos. Su cumplimiento queda pendiente de medición; no se considera un resultado de esta guía.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0007"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0007</th>
+<th align="left" valign="top" width="100%">
+Compatibilidad con navegadores</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0003" title="Facilitar seguimiento e información histórica">
+                                [OBJ-0003] 
+Facilitar seguimiento e información histórica</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+permitir utilizar los flujos principales en Chrome y Edge de escritorio con una ventana de 1366 por 768 píxeles.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Compatibilidad. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0003. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: En las versiones registradas durante la verificación, se puede iniciar sesión y completar los formularios sin controles inaccesibles ni superposición de mensajes. La comprobación se realizará en una etapa posterior.</td>
+</tr>
+</table>
+<p></p>
+<a name="NFR-0008"></a>
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0008</th>
+<th align="left" valign="top" width="100%">
+Configuración y mantenibilidad</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 11/11/2026 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+<li>
+<a href="#STK-0004">
+Mathias Alonso Barrios Medina</a>
+<br>
+</li>
+<li>
+<a href="#STK-0006">
+Ryan Fabian Valdivia Segovia</a>
+<br>
+</li>
+<li>
+<a href="#STK-0005">
+Sergio Danilo Hancco Mullisaca</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<ul>
+<li>
+<a href="#STK-0003">
+Ajra Huacso Jeans Anthony</a>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0004" title="Controlar el acceso y mantener información confiable">
+                                [OBJ-0004] 
+Controlar el acceso y mantener información confiable</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+separar la configuración local del código y documentar la preparación de la base y el inicio de los servicios.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">documentación completada</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">media</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Estado documental: completado. Validación funcional: pendiente. Módulo: Mantenibilidad. Actor: Administrador y personal operativo. Prioridad: Media. Objetivo: OBJ-0004. Dependencias: Ninguna. Fuente documental: Restricción propuesta por el equipo a partir del alcance de RESTORA. Criterio de aceptación: El README identifica las variables y comandos necesarios; el ejemplo no contiene secretos reales. Un integrante puede preparar una copia local siguiendo esas instrucciones. La revisión de ejecución queda pendiente de evidencia propia.</td>
+</tr>
+</table>
+<p></p>
+</body>
+</html>
