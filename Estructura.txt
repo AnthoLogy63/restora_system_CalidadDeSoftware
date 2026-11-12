@@ -1,0 +1,68 @@
+RESTORA/
+│
+├── 00_GESTION_GENERAL/
+│   ├── 01_Propuesta_Proyecto/
+│   │   ├── Propuesta_RESTORA.docx
+│   │   ├── Problema_y_Justificacion.docx
+│   │   ├── Objetivos_y_Alcance.docx
+│   │   └── Usuarios_y_Beneficios.docx
+│   │
+│   └── 02_Organizacion/
+│       ├── Integrantes_y_Responsabilidades.xlsx
+│       └── Acta_Validacion_Alcance.pdf
+│
+├── 01_APLICACION/
+│   ├── frontend/
+│   ├── backend/
+│   ├── database/
+│   │   ├── schema.sql
+│   │   ├── migrations/
+│   │   └── seed_datos_prueba.sql
+│   ├── config/
+│   │   └── .env.example
+│   └── README.md
+│
+├── 02_GUIAS_CALIDAD/
+│   ├── G01_REQUERIMIENTOS/
+│   ├── G02_PROCESO_REQUERIMIENTOS/
+│   ├── G03_ANALISIS_DISENO/
+│   ├── G04_DIMENSIONAMIENTO/
+│   ├── G05_CONFIGURACION_SVN/
+│   ├── G06_RIESGOS/
+│   ├── G07_PRUEBAS_UNITARIAS/
+│   ├── G08_RENDIMIENTO_JMETER/
+│   └── G09_CALIDAD_SELENIUM/
+│
+├── 03_INFORME_Y_ENTREGA_FINAL/
+│   ├── 01_Informe_Integrador/
+│   │   ├── Informe_Final_RESTORA.docx
+│   │   └── Informe_Final_RESTORA.pdf
+│   │
+│   ├── 02_Trazabilidad/
+│   │   └── Matriz_Trazabilidad.xlsx
+│   │
+│   ├── 03_Defectos/
+│   │   └── Registro_General_Defectos.xlsx
+│   │
+│   ├── 04_Manuales/
+│   │   ├── Manual_Usuario.pdf
+│   │   └── Manual_Tecnico.pdf
+│   │
+│   ├── 05_Manifiesto/
+│   │   └── Manifiesto_Versiones_Evidencias.xlsx
+│   │
+│   └── 06_Anexos/
+│       ├── Limitaciones_y_Terceros.docx
+│       └── Declaracion_Uso_IA.docx
+│
+├── 04_SUSTENTACION/
+│   ├── 01_Diapositivas/
+│   │   └── Sustentacion_RESTORA.pptx
+│   │
+│   ├── 02_Demostracion/
+│   │   └── Guion_Demostracion.docx
+│   │
+│   └── 03_Resultados/
+│       └── Resumen_Resultados_Calidad.pdf
+│
+└── README.md
