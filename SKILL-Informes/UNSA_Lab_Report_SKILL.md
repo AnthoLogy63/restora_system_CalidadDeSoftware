@@ -116,6 +116,15 @@ Read `references/IEEE_REFERENCES.md` before starting citation work.
 6. Double-check the original PDF line-by-line against the traceability manifest. No omitted mandatory activities, unanswered questions, missing annex outputs, or falsely claimed results.
 7. Deliver a DOCX, and PDF only if requested, plus task-source mapping and evidence files when appropriate. Summarize completed/pending tasks truthfully.
 
+### Extending an existing UNSA report
+
+- Preserve the guide's visual identity when adding content. For this UNSA template, use bold red subsection headings (`C00000`), black justified Times New Roman 12 pt body text, centered tables and visible black table borders. Identify headings by their text and role as well as their style: headings inserted through OOXML may have lost their original `Heading` style. Check every new subsection explicitly for a red run color.
+- Keep product branding separate from the institutional report. RESTORA's logo colors may style standalone companion files when requested; do not transfer that palette to the guide itself unless the user asks.
+- Separate prose paragraphs visibly with paragraph spacing (normally 10 pt after body paragraphs, adjusted to the reference). Give headings modest space before and after. Do not imitate paragraph breaks with soft line breaks or repeated empty paragraphs, and do not collapse new prose into a dense block. Center tables as objects; keep prose justified and center short column headings where appropriate.
+- Integrate new sections at the requested location. For RESTORA G01, planning and elicitation material belongs after all general and specific objectives and before the existing procedure. Do not place it before objectives or append it after conclusions and references. Preserve existing report text, tables and evidence when adding material; verify their preservation against a backup.
+- Develop analysis around RESTORA's actual requirement IDs, actors, rules, examples and companion filenames. Explain how a finding affects a decision and what remains to validate. A table or generic statement does not replace an explanation. Distinguish represented interviews, documentary review, planned effort and measured execution.
+- Before delivery, verify the new headings' red formatting, paragraph separation, body justification, table alignment and borders, section placement and preservation of previous content. If the user prohibits PDF generation, respect that instruction and use available non-PDF checks; do not claim rendered page review that was not performed.
+
 ### Compact pagination and continuity in Word
 
 Optimize the distribution of content across pages so the report remains professional, compact and orderly, without changing the original information or the institutional template's visual identity.
