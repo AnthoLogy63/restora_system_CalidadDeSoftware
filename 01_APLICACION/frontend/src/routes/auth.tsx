@@ -1,9 +1,31 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Eye,
+  EyeOff,
+  KeyRound,
+  Lock,
+  Mail,
+  Recycle,
+  Sparkles,
+  Store,
+  TrendingDown,
+  User,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
+import { Brand } from "@/components/Brand";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { login, register, forgotPassword, resetPassword, ApiError } from "@/lib/api";
 
 export const Route = createFileRoute("/auth")({
+  ssr: false,
   head: () => ({
     meta: [
       { title: "restora - Ingresar / Registrarse" },
@@ -23,6 +45,68 @@ function errorMessage(err: unknown): string {
   if (err instanceof ApiError) return err.message;
   return "Algo salió mal. Inténtalo de nuevo.";
 }
+
+function Campo({
+  id,
+  label,
+  icon: Icon,
+  trailing,
+  ...props
+}: React.ComponentProps<typeof Input> & {
+  id: string;
+  label: string;
+  icon?: LucideIcon;
+  trailing?: React.ReactNode;
+}) {
+  return (
+    <div className="space-y-1.5">
+      <Label htmlFor={id}>{label}</Label>
+      <div className="relative">
+        {Icon && (
+          <Icon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+        )}
+        <Input
+          id={id}
+          className={`h-11 ${Icon ? "pl-9" : ""} ${trailing ? "pr-10" : ""}`}
+          {...props}
+        />
+        {trailing && <div className="absolute right-1 top-1/2 -translate-y-1/2">{trailing}</div>}
+      </div>
+    </div>
+  );
+}
+
+function VerPassword({ visible, onToggle }: { visible: boolean; onToggle: () => void }) {
+  return (
+    <Button
+      type="button"
+      variant="ghost"
+      size="icon"
+      className="size-9 text-muted-foreground"
+      aria-label={visible ? "Ocultar contraseña" : "Mostrar contraseña"}
+      onClick={onToggle}
+    >
+      {visible ? <Eye /> : <EyeOff />}
+    </Button>
+  );
+}
+
+function Mensaje({ children }: { children: React.ReactNode }) {
+  return (
+    <p
+      role="alert"
+      className="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
+    >
+      {children}
+    </p>
+  );
+}
+
+const BENEFICIOS = [
+  { icon: TrendingDown, texto: "Descubre dónde pierdes dinero, plato por plato." },
+  { icon: Sparkles, texto: "Registra hablando con un asistente de IA en menos de un minuto." },
+  { icon: Recycle, texto: "Valoriza residuos y demuestra su trazabilidad." },
+];
 
 function AuthPage() {
   const navigate = useNavigate();
@@ -98,141 +182,149 @@ function AuthPage() {
     }
   };
 
-  const panelClass = (v: View) =>
-    `form-panel p-lg w-full transition-all duration-300 ${
-      view === v
-        ? "opacity-100 pointer-events-auto relative translate-y-0"
-        : "opacity-0 pointer-events-none absolute translate-y-[10px]"
-    }`;
+  const volver = (
+    <Button
+      type="button"
+      variant="ghost"
+      size="icon"
+      aria-label="Volver"
+      className="-ml-2"
+      onClick={() => switchForm("login")}
+    >
+      <ArrowLeft />
+    </Button>
+  );
 
   return (
-    <div className="bg-surface text-on-surface min-h-screen flex flex-col font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
-      <main className="flex-grow flex flex-col pt-safe pb-safe px-margin-mobile relative z-10 w-full max-w-[480px] mx-auto min-h-screen justify-center">
-        <header className="w-full flex flex-col items-center justify-center mb-xl mt-lg">
-          <div className="w-[96px] h-[96px] mb-lg rounded-2xl shadow-[0_8px_24px_rgba(31,27,23,0.08)] bg-primary-container text-on-primary-container flex items-center justify-center">
-            <span className="material-symbols-outlined" data-weight="fill" style={{ fontSize: 48 }}>
-              eco
-            </span>
-          </div>
-          <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary tracking-tight text-center">
-            restora
-          </h1>
-          <p className="font-body-md text-body-md text-on-surface-variant text-center mt-sm max-w-[280px]">
-            Operación inteligente para restaurantes turísticos de Arequipa.
-          </p>
-        </header>
+    <div className="grid min-h-screen bg-background lg:grid-cols-[1.05fr_1fr]">
+      {/* Panel de marca */}
+      <aside className="relative hidden overflow-hidden bg-gradient-to-br from-[#3a0f20] via-primary to-[#9f3c59] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+        <div className="pointer-events-none absolute -right-24 -top-24 size-96 rounded-full bg-white/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-20 size-96 rounded-full bg-amber-300/20 blur-3xl" />
+        <Link to="/" className="relative">
+          <Brand size="lg" className="[&>span:last-child]:text-white" />
+        </Link>
+        <div className="relative max-w-md space-y-8">
+          <h2 className="text-4xl font-semibold leading-tight tracking-tight">
+            Menos desperdicio. Más margen para tu restaurante.
+          </h2>
+          <ul className="space-y-4">
+            {BENEFICIOS.map((b) => (
+              <li key={b.texto} className="flex items-start gap-3 text-white/90">
+                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/15">
+                  <b.icon className="size-4" />
+                </span>
+                <span className="text-sm leading-relaxed">{b.texto}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="relative text-xs text-white/60">
+          Gestión inteligente de residuos para restaurantes turísticos de Arequipa.
+        </p>
+      </aside>
 
-        <div className="w-full bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(31,27,23,0.05)] border border-outline-variant/30 overflow-hidden relative min-h-[420px]">
-          {/* Login */}
-          <div className={panelClass("login")}>
-            <div className="mb-lg">
-              <h2 className="font-headline-md text-headline-md text-on-surface mb-xs">
-                Bienvenido de nuevo
-              </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                Inicia sesión para gestionar tu restaurante.
-              </p>
-            </div>
-            <form
-              className="flex flex-col gap-md"
-              onSubmit={(e) => {
-                e.preventDefault();
-                loginMutation.mutate();
-              }}
-            >
-              <div className="flex flex-col gap-xs">
-                <label
-                  className="font-label-md text-label-md text-on-surface-variant"
-                  htmlFor="login-email"
-                >
-                  Correo electrónico
-                </label>
-                <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                  <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                    mail
-                  </span>
-                  <input
-                    className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                    id="login-email"
-                    placeholder="admin@restaurant.com"
-                    required
-                    type="email"
-                    value={loginForm.email}
-                    onChange={(e) => setLoginForm((f) => ({ ...f, email: e.target.value }))}
-                  />
-                </div>
+      {/* Formulario */}
+      <main className="flex items-center justify-center px-4 py-10 sm:px-8">
+        <div className="w-full max-w-[400px]">
+          <Link to="/" className="mb-8 inline-block lg:hidden">
+            <Brand />
+          </Link>
+
+          {view === "login" && (
+            <div>
+              <div className="mb-6 space-y-1.5">
+                <h1 className="text-2xl font-semibold tracking-tight">Bienvenido de nuevo</h1>
+                <p className="text-sm text-muted-foreground">
+                  Inicia sesión para gestionar tu restaurante.
+                </p>
               </div>
-              <div className="flex flex-col gap-xs">
-                <label
-                  className="font-label-md text-label-md text-on-surface-variant"
-                  htmlFor="login-password"
-                >
-                  Contraseña
-                </label>
-                <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                  <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                    lock
-                  </span>
-                  <input
-                    className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                    id="login-password"
-                    placeholder="••••••••"
-                    required
-                    type={loginPwVisible ? "text" : "password"}
-                    value={loginForm.password}
-                    onChange={(e) => setLoginForm((f) => ({ ...f, password: e.target.value }))}
-                  />
+              <form
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  loginMutation.mutate();
+                }}
+              >
+                <Campo
+                  id="login-email"
+                  label="Correo electrónico"
+                  icon={Mail}
+                  placeholder="admin@restaurant.com"
+                  required
+                  type="email"
+                  autoComplete="email"
+                  value={loginForm.email}
+                  onChange={(e) => setLoginForm((f) => ({ ...f, email: e.target.value }))}
+                />
+                <Campo
+                  id="login-password"
+                  label="Contraseña"
+                  icon={Lock}
+                  placeholder="••••••••"
+                  required
+                  autoComplete="current-password"
+                  type={loginPwVisible ? "text" : "password"}
+                  value={loginForm.password}
+                  onChange={(e) => setLoginForm((f) => ({ ...f, password: e.target.value }))}
+                  trailing={
+                    <VerPassword
+                      visible={loginPwVisible}
+                      onToggle={() => setLoginPwVisible((v) => !v)}
+                    />
+                  }
+                />
+                <div className="flex justify-end">
                   <button
-                    className="pr-md h-full flex items-center text-on-surface-variant hover:text-primary transition-colors"
-                    onClick={() => setLoginPwVisible((v) => !v)}
+                    className="text-sm font-medium text-primary hover:underline"
+                    onClick={() => switchForm("recovery")}
                     type="button"
                   >
-                    <span className="material-symbols-outlined text-[20px]">
-                      {loginPwVisible ? "visibility" : "visibility_off"}
-                    </span>
+                    ¿Olvidaste tu contraseña?
                   </button>
                 </div>
-              </div>
-              <div className="flex justify-end mt-[-8px]">
-                <button
-                  className="font-label-md text-label-md text-primary hover:text-primary-container transition-colors"
-                  onClick={() => switchForm("recovery")}
-                  type="button"
+                {loginMutation.isError && <Mensaje>{errorMessage(loginMutation.error)}</Mensaje>}
+                <Button
+                  size="lg"
+                  className="w-full"
+                  disabled={loginMutation.isPending}
+                  type="submit"
                 >
-                  ¿Olvidaste tu contraseña?
-                </button>
+                  {loginMutation.isPending ? "Ingresando…" : "Iniciar sesión"}
+                  <ArrowRight />
+                </Button>
+              </form>
+
+              <div className="relative my-5">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <span className="relative mx-auto block w-fit bg-background px-3 text-xs uppercase tracking-wider text-muted-foreground">
+                  o
+                </span>
               </div>
-              {loginMutation.isError && (
-                <p className="text-sm text-red-600">{errorMessage(loginMutation.error)}</p>
-              )}
-              <button
-                className="w-full h-[48px] bg-primary-container hover:bg-primary text-white font-headline-sm text-headline-sm rounded-lg mt-sm shadow-sm active:scale-[0.98] transition-all flex justify-center items-center gap-sm disabled:opacity-60"
-                disabled={loginMutation.isPending}
-                type="submit"
-              >
-                <span>{loginMutation.isPending ? "Ingresando…" : "Iniciar sesión"}</span>
-                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-              </button>
-            </form>
-            <div className="mt-md">
+
               {demoLoginMutation.isError && (
-                <p className="text-sm text-red-600 mb-xs">{errorMessage(demoLoginMutation.error)}</p>
+                <div className="mb-2">
+                  <Mensaje>{errorMessage(demoLoginMutation.error)}</Mensaje>
+                </div>
               )}
-              <button
-                className="w-full h-[44px] bg-surface-container hover:bg-surface-variant text-on-surface font-label-md text-label-md rounded-lg border border-outline-variant transition-all flex justify-center items-center gap-sm disabled:opacity-60"
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full"
                 disabled={demoLoginMutation.isPending}
                 onClick={() => demoLoginMutation.mutate()}
                 type="button"
               >
-                <span className="material-symbols-outlined text-[20px]">bolt</span>
-                <span>{demoLoginMutation.isPending ? "Ingresando…" : "Entrar como demo"}</span>
-              </button>
-            </div>
-            <div className="mt-lg text-center pt-md border-t border-outline-variant/30">
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                ¿No tienes una cuenta?
+                <Zap />
+                {demoLoginMutation.isPending ? "Ingresando…" : "Entrar como demo"}
+              </Button>
+
+              <p className="mt-6 text-center text-sm text-muted-foreground">
+                ¿No tienes una cuenta?{" "}
                 <button
-                  className="font-headline-sm text-headline-sm text-primary hover:text-primary-container ml-xs transition-colors"
+                  className="font-semibold text-primary hover:underline"
                   onClick={() => switchForm("register")}
                   type="button"
                 >
@@ -240,305 +332,202 @@ function AuthPage() {
                 </button>
               </p>
             </div>
-          </div>
+          )}
 
-          {/* Register */}
-          <div className={panelClass("register")}>
-            <div className="mb-lg flex items-center gap-sm">
-              <button
-                className="h-8 w-8 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-variant text-on-surface transition-colors"
-                onClick={() => switchForm("login")}
-                type="button"
-              >
-                <span className="material-symbols-outlined text-[20px]">arrow_back</span>
-              </button>
-              <div>
-                <h2 className="font-headline-md text-headline-md text-on-surface">
-                  Crear cuenta
-                </h2>
-              </div>
-            </div>
-            <form
-              className="flex flex-col gap-md"
-              onSubmit={(e) => {
-                e.preventDefault();
-                registerMutation.mutate();
-              }}
-            >
-              <div className="flex flex-col gap-xs">
-                <label
-                  className="font-label-md text-label-md text-on-surface-variant"
-                  htmlFor="reg-restaurant"
-                >
-                  Nombre del restaurante
-                </label>
-                <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                  <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                    storefront
-                  </span>
-                  <input
-                    className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                    id="reg-restaurant"
-                    placeholder="e.g. La Nueva Palomino"
-                    required
-                    type="text"
-                    value={registerForm.nombreRestaurante}
-                    onChange={(e) =>
-                      setRegisterForm((f) => ({ ...f, nombreRestaurante: e.target.value }))
-                    }
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label
-                  className="font-label-md text-label-md text-on-surface-variant"
-                  htmlFor="reg-admin"
-                >
-                  Nombre del administrador
-                </label>
-                <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                  <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                    person
-                  </span>
-                  <input
-                    className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                    id="reg-admin"
-                    placeholder="Nombre completo"
-                    required
-                    type="text"
-                    value={registerForm.nombreUsuario}
-                    onChange={(e) =>
-                      setRegisterForm((f) => ({ ...f, nombreUsuario: e.target.value }))
-                    }
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label
-                  className="font-label-md text-label-md text-on-surface-variant"
-                  htmlFor="reg-email"
-                >
-                  Correo electrónico
-                </label>
-                <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                  <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                    mail
-                  </span>
-                  <input
-                    className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                    id="reg-email"
-                    placeholder="admin@restaurant.com"
-                    required
-                    type="email"
-                    value={registerForm.email}
-                    onChange={(e) => setRegisterForm((f) => ({ ...f, email: e.target.value }))}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label
-                  className="font-label-md text-label-md text-on-surface-variant"
-                  htmlFor="reg-password"
-                >
-                  Contraseña
-                </label>
-                <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                  <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                    lock
-                  </span>
-                  <input
-                    className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                    id="reg-password"
-                    placeholder="Mín. 8 caracteres"
-                    required
-                    minLength={8}
-                    type={regPwVisible ? "text" : "password"}
-                    value={registerForm.password}
-                    onChange={(e) => setRegisterForm((f) => ({ ...f, password: e.target.value }))}
-                  />
-                  <button
-                    className="pr-md h-full flex items-center text-on-surface-variant hover:text-primary transition-colors"
-                    onClick={() => setRegPwVisible((v) => !v)}
-                    type="button"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">
-                      {regPwVisible ? "visibility" : "visibility_off"}
-                    </span>
-                  </button>
-                </div>
-              </div>
-              <p className="font-label-sm text-label-sm text-on-surface-variant text-center my-xs">
-                Al registrarte, aceptas nuestros{" "}
-                <a className="text-primary hover:underline" href="#">
-                  Términos
-                </a>{" "}
-                y{" "}
-                <a className="text-primary hover:underline" href="#">
-                  Política de privacidad
-                </a>
-                .
-              </p>
-              {registerMutation.isError && (
-                <p className="text-sm text-red-600">{errorMessage(registerMutation.error)}</p>
-              )}
-              <button
-                className="w-full h-[48px] bg-primary-container hover:bg-primary text-white font-headline-sm text-headline-sm rounded-lg shadow-sm active:scale-[0.98] transition-all flex justify-center items-center gap-sm disabled:opacity-60"
-                disabled={registerMutation.isPending}
-                type="submit"
-              >
-                <span>{registerMutation.isPending ? "Creando…" : "Crear cuenta"}</span>
-              </button>
-            </form>
-          </div>
-
-          {/* Recovery */}
-          <div className={panelClass("recovery")}>
-            <div className="mb-lg flex items-center gap-sm">
-              <button
-                className="h-8 w-8 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-variant text-on-surface transition-colors"
-                onClick={() => switchForm("login")}
-                type="button"
-              >
-                <span className="material-symbols-outlined text-[20px]">arrow_back</span>
-              </button>
-              <div>
-                <h2 className="font-headline-md text-headline-md text-on-surface">
-                  Recuperar contraseña
-                </h2>
-              </div>
-            </div>
-
-            {recoveryStep === "request" && (
-              <>
-                <p className="font-body-md text-body-md text-on-surface-variant mb-lg">
-                  Ingresa el correo asociado a tu cuenta y te generaremos un código de recuperación.
+          {view === "register" && (
+            <div>
+              <div className="mb-6 space-y-1.5">
+                {volver}
+                <h1 className="text-2xl font-semibold tracking-tight">Crear cuenta</h1>
+                <p className="text-sm text-muted-foreground">
+                  Configura tu restaurante en menos de un minuto.
                 </p>
-                <form
-                  className="flex flex-col gap-md"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    forgotMutation.mutate();
-                  }}
+              </div>
+              <form
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  registerMutation.mutate();
+                }}
+              >
+                <Campo
+                  id="reg-restaurant"
+                  label="Nombre del restaurante"
+                  icon={Store}
+                  placeholder="Ej. La Nueva Palomino"
+                  required
+                  type="text"
+                  value={registerForm.nombreRestaurante}
+                  onChange={(e) =>
+                    setRegisterForm((f) => ({ ...f, nombreRestaurante: e.target.value }))
+                  }
+                />
+                <Campo
+                  id="reg-admin"
+                  label="Nombre del administrador"
+                  icon={User}
+                  placeholder="Nombre completo"
+                  required
+                  type="text"
+                  value={registerForm.nombreUsuario}
+                  onChange={(e) =>
+                    setRegisterForm((f) => ({ ...f, nombreUsuario: e.target.value }))
+                  }
+                />
+                <Campo
+                  id="reg-email"
+                  label="Correo electrónico"
+                  icon={Mail}
+                  placeholder="admin@restaurant.com"
+                  required
+                  type="email"
+                  autoComplete="email"
+                  value={registerForm.email}
+                  onChange={(e) => setRegisterForm((f) => ({ ...f, email: e.target.value }))}
+                />
+                <Campo
+                  id="reg-password"
+                  label="Contraseña"
+                  icon={Lock}
+                  placeholder="Mín. 8 caracteres"
+                  required
+                  minLength={8}
+                  autoComplete="new-password"
+                  type={regPwVisible ? "text" : "password"}
+                  value={registerForm.password}
+                  onChange={(e) => setRegisterForm((f) => ({ ...f, password: e.target.value }))}
+                  trailing={
+                    <VerPassword
+                      visible={regPwVisible}
+                      onToggle={() => setRegPwVisible((v) => !v)}
+                    />
+                  }
+                />
+                <p className="text-center text-xs text-muted-foreground">
+                  Al registrarte, aceptas nuestros{" "}
+                  <a className="text-primary hover:underline" href="#">
+                    Términos
+                  </a>{" "}
+                  y{" "}
+                  <a className="text-primary hover:underline" href="#">
+                    Política de privacidad
+                  </a>
+                  .
+                </p>
+                {registerMutation.isError && (
+                  <Mensaje>{errorMessage(registerMutation.error)}</Mensaje>
+                )}
+                <Button
+                  size="lg"
+                  className="w-full"
+                  disabled={registerMutation.isPending}
+                  type="submit"
                 >
-                  <div className="flex flex-col gap-xs">
-                    <label
-                      className="font-label-md text-label-md text-on-surface-variant"
-                      htmlFor="rec-email"
-                    >
-                      Email Address
-                    </label>
-                    <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                      <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                        mail
-                      </span>
-                      <input
-                        className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                        id="rec-email"
-                        placeholder="admin@restaurant.com"
-                        required
-                        type="email"
-                        value={recEmail}
-                        onChange={(e) => setRecEmail(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  {forgotMutation.isError && (
-                    <p className="text-sm text-red-600">{errorMessage(forgotMutation.error)}</p>
-                  )}
-                  <button
-                    className="w-full h-[48px] bg-primary-container hover:bg-primary text-white font-headline-sm text-headline-sm rounded-lg mt-md shadow-sm active:scale-[0.98] transition-all flex justify-center items-center disabled:opacity-60"
-                    disabled={forgotMutation.isPending}
-                    type="submit"
-                  >
-                    <span>{forgotMutation.isPending ? "Enviando…" : "Enviar código"}</span>
-                  </button>
-                </form>
-              </>
-            )}
+                  {registerMutation.isPending ? "Creando…" : "Crear cuenta"}
+                </Button>
+              </form>
+            </div>
+          )}
 
-            {recoveryStep === "confirm" && (
-              <>
-                <div className="flex flex-col items-center text-center mb-lg">
-                  <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-sm">
-                    <span className="material-symbols-outlined">check_circle</span>
-                  </div>
-                  <h3 className="font-headline-sm text-headline-sm text-on-surface mb-xs">
-                    Código listo
-                  </h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    Esta demo no tiene servicio de correo — ingresa tu nueva contraseña abajo (el
-                    código ya está precargado).
+          {view === "recovery" && (
+            <div>
+              <div className="mb-6 space-y-1.5">
+                {volver}
+                <h1 className="text-2xl font-semibold tracking-tight">Recuperar contraseña</h1>
+              </div>
+
+              {recoveryStep === "request" && (
+                <>
+                  <p className="mb-5 text-sm text-muted-foreground">
+                    Ingresa el correo asociado a tu cuenta y te generaremos un código de
+                    recuperación.
                   </p>
-                </div>
-                <form
-                  className="flex flex-col gap-md"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    resetMutation.mutate();
-                  }}
-                >
-                  <div className="flex flex-col gap-xs">
-                    <label
-                      className="font-label-md text-label-md text-on-surface-variant"
-                      htmlFor="rec-token"
-                    >
-                      Código de recuperación
-                    </label>
-                    <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                      <input
-                        className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface px-md"
-                        id="rec-token"
-                        required
-                        type="text"
-                        value={resetToken}
-                        onChange={(e) => setResetToken(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-xs">
-                    <label
-                      className="font-label-md text-label-md text-on-surface-variant"
-                      htmlFor="rec-new-password"
-                    >
-                      Nueva contraseña
-                    </label>
-                    <div className="relative flex items-center h-[48px] bg-white rounded-lg border border-outline-variant input-focus-ring overflow-hidden">
-                      <span className="material-symbols-outlined text-on-surface-variant pl-md pr-sm">
-                        lock
-                      </span>
-                      <input
-                        className="w-full h-full bg-transparent border-none outline-none font-body-md text-on-surface placeholder:text-outline/60 pr-md"
-                        id="rec-new-password"
-                        placeholder="Mín. 8 caracteres"
-                        required
-                        minLength={8}
-                        type="password"
-                        value={newPassword}
-                        onChange={(e) => setNewPassword(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  {resetMutation.isError && (
-                    <p className="text-sm text-red-600">{errorMessage(resetMutation.error)}</p>
-                  )}
-                  <button
-                    className="w-full h-[48px] bg-primary-container hover:bg-primary text-white font-headline-sm text-headline-sm rounded-lg mt-md shadow-sm active:scale-[0.98] transition-all flex justify-center items-center disabled:opacity-60"
-                    disabled={resetMutation.isPending}
-                    type="submit"
+                  <form
+                    className="space-y-4"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      forgotMutation.mutate();
+                    }}
                   >
-                    <span>{resetMutation.isPending ? "Guardando…" : "Guardar contraseña"}</span>
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
+                    <Campo
+                      id="rec-email"
+                      label="Correo electrónico"
+                      icon={Mail}
+                      placeholder="admin@restaurant.com"
+                      required
+                      type="email"
+                      value={recEmail}
+                      onChange={(e) => setRecEmail(e.target.value)}
+                    />
+                    {forgotMutation.isError && (
+                      <Mensaje>{errorMessage(forgotMutation.error)}</Mensaje>
+                    )}
+                    <Button
+                      size="lg"
+                      className="w-full"
+                      disabled={forgotMutation.isPending}
+                      type="submit"
+                    >
+                      {forgotMutation.isPending ? "Enviando…" : "Enviar código"}
+                    </Button>
+                  </form>
+                </>
+              )}
+
+              {recoveryStep === "confirm" && (
+                <>
+                  <div className="mb-5 flex items-start gap-3 rounded-lg border border-success/30 bg-success/10 p-3 text-sm">
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" />
+                    <p className="text-foreground/80">
+                      Generamos tu código de recuperación (en esta demo no se envía correo: el
+                      código ya está precargado).
+                    </p>
+                  </div>
+                  <form
+                    className="space-y-4"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      resetMutation.mutate();
+                    }}
+                  >
+                    <Campo
+                      id="rec-token"
+                      label="Código de recuperación"
+                      icon={KeyRound}
+                      required
+                      type="text"
+                      value={resetToken}
+                      onChange={(e) => setResetToken(e.target.value)}
+                    />
+                    <Campo
+                      id="rec-new-password"
+                      label="Nueva contraseña"
+                      icon={Lock}
+                      placeholder="Mín. 8 caracteres"
+                      required
+                      minLength={8}
+                      type="password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                    />
+                    {resetMutation.isError && (
+                      <Mensaje>{errorMessage(resetMutation.error)}</Mensaje>
+                    )}
+                    <Button
+                      size="lg"
+                      className="w-full"
+                      disabled={resetMutation.isPending}
+                      type="submit"
+                    >
+                      {resetMutation.isPending ? "Guardando…" : "Guardar contraseña"}
+                    </Button>
+                  </form>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </main>
-
-      <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary-container/5 blur-[100px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-surface-dim/30 blur-[80px]" />
-      </div>
     </div>
   );
 }

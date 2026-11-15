@@ -1,7 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { Leaf, PiggyBank, Plus, Receipt, Scale, TrendingDown } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
+import { PageHeader } from "@/components/PageHeader";
+import { StatCard } from "@/components/StatCard";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Skeleton } from "@/components/ui/skeleton";
 import { requireSession, useSession } from "@/lib/session";
 import { getDashboard, getTendencias } from "@/lib/api";
 
@@ -60,160 +69,150 @@ function DashboardPage() {
       semana: fmtDate(b.periodoInicio),
       kg: Number(b.totalKg.toFixed(1)),
     })) ?? [];
+  const resumen = dashboard.data?.resumen;
+  const cargando = dashboard.isLoading;
 
   return (
     <AppShell active="/dashboard">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-md">
-        <div>
-          <h2 className="font-headline-sm text-headline-sm-mobile md:font-headline-md md:text-headline-md text-on-surface">
-            Resumen
-          </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mt-1">
-            Métricas operativas de {session.data?.restaurante.nombre ?? "tu restaurante"}.
-          </p>
-        </div>
-        <Link
-          to="/register"
-          className="bg-primary-container text-on-primary h-[48px] px-lg rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-soft hover:opacity-90 transition-opacity active:scale-95"
-        >
-          <span className="material-symbols-outlined">add</span>
-          Registrar el día
-        </Link>
-      </div>
+      <PageHeader
+        title="Resumen"
+        description={`Métricas operativas de ${session.data?.restaurante.nombre ?? "tu restaurante"}.`}
+        actions={
+          <Button asChild>
+            <Link to="/register">
+              <Plus /> Registrar el día
+            </Link>
+          </Button>
+        }
+      />
 
       {dashboard.isError && (
-        <p className="text-sm text-red-600">No se pudo cargar el panel. Intenta recargar.</p>
+        <p className="text-sm text-destructive">No se pudo cargar el panel. Intenta recargar.</p>
       )}
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
-        <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-soft flex flex-col justify-between col-span-2 md:col-span-1">
-          <div className="flex items-center gap-2 mb-sm text-primary-container">
-            <span className="material-symbols-outlined" data-weight="fill">
-              trending_down
-            </span>
-            <span className="font-label-sm text-label-sm uppercase tracking-wider">
-              Pérdida est.
-            </span>
-          </div>
-          <div>
-            <div className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary-container font-bold">
-              {dashboard.data ? money(dashboard.data.resumen.perdidaEstimada) : "—"}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-soft flex flex-col justify-between col-span-2 md:col-span-1">
-          <div className="flex items-center gap-2 mb-sm text-secondary">
-            <span className="material-symbols-outlined" data-weight="fill">
-              delete_sweep
-            </span>
-            <span className="font-label-sm text-label-sm uppercase tracking-wider">
-              Desperdicio
-            </span>
-          </div>
-          <div>
-            <div className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface font-bold">
-              {dashboard.data ? `${dashboard.data.resumen.totalKg.toFixed(1)} kg` : "—"}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-soft flex flex-col justify-between col-span-1">
-          <div className="flex items-center gap-2 mb-sm text-on-surface-variant">
-            <span className="material-symbols-outlined">eco</span>
-            <span className="font-label-sm text-label-sm uppercase tracking-wider">Prevención</span>
-          </div>
-          <div>
-            <div className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface font-bold">
-              {dashboard.data ? pct(dashboard.data.resumen.prevencionPct) : "—"}
-            </div>
-            <div className="w-full bg-surface-variant h-1.5 rounded-full mt-2">
-              <div
-                className="bg-secondary h-1.5 rounded-full"
-                style={{
-                  width: `${Math.max(0, Math.min(100, dashboard.data?.resumen.prevencionPct ?? 0))}%`,
-                }}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-soft flex flex-col justify-between col-span-1">
-          <div className="flex items-center gap-2 mb-sm text-on-surface-variant">
-            <span className="material-symbols-outlined">receipt_long</span>
-            <span className="font-label-sm text-label-sm uppercase tracking-wider">Operaciones</span>
-          </div>
-          <div>
-            <div className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface font-bold">
-              {dashboard.data?.ultimasOperaciones.length ?? "—"}
-            </div>
-            <div className="font-label-sm text-label-sm text-on-surface-variant mt-1">
-              Registradas hace poco
-            </div>
-          </div>
-        </div>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
+        <StatCard
+          label="Pérdida est."
+          icon={TrendingDown}
+          tone="danger"
+          loading={cargando}
+          value={resumen ? money(resumen.perdidaEstimada) : "—"}
+          hint="Costo de lo desperdiciado"
+        />
+        <StatCard
+          label="Desperdicio"
+          icon={Scale}
+          tone="warning"
+          loading={cargando}
+          value={resumen ? `${resumen.totalKg.toFixed(1)} kg` : "—"}
+          hint="Total registrado"
+        />
+        <StatCard
+          label="Prevención"
+          icon={Leaf}
+          tone="success"
+          loading={cargando}
+          value={resumen ? pct(resumen.prevencionPct) : "—"}
+          hint="Residuos evitados"
+        >
+          <Progress
+            value={Math.max(0, Math.min(100, resumen?.prevencionPct ?? 0))}
+            className="mt-3 h-1.5"
+          />
+        </StatCard>
+        <StatCard
+          label="Operaciones"
+          icon={Receipt}
+          tone="primary"
+          loading={cargando}
+          value={dashboard.data?.ultimasOperaciones.length ?? "—"}
+          hint="Registradas hace poco"
+        />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
-        <div className="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-soft md:col-span-2 overflow-hidden flex flex-col">
-          <div className="p-md border-b border-surface-variant flex justify-between items-center bg-surface-bright">
-            <h3 className="font-headline-sm text-headline-sm-mobile md:font-headline-md md:text-headline-md text-on-surface">
-              Desempeño semanal (kg de desperdicio)
-            </h3>
-          </div>
-          <div className="p-md flex-1 min-h-[220px]">
-            {chartData.length > 0 ? (
-              <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={chartData}>
-                  <XAxis dataKey="semana" tick={{ fontSize: 12 }} />
-                  <Tooltip />
-                  <Bar dataKey="kg" fill="#8b6f47" radius={[4, 4, 0, 0]} />
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-base">Desempeño semanal</CardTitle>
+            <CardDescription>Kilos de desperdicio por semana</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {tendencias.isLoading ? (
+              <Skeleton className="h-60 w-full" />
+            ) : chartData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={240}>
+                <BarChart data={chartData} margin={{ left: -16, right: 8 }}>
+                  <CartesianGrid vertical={false} stroke="var(--border)" />
+                  <XAxis
+                    dataKey="semana"
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fontSize: 12 }}
+                  />
+                  <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
+                  <Tooltip
+                    cursor={{ fill: "var(--accent)" }}
+                    contentStyle={{
+                      borderRadius: 8,
+                      border: "1px solid var(--border)",
+                      fontSize: 12,
+                    }}
+                    formatter={(v: number) => [`${v} kg`, "Desperdicio"]}
+                  />
+                  <Bar dataKey="kg" fill="var(--chart-1)" radius={[6, 6, 0, 0]} maxBarSize={56} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-sm text-on-surface-variant">Aún no hay datos de tendencia.</p>
+              <EmptyState
+                icon={PiggyBank}
+                title="Aún no hay datos de tendencia"
+                description="Registra operaciones para ver la evolución semanal."
+              />
             )}
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        <div className="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-soft flex flex-col h-full">
-          <div className="p-md border-b border-surface-variant flex justify-between items-center bg-surface-bright">
-            <h3 className="font-headline-sm text-headline-sm-mobile md:font-headline-md md:text-headline-md text-on-surface">
-              Actividad reciente
-            </h3>
-            <Link
-              to="/history"
-              className="font-label-sm text-label-sm text-primary hover:underline"
-            >
-              Ver todo
-            </Link>
-          </div>
-          <div className="p-md flex-1 space-y-4 overflow-y-auto">
+        <Card className="flex flex-col">
+          <CardHeader className="flex-row items-center justify-between space-y-0">
+            <CardTitle className="text-base">Actividad reciente</CardTitle>
+            <Button asChild variant="ghost" size="sm" className="text-primary">
+              <Link to="/history">Ver todo</Link>
+            </Button>
+          </CardHeader>
+          <CardContent className="flex-1">
             {dashboard.data?.ultimasOperaciones.length === 0 && (
-              <p className="text-sm text-on-surface-variant">Aún no hay operaciones registradas.</p>
+              <EmptyState icon={Receipt} title="Aún no hay operaciones registradas." />
             )}
-            {dashboard.data?.ultimasOperaciones.map((op) => (
-              <div className="flex items-start gap-3" key={op.id}>
-                <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container shrink-0 mt-1">
-                  <span className="material-symbols-outlined text-[16px]">add_circle</span>
+            <div className="divide-y">
+              {dashboard.data?.ultimasOperaciones.map((op) => (
+                <div className="flex items-start gap-3 py-3 first:pt-0 last:pb-0" key={op.id}>
+                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                    <Receipt className="size-4" />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      Operación
+                      <Badge variant="soft">
+                        {op.turno === "MANANA"
+                          ? "Mañana"
+                          : op.turno === "TARDE"
+                            ? "Tarde"
+                            : "Noche"}
+                      </Badge>
+                    </div>
+                    <div className="truncate text-sm text-muted-foreground">
+                      {op.totalDesperdicioKg.toFixed(1)} kg desperdicio · S/{" "}
+                      {op.totalVentas.toFixed(0)} en ventas
+                    </div>
+                    <div className="mt-0.5 text-xs text-muted-foreground/80">
+                      {fmtDate(op.fecha)}, {fmtTime(op.fecha)}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-label-md text-label-md font-bold text-on-surface">
-                    Operación ·{" "}
-                    {op.turno === "MANANA" ? "Mañana" : op.turno === "TARDE" ? "Tarde" : "Noche"}
-                  </div>
-                  <div className="font-body-md text-body-md text-on-surface-variant line-clamp-1">
-                    {op.totalDesperdicioKg.toFixed(1)} kg desperdicio · S/{" "}
-                    {op.totalVentas.toFixed(0)} en ventas
-                  </div>
-                  <div className="font-label-sm text-label-sm text-outline mt-0.5">
-                    {fmtDate(op.fecha)}, {fmtTime(op.fecha)}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </AppShell>
   );

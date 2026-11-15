@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { requireSession } from "@/lib/auth";
 import { handleRouteError, NotFoundError } from "@/lib/api-helpers";
 import { updateProductoSchema } from "@/lib/validation/producto";
+import { decidirBajaProducto } from "@/lib/catalogo";
 
 export const dynamic = "force-dynamic";
 
@@ -51,8 +52,14 @@ export async function DELETE(
     const { id, productoId } = await params;
     await requireSession(request, id);
     await getOwnedProducto(id, productoId);
+    // CC-01: con historial, el producto se inactiva para conservar costos y trazabilidad.
+    const referencias = await db.residuo.count({ where: { productoId, restauranteId: id } });
+    if (decidirBajaProducto(referencias) === "INACTIVAR") {
+      await db.producto.update({ where: { id: productoId }, data: { activo: false } });
+      return NextResponse.json({ ok: true, inactivado: true });
+    }
     await db.producto.delete({ where: { id: productoId } });
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, inactivado: false });
   } catch (error) {
     return handleRouteError(error);
   }

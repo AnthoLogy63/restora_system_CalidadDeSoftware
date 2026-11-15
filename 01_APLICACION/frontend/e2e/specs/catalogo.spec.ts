@@ -47,3 +47,46 @@ test("adds a colaborador, toggles capacitado, then deletes", async ({ page }) =>
   await row.getByRole("button", { name: "Eliminar colaborador" }).click();
   await expect(section.getByText(nombre)).toHaveCount(0);
 });
+
+test("CC-01: un producto con historial se inactiva en lugar de eliminarse", async ({ page }) => {
+  const nombre = `E2E Historial ${Date.now()}`;
+  const me = await (await page.request.get("/api/auth/me")).json();
+  const base = `/api/restaurantes/${me.restaurante.id}`;
+
+  const producto = await (
+    await page.request.post(`${base}/productos`, { data: { nombre, costoUnitario: 4.5 } })
+  ).json();
+  const residuo = await page.request.post(`${base}/residuos`, {
+    data: {
+      categoria: "MERMA_PREPARACION",
+      cantidadKg: 2,
+      area: "COCINA",
+      productoAsociado: nombre,
+      productoId: producto.id,
+      motivo: "ERROR_PREPARACION",
+      fecha: new Date().toISOString().slice(0, 10),
+      turno: "MANANA",
+      destinoPrevisto: "PENDIENTE_DEFINIR",
+    },
+  });
+  expect(residuo.ok()).toBeTruthy();
+
+  await page.goto("/catalogo");
+  const section = page.locator("section", { has: page.getByRole("heading", { name: "Productos" }) });
+  const row = section.locator("li", { hasText: nombre });
+  acceptNextDialog(page);
+  await row.getByRole("button", { name: "Eliminar producto" }).click();
+
+  await expect(row).toContainText("Inactivo");
+  await expect(section.getByRole("status")).toContainText("se inactivó");
+  await expect(row.getByRole("button", { name: "Reactivar" })).toBeVisible();
+
+  // El costo histórico del registro no se pierde.
+  const lista = await (await page.request.get(`${base}/residuos`)).json();
+  const guardado = lista.find((r: { productoId: string | null }) => r.productoId === producto.id);
+  expect(guardado.costoTotal).toBeCloseTo(9, 5);
+
+  // Reactivar devuelve el producto al catálogo operativo.
+  await row.getByRole("button", { name: "Reactivar" }).click();
+  await expect(row).not.toContainText("Inactivo");
+});

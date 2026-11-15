@@ -1,7 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
+import { CalendarRange, Download, FileSpreadsheet, FileText, Wand2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
+import { PageHeader } from "@/components/PageHeader";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { NativeSelect } from "@/components/ui/native-select";
+import { Skeleton } from "@/components/ui/skeleton";
 import { requireSession, useSession } from "@/lib/session";
 import { createReporte, listReportes, reporteExportUrl, ApiError } from "@/lib/api";
 
@@ -65,111 +73,93 @@ function ReportsPage() {
 
   return (
     <AppShell active="/reports">
-      <header className="mb-lg md:mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
-        <div>
-          <h2 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">
-            Reportes
-          </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant">
-            Genera y exporta reportes de {session.data?.restaurante.nombre ?? "tu restaurante"}.
-          </p>
-        </div>
-      </header>
+      <PageHeader
+        title="Reportes"
+        description={`Genera y exporta reportes de ${session.data?.restaurante.nombre ?? "tu restaurante"}.`}
+      />
 
-      <section className="grid grid-cols-1 gap-md md:gap-lg mb-xl">
-        <div className="rounded-xl p-lg flex flex-col justify-between min-h-[200px] bg-surface-container-lowest/80 backdrop-blur-md border border-surface-dim shadow-soft">
-          <div className="flex justify-between items-start mb-md">
-            <div>
-              <div className="flex items-center gap-sm text-primary mb-xs">
-                <span className="material-symbols-outlined">calendar_month</span>
-                <span className="font-label-md text-label-md uppercase tracking-wider">
-                  Reporte mensual
-                </span>
-              </div>
-              <h3 className="font-headline-md text-headline-md text-on-surface">
-                Generar un nuevo reporte
-              </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-sm max-w-md">
-                Totales de desperdicio, pérdida económica e indicadores de segregación y valorización
-                del mes seleccionado.
-              </p>
-            </div>
+      <Card>
+        <CardHeader>
+          <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+            <CalendarRange className="size-4" /> Reporte mensual
           </div>
+          <CardTitle className="text-lg">Generar un nuevo reporte</CardTitle>
+          <CardDescription className="max-w-xl">
+            Totales de desperdicio, pérdida económica e indicadores de segregación y valorización
+            del mes seleccionado.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
           <form
-            className="flex flex-col sm:flex-row gap-sm mt-auto"
+            className="flex flex-col gap-3 sm:flex-row sm:items-end"
             onSubmit={(e) => {
               e.preventDefault();
               generateMutation.mutate();
             }}
           >
-            <div className="relative flex-1">
-              <select
-                className="w-full h-12 pl-md pr-xl rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary appearance-none font-body-md text-body-md"
-                value={month}
-                onChange={(e) => setMonth(e.target.value)}
-              >
+            <div className="flex-1 space-y-1.5">
+              <Label htmlFor="rep-mes">Periodo</Label>
+              <NativeSelect id="rep-mes" value={month} onChange={(e) => setMonth(e.target.value)}>
                 {options.map((o) => (
                   <option key={o.value} value={o.value}>
                     {o.label}
                   </option>
                 ))}
-              </select>
-              <span className="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
-                expand_more
-              </span>
+              </NativeSelect>
             </div>
-            <button
-              className="bg-primary text-on-primary h-12 px-lg rounded-lg font-headline-sm text-headline-sm flex items-center justify-center gap-sm hover:bg-primary-container transition-colors sm:w-auto w-full disabled:opacity-60"
-              disabled={generateMutation.isPending || !restauranteId}
-              type="submit"
-            >
-              <span className="material-symbols-outlined">magic_button</span>
-              {generateMutation.isPending ? "Generating…" : "Generate"}
-            </button>
+            <Button type="submit" disabled={generateMutation.isPending || !restauranteId}>
+              <Wand2 /> {generateMutation.isPending ? "Generando…" : "Generar"}
+            </Button>
           </form>
           {generateMutation.isError && (
-            <p className="text-sm text-red-600 mt-sm">
+            <p className="mt-3 text-sm text-destructive">
               {generateMutation.error instanceof ApiError
                 ? generateMutation.error.message
-                : "Could not generate report."}
+                : "No se pudo generar el reporte."}
             </p>
           )}
-        </div>
-      </section>
+        </CardContent>
+      </Card>
 
-      <section>
-        <div className="flex items-center justify-between mb-md">
-          <h2 className="font-headline-md text-headline-md text-on-surface">Recent Reports</h2>
-        </div>
-        {reportes.isError && <p className="text-sm text-red-600">Could not load report history.</p>}
-        {reportes.data?.length === 0 && (
-          <p className="text-sm text-on-surface-variant">No reports generated yet.</p>
+      <section className="space-y-3">
+        <h2 className="text-base font-semibold">Reportes recientes</h2>
+        {reportes.isError && (
+          <p className="text-sm text-destructive">No se pudo cargar el historial de reportes.</p>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+        {reportes.isLoading && (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {[0, 1, 2].map((i) => (
+              <Skeleton key={i} className="h-44 rounded-xl" />
+            ))}
+          </div>
+        )}
+        {reportes.data?.length === 0 && (
+          <Card className="border-dashed">
+            <EmptyState
+              icon={FileText}
+              title="Aún no hay reportes generados."
+              description="Elige un mes y pulsa «Generar» para crear el primero."
+            />
+          </Card>
+        )}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {reportes.data?.map((r) => (
-            <div
-              key={r.id}
-              className="rounded-xl p-md flex flex-col bg-surface-container-lowest/80 backdrop-blur-md border border-surface-dim shadow-soft"
-            >
-              <div className="w-full h-24 bg-surface-container rounded-lg mb-md overflow-hidden relative border border-outline-variant/30 flex items-center justify-center text-primary">
-                <span className="material-symbols-outlined text-[48px]">description</span>
-              </div>
-              <div className="flex justify-between items-start mb-sm">
-                <h4 className="font-headline-sm text-headline-sm text-on-surface line-clamp-1">
-                  {fmtDate(r.periodoFrom)} – {fmtDate(r.periodoTo)}
-                </h4>
-              </div>
-              <p className="font-body-md text-body-md text-on-surface-variant mb-md flex-1">
-                Generated {fmtDate(r.createdAt)}
+            <Card key={r.id} className="flex flex-col p-5">
+              <span className="mb-4 flex size-11 items-center justify-center rounded-lg bg-accent text-primary">
+                <FileSpreadsheet className="size-5" />
+              </span>
+              <h3 className="text-sm font-semibold">
+                {fmtDate(r.periodoFrom)} – {fmtDate(r.periodoTo)}
+              </h3>
+              <p className="mb-4 mt-1 flex-1 text-sm text-muted-foreground">
+                Generado el {fmtDate(r.createdAt)}
               </p>
-              <a
-                className="w-full bg-surface-container-lowest text-primary border border-outline-variant h-10 rounded-lg font-label-md text-label-md flex items-center justify-center gap-xs hover:border-primary hover:bg-surface transition-colors"
-                href={reporteExportUrl(restauranteId, r.id)}
-              >
-                <span className="material-symbols-outlined text-[18px]">download</span>
-                Download CSV
-              </a>
-            </div>
+              <Button asChild variant="outline" className="w-full">
+                <a href={reporteExportUrl(restauranteId, r.id)}>
+                  <Download /> Descargar CSV
+                </a>
+              </Button>
+            </Card>
           ))}
         </div>
       </section>

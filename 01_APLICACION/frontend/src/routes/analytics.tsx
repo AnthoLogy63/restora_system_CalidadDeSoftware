@@ -1,18 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import { AppShell } from "@/components/AppShell";
-import { requireSession, useSession } from "@/lib/session";
 import {
-  getIndicadores,
-  getRecomendaciones,
-  getTendencias,
-  listAcciones,
-  createAccion,
-  ApiError,
-  type Recomendacion,
-} from "@/lib/api";
-import { ETIQUETA_CATEGORIA, ETIQUETA_MOTIVO } from "@/lib/etiquetas";
+  CheckCircle2,
+  ChevronDown,
+  CircleDollarSign,
+  Lightbulb,
+  ListChecks,
+  Recycle,
+  TrendingDown,
+} from "lucide-react";
 import {
   LineChart,
   Line,
@@ -28,6 +25,25 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
+import { PageHeader } from "@/components/PageHeader";
+import { StatCard } from "@/components/StatCard";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { requireSession, useSession } from "@/lib/session";
+import {
+  getIndicadores,
+  getRecomendaciones,
+  getTendencias,
+  listAcciones,
+  createAccion,
+  ApiError,
+  type Recomendacion,
+} from "@/lib/api";
+import { ETIQUETA_CATEGORIA, ETIQUETA_MOTIVO } from "@/lib/etiquetas";
 
 export const Route = createFileRoute("/analytics")({
   ssr: false,
@@ -41,7 +57,16 @@ export const Route = createFileRoute("/analytics")({
   component: AnalyticsPage,
 });
 
-const PALETTE = ["#7a1f3d", "#f6be39", "#dac0c4", "#a3d2a7", "#9f3c59", "#887275"];
+const PALETTE = [
+  "var(--chart-1)",
+  "var(--chart-2)",
+  "var(--chart-3)",
+  "var(--chart-4)",
+  "var(--chart-5)",
+  "#a8a29e",
+];
+const TOOLTIP_STYLE = { borderRadius: 8, border: "1px solid var(--border)", fontSize: 12 };
+const TICK = { fill: "var(--muted-foreground)", fontSize: 12 };
 
 function humanize(label: string): string {
   return label.charAt(0) + label.slice(1).toLowerCase().replace(/_/g, " ");
@@ -134,136 +159,130 @@ function AnalyticsPage() {
     [indicadores.data],
   );
   const listaRecs = recomendaciones.data?.recomendaciones ?? [];
+  const cargando = indicadores.isLoading;
 
   return (
     <AppShell active="/analytics">
-      <div className="mb-lg flex justify-between items-end">
-        <div>
-          <h2 className="font-headline-md text-headline-md text-on-surface mb-xs">
-            Análisis de desempeño
-          </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            Sigue tus metas de reducción de desperdicio.
-          </p>
-        </div>
-        <button
-          className="bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2 font-label-md text-label-md text-on-surface-variant flex items-center gap-2 hover:bg-surface-variant transition-colors"
-          onClick={() => setPeriod(period === "Este mes" ? "Mes anterior" : "Este mes")}
-        >
-          {period} <span className="material-symbols-outlined text-[18px]">expand_more</span>
-        </button>
+      <PageHeader
+        title="Análisis de desempeño"
+        description="Sigue tus metas de reducción de desperdicio."
+        actions={
+          <Button
+            variant="outline"
+            onClick={() => setPeriod(period === "Este mes" ? "Mes anterior" : "Este mes")}
+          >
+            {period} <ChevronDown />
+          </Button>
+        }
+      />
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <StatCard
+          label="Pérdida económica total"
+          icon={CircleDollarSign}
+          tone="danger"
+          loading={cargando}
+          value={
+            indicadores.data ? `S/ ${indicadores.data.economia.perdidaEstimada.toFixed(0)}` : "—"
+          }
+          hint={period}
+        />
+        <StatCard
+          label="Valorización"
+          icon={Recycle}
+          tone="success"
+          loading={cargando}
+          value={
+            indicadores.data?.valorizacionPct != null
+              ? `${indicadores.data.valorizacionPct.toFixed(0)}%`
+              : "—"
+          }
+          hint={`Trazabilidad: ${
+            indicadores.data?.trazabilidadPct != null
+              ? `${indicadores.data.trazabilidadPct.toFixed(0)}%`
+              : "—"
+          }`}
+        />
+        <StatCard
+          label="Prevención"
+          icon={TrendingDown}
+          tone="primary"
+          loading={cargando}
+          value={
+            indicadores.data?.prevencionPct != null
+              ? `${indicadores.data.prevencionPct.toFixed(1)}%`
+              : "—"
+          }
+          hint="Reducción frente a tu línea base"
+        />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg">
-        <section className="col-span-1 md:col-span-8 bg-surface-container-lowest rounded-xl p-md border border-surface-dim shadow-[0_4px_12px_rgba(31,27,23,0.05)]">
-          <div className="flex justify-between items-center mb-md">
-            <h3 className="font-headline-sm text-headline-sm text-on-surface">
-              Evolución del desperdicio (kg)
-            </h3>
-            {indicadores.data?.prevencionPct != null && (
-              <span className="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
-                <span className="material-symbols-outlined text-[14px]">trending_down</span>
-                {indicadores.data.prevencionPct.toFixed(1)}%
-              </span>
-            )}
-          </div>
-          <div className="h-[250px] w-full relative">
-            {wasteData.length > 0 ? (
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-base">Evolución del desperdicio (kg)</CardTitle>
+            <CardDescription>Total semanal del periodo seleccionado</CardDescription>
+          </CardHeader>
+          <CardContent className="h-[280px]">
+            {tendencias.isLoading ? (
+              <Skeleton className="h-full w-full" />
+            ) : wasteData.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={wasteData}>
-                  <CartesianGrid stroke="#ebe1da" vertical={false} />
-                  <XAxis
-                    dataKey="week"
-                    tick={{ fill: "#887275", fontSize: 12 }}
-                    axisLine={false}
-                    tickLine={false}
-                  />
-                  <YAxis tick={{ fill: "#887275", fontSize: 12 }} axisLine={false} tickLine={false} />
-                  <Tooltip />
+                <LineChart data={wasteData} margin={{ left: -16, right: 8 }}>
+                  <CartesianGrid stroke="var(--border)" vertical={false} />
+                  <XAxis dataKey="week" tick={TICK} axisLine={false} tickLine={false} />
+                  <YAxis tick={TICK} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={TOOLTIP_STYLE} />
                   <Line
                     type="monotone"
                     dataKey="waste"
-                    stroke="#7a1f3d"
-                    strokeWidth={2}
-                    dot={{ fill: "#fff", stroke: "#7a1f3d", strokeWidth: 2, r: 4 }}
+                    stroke="var(--chart-1)"
+                    strokeWidth={2.5}
+                    dot={{ fill: "var(--card)", stroke: "var(--chart-1)", strokeWidth: 2, r: 4 }}
                   />
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-sm text-on-surface-variant">No hay datos de tendencia en este periodo.</p>
+              <EmptyState icon={TrendingDown} title="No hay datos de tendencia en este periodo." />
             )}
-          </div>
-        </section>
+          </CardContent>
+        </Card>
 
-        <section className="col-span-1 md:col-span-4 flex flex-col gap-md">
-          <div className="bg-surface-container-lowest rounded-xl p-md border border-surface-dim shadow-[0_4px_12px_rgba(31,27,23,0.05)] flex-1 flex flex-col justify-center">
-            <h4 className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">
-              Pérdida económica total
-            </h4>
-            <div className="flex items-baseline gap-2">
-              <span className="font-display-lg text-display-lg text-primary-container">
-                {indicadores.data
-                  ? `S/ ${indicadores.data.economia.perdidaEstimada.toFixed(0)}`
-                  : "—"}
-              </span>
-              <span className="font-body-md text-body-md text-on-surface-variant">
-                {period.toLowerCase()}
-              </span>
-            </div>
-          </div>
-          <div className="bg-surface-container-lowest rounded-xl p-md border border-surface-dim shadow-[0_4px_12px_rgba(31,27,23,0.05)] flex-1 flex flex-col justify-center">
-            <h4 className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">
-              Valorización
-            </h4>
-            <span className="font-display-lg text-display-lg text-secondary">
-              {indicadores.data?.valorizacionPct != null
-                ? `${indicadores.data.valorizacionPct.toFixed(0)}%`
-                : "—"}
-            </span>
-            <p className="text-body-sm text-on-surface-variant">
-              Trazabilidad:{" "}
-              {indicadores.data?.trazabilidadPct != null
-                ? `${indicadores.data.trazabilidadPct.toFixed(0)}%`
-                : "—"}
-            </p>
-          </div>
-        </section>
-
-        <section className="col-span-1 md:col-span-6 bg-surface-container-lowest rounded-xl p-md border border-surface-dim shadow-[0_4px_12px_rgba(31,27,23,0.05)]">
-          <h3 className="font-headline-sm text-headline-sm text-on-surface mb-md">
-            Desperdicio por categoría (kg)
-          </h3>
-          <div className="h-[200px] w-full relative">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Desperdicio por categoría (kg)</CardTitle>
+          </CardHeader>
+          <CardContent className="h-[260px]">
             {lossData.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={lossData}>
-                  <CartesianGrid stroke="#ebe1da" vertical={false} />
+                <BarChart data={lossData} margin={{ left: -16, right: 8 }}>
+                  <CartesianGrid stroke="var(--border)" vertical={false} />
                   <XAxis
                     dataKey="category"
-                    tick={{ fill: "#887275", fontSize: 11 }}
+                    tick={{ ...TICK, fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
                     interval={0}
                     angle={-20}
                     textAnchor="end"
-                    height={50}
+                    height={56}
                   />
-                  <YAxis tick={{ fill: "#887275", fontSize: 12 }} axisLine={false} tickLine={false} />
-                  <Tooltip />
-                  <Bar dataKey="kg" fill="#9f3c59" radius={[4, 4, 0, 0]} />
+                  <YAxis tick={TICK} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: "var(--accent)" }} />
+                  <Bar dataKey="kg" fill="var(--chart-5)" radius={[6, 6, 0, 0]} maxBarSize={44} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-sm text-on-surface-variant">No hay datos en este periodo.</p>
+              <EmptyState icon={TrendingDown} title="No hay datos en este periodo." />
             )}
-          </div>
-        </section>
+          </CardContent>
+        </Card>
 
-        <section className="col-span-1 md:col-span-6 bg-surface-container-lowest rounded-xl p-md border border-surface-dim shadow-[0_4px_12px_rgba(31,27,23,0.05)]">
-          <h3 className="font-headline-sm text-headline-sm text-on-surface mb-md">
-            Principales causas
-          </h3>
-          <div className="h-[200px] w-full relative flex justify-center">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Principales causas</CardTitle>
+          </CardHeader>
+          <CardContent className="h-[260px]">
             {causesData.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -271,79 +290,74 @@ function AnalyticsPage() {
                     data={causesData}
                     dataKey="value"
                     nameKey="name"
-                    innerRadius={45}
-                    outerRadius={70}
-                    paddingAngle={0}
+                    innerRadius={55}
+                    outerRadius={90}
+                    paddingAngle={2}
+                    stroke="var(--card)"
                   >
                     {causesData.map((entry) => (
                       <Cell key={entry.name} fill={entry.color} />
                     ))}
                   </Pie>
+                  <Tooltip contentStyle={TOOLTIP_STYLE} />
                   <Legend
                     layout="vertical"
                     verticalAlign="middle"
                     align="right"
                     iconType="circle"
-                    wrapperStyle={{ fontFamily: "Inter", fontSize: 12, color: "#554245" }}
+                    wrapperStyle={{ fontSize: 12 }}
                   />
                 </PieChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-sm text-on-surface-variant">No hay datos en este periodo.</p>
+              <EmptyState icon={TrendingDown} title="No hay datos en este periodo." />
             )}
-          </div>
-        </section>
+          </CardContent>
+        </Card>
+      </div>
 
-        {/* Recomendaciones accionables */}
-        <section className="col-span-1 md:col-span-12 bg-surface-container-lowest rounded-xl p-md border border-surface-dim shadow-[0_4px_12px_rgba(31,27,23,0.05)]">
-          <div className="flex items-center gap-sm mb-md">
-            <span className="material-symbols-outlined text-tertiary-fixed-dim">tips_and_updates</span>
-            <h3 className="font-headline-sm text-headline-sm text-on-surface">
-              Recomendaciones para este periodo
-            </h3>
-          </div>
-          {listaRecs.length === 0 && (
-            <p className="text-sm text-on-surface-variant">Cargando recomendaciones…</p>
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Lightbulb className="size-5 text-warning" /> Recomendaciones para este periodo
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {recomendaciones.isLoading && (
+            <p className="text-sm text-muted-foreground">Cargando recomendaciones…</p>
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {listaRecs.map((rec) => {
               const aplicado = codigosAplicados.has(rec.codigo);
               const esSinAlertas = rec.codigo === "R10_SIN_ALERTAS";
               return (
                 <div
                   key={rec.codigo}
-                  className="rounded-xl border border-outline-variant/50 bg-surface p-md flex flex-col"
+                  className="flex flex-col rounded-lg border bg-secondary/30 p-4"
                 >
-                  <div className="flex items-start justify-between gap-2 mb-xs">
-                    <h4 className="font-label-md text-label-md font-bold text-on-surface">
-                      {rec.titulo}
-                    </h4>
-                    <span className="shrink-0 text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-primary-container/40 text-on-primary-container">
+                  <div className="mb-1.5 flex items-start justify-between gap-2">
+                    <h4 className="text-sm font-semibold">{rec.titulo}</h4>
+                    <Badge variant="soft" className="shrink-0">
                       P{rec.prioridad}
-                    </span>
+                    </Badge>
                   </div>
-                  <p className="text-body-sm text-on-surface-variant flex-1">{rec.descripcion}</p>
+                  <p className="flex-1 text-sm text-muted-foreground">{rec.descripcion}</p>
                   {!esSinAlertas && (
-                    <div className="mt-sm">
+                    <div className="mt-3">
                       {aplicado ? (
-                        <span className="inline-flex items-center gap-1 text-label-sm text-secondary">
-                          <span className="material-symbols-outlined" style={{ fontSize: 16 }} data-weight="fill">
-                            check_circle
-                          </span>
-                          Marcada como aplicada
+                        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-success">
+                          <CheckCircle2 className="size-4" /> Marcada como aplicada
                         </span>
                       ) : (
-                        <button
+                        <Button
                           type="button"
+                          variant="outline"
+                          size="sm"
                           onClick={() => aplicar.mutate(rec)}
                           disabled={aplicar.isPending}
-                          className="inline-flex items-center gap-1 h-9 px-3 rounded-lg border border-primary text-primary font-label-sm text-label-sm hover:bg-primary-container/20 transition-colors disabled:opacity-60"
                         >
-                          <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
-                            playlist_add_check
-                          </span>
-                          Marcar como aplicada
-                        </button>
+                          <ListChecks /> Marcar como aplicada
+                        </Button>
                       )}
                     </div>
                   )}
@@ -352,14 +366,14 @@ function AnalyticsPage() {
             })}
           </div>
           {aplicar.isError && (
-            <p className="text-sm text-error mt-sm">
+            <p className="mt-3 text-sm text-destructive">
               {aplicar.error instanceof ApiError
                 ? aplicar.error.message
                 : "No se pudo registrar la acción."}
             </p>
           )}
-        </section>
-      </div>
+        </CardContent>
+      </Card>
     </AppShell>
   );
 }

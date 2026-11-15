@@ -1,7 +1,15 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import { CalendarClock, ChefHat, Plus, Save, Trash2, UtensilsCrossed, X } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { PageHeader } from "@/components/PageHeader";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { NativeSelect } from "@/components/ui/native-select";
+import { Textarea } from "@/components/ui/textarea";
 import { requireSession, useSession } from "@/lib/session";
 import {
   createOperacion,
@@ -12,6 +20,7 @@ import {
   type MotivoGeneracion,
   type DestinoPrevisto,
   type VentaItem,
+  type ProduccionItem,
   type ResiduoItem,
 } from "@/lib/api";
 import {
@@ -57,6 +66,11 @@ interface VentaRow {
   cantidad: string;
   montoTotal: string;
 }
+interface ProduccionRow {
+  productoAsociado: string;
+  cantidadProducida: string;
+  unidad: string;
+}
 interface DesperdicioRow {
   productoAsociado: string;
   categoria: CategoriaResiduo;
@@ -69,6 +83,9 @@ interface DesperdicioRow {
 
 function ventaVacia(): VentaRow {
   return { concepto: "", cantidad: "", montoTotal: "" };
+}
+function produccionVacia(): ProduccionRow {
+  return { productoAsociado: "", cantidadProducida: "", unidad: "" };
 }
 function desperdicioVacio(): DesperdicioRow {
   return {
@@ -90,9 +107,38 @@ function errorMessage(err: unknown): string {
   return "No se pudo guardar el registro. Inténtalo de nuevo.";
 }
 
-const inputCls =
-  "w-full h-11 px-3 bg-surface rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-body-md text-on-surface";
-const labelCls = "font-label-sm text-label-sm text-on-surface-variant";
+function Campo({
+  label,
+  htmlFor,
+  children,
+  className,
+}: {
+  label: string;
+  htmlFor?: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`flex flex-col gap-1.5 ${className ?? ""}`}>
+      <Label htmlFor={htmlFor} className="text-xs font-medium text-muted-foreground">
+        {label}
+      </Label>
+      {children}
+    </div>
+  );
+}
+
+function Opciones({ mapa }: { mapa: Record<string, string> }) {
+  return (
+    <>
+      {opcionesDe(mapa).map((o) => (
+        <option key={o.valor} value={o.valor}>
+          {o.etiqueta}
+        </option>
+      ))}
+    </>
+  );
+}
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -104,10 +150,14 @@ function RegisterPage() {
   const [turno, setTurno] = useState<Turno>("MANANA");
   const [observaciones, setObservaciones] = useState("");
   const [ventas, setVentas] = useState<VentaRow[]>([ventaVacia()]);
+  const [producciones, setProducciones] = useState<ProduccionRow[]>([produccionVacia()]);
   const [desperdicios, setDesperdicios] = useState<DesperdicioRow[]>([desperdicioVacio()]);
 
   function actualizarVenta(i: number, patch: Partial<VentaRow>) {
     setVentas((rows) => rows.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
+  }
+  function actualizarProduccion(i: number, patch: Partial<ProduccionRow>) {
+    setProducciones((rows) => rows.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
   }
   function actualizarDesperdicio(i: number, patch: Partial<DesperdicioRow>) {
     setDesperdicios((rows) =>
@@ -134,6 +184,14 @@ function RegisterPage() {
           montoTotal: Number(v.montoTotal) || 0,
         }));
 
+      const produccionesPayload: ProduccionItem[] = producciones
+        .filter((p) => p.productoAsociado.trim() && Number(p.cantidadProducida) > 0)
+        .map((p) => ({
+          productoAsociado: p.productoAsociado.trim(),
+          cantidadProducida: Number(p.cantidadProducida),
+          ...(p.unidad.trim() ? { unidad: p.unidad.trim() } : {}),
+        }));
+
       const desperdiciosPayload: ResiduoItem[] = desperdicios
         .filter((d) => d.productoAsociado.trim() && Number(d.cantidadKg) > 0)
         .map((d) => ({
@@ -153,6 +211,7 @@ function RegisterPage() {
         turno,
         ...(observaciones.trim() ? { observaciones: observaciones.trim() } : {}),
         ...(ventasPayload.length ? { ventas: ventasPayload } : {}),
+        ...(produccionesPayload.length ? { producciones: produccionesPayload } : {}),
         ...(desperdiciosPayload.length ? { desperdicios: desperdiciosPayload } : {}),
       });
     },
@@ -166,247 +225,266 @@ function RegisterPage() {
 
   const hayAlgo =
     ventas.some((v) => v.concepto.trim() && Number(v.cantidad) > 0) ||
+    producciones.some((p) => p.productoAsociado.trim() && Number(p.cantidadProducida) > 0) ||
     desperdicios.some((d) => d.productoAsociado.trim() && Number(d.cantidadKg) > 0);
 
   return (
     <AppShell active="/register">
-      <div className="max-w-3xl mx-auto w-full">
-        <div className="mb-lg">
-          <h2 className="font-headline-md text-headline-md text-on-surface mb-xs">Registro del turno</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            Registra las ventas por plato y los desperdicios del turno. ¿Prefieres dictarlo? Usa el
-            <span className="text-primary font-bold"> asistente 🤖</span> abajo a la derecha.
-          </p>
-        </div>
+      <div className="mx-auto w-full max-w-3xl space-y-6">
+        <PageHeader
+          title="Registro del turno"
+          description={
+            <>
+              Registra las ventas por plato, la producción y los desperdicios del turno. ¿Prefieres dictarlo? Usa
+              el <span className="font-semibold text-primary">asistente</span> abajo a la derecha.
+            </>
+          }
+        />
 
         <form
-          className="space-y-lg"
+          className="space-y-6"
           onSubmit={(e) => {
             e.preventDefault();
             if (hayAlgo) mutation.mutate();
           }}
         >
-          {/* Datos del turno */}
-          <section className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-80" />
-            <div className="flex items-center gap-sm mb-md">
-              <span className="material-symbols-outlined text-secondary">insights</span>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface">Datos del turno</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-              <div className="flex flex-col gap-xs">
-                <label className={labelCls} htmlFor="entry-date">
-                  Fecha
-                </label>
-                <input
-                  className={inputCls}
+          <Card>
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <CalendarClock className="size-5 text-muted-foreground" /> Datos del turno
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <Campo label="Fecha" htmlFor="entry-date">
+                <Input
                   id="entry-date"
                   type="date"
                   value={fecha}
                   onChange={(e) => setFecha(e.target.value)}
                 />
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label className={labelCls} htmlFor="entry-turno">
-                  Turno
-                </label>
-                <select
-                  className={inputCls}
+              </Campo>
+              <Campo label="Turno" htmlFor="entry-turno">
+                <NativeSelect
                   id="entry-turno"
                   value={turno}
                   onChange={(e) => setTurno(e.target.value as Turno)}
                 >
-                  {opcionesDe(ETIQUETA_TURNO).map((o) => (
-                    <option key={o.valor} value={o.valor}>
-                      {o.etiqueta}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </section>
+                  <Opciones mapa={ETIQUETA_TURNO} />
+                </NativeSelect>
+              </Campo>
+            </CardContent>
+          </Card>
 
-          {/* Ventas por plato */}
-          <section className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-primary opacity-80" />
-            <div className="flex items-center justify-between mb-md">
-              <div className="flex items-center gap-sm">
-                <span className="material-symbols-outlined text-primary">restaurant_menu</span>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">Ventas por plato</h3>
-              </div>
-              <button
+          <Card>
+            <CardHeader className="flex-row items-center justify-between space-y-0 pb-4">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <UtensilsCrossed className="size-5 text-primary" /> Ventas por plato
+              </CardTitle>
+              <Button
                 type="button"
+                variant="ghost"
+                size="sm"
+                className="text-primary"
                 onClick={() => setVentas((r) => [...r, ventaVacia()])}
-                className="text-primary text-label-md font-label-md inline-flex items-center gap-1"
               >
-                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
-                  add
-                </span>
-                Añadir plato
-              </button>
-            </div>
-            <div className="space-y-sm">
+                <Plus /> Añadir plato
+              </Button>
+            </CardHeader>
+            <CardContent className="space-y-3">
               {ventas.map((v, i) => (
-                <div key={i} className="grid grid-cols-12 gap-2 items-end">
-                  <div className="col-span-6 flex flex-col gap-xs">
-                    {i === 0 && <label className={labelCls}>Plato</label>}
-                    <input
-                      className={inputCls}
+                <div key={i} className="grid grid-cols-12 items-end gap-2">
+                  <Campo label={i === 0 ? "Plato" : ""} className="col-span-12 sm:col-span-6">
+                    <Input
+                      aria-label="Plato"
                       placeholder="Ej. Lomo Saltado"
                       value={v.concepto}
                       onChange={(e) => actualizarVenta(i, { concepto: e.target.value })}
                     />
-                  </div>
-                  <div className="col-span-2 flex flex-col gap-xs">
-                    {i === 0 && <label className={labelCls}>Cant.</label>}
-                    <input
-                      className={inputCls}
+                  </Campo>
+                  <Campo label={i === 0 ? "Cant." : ""} className="col-span-5 sm:col-span-2">
+                    <Input
+                      aria-label="Cantidad"
                       inputMode="numeric"
                       placeholder="0"
                       value={v.cantidad}
                       onChange={(e) => actualizarVenta(i, { cantidad: e.target.value })}
                     />
-                  </div>
-                  <div className="col-span-3 flex flex-col gap-xs">
-                    {i === 0 && <label className={labelCls}>Monto S/</label>}
-                    <input
-                      className={inputCls}
+                  </Campo>
+                  <Campo label={i === 0 ? "Monto S/" : ""} className="col-span-5 sm:col-span-3">
+                    <Input
+                      aria-label="Monto en soles"
                       inputMode="decimal"
                       placeholder="0.00"
                       value={v.montoTotal}
                       onChange={(e) => actualizarVenta(i, { montoTotal: e.target.value })}
                     />
-                  </div>
-                  <div className="col-span-1 flex justify-center pb-1">
+                  </Campo>
+                  <div className="col-span-2 flex justify-end sm:col-span-1 sm:justify-center">
                     {ventas.length > 1 && (
-                      <button
+                      <Button
                         type="button"
+                        variant="ghost"
+                        size="icon"
                         aria-label="Quitar plato"
+                        className="text-muted-foreground hover:text-destructive"
                         onClick={() => setVentas((r) => r.filter((_, idx) => idx !== i))}
-                        className="text-on-surface-variant hover:text-error"
                       >
-                        <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                          close
-                        </span>
-                      </button>
+                        <X />
+                      </Button>
                     )}
                   </div>
                 </div>
               ))}
-            </div>
-          </section>
+            </CardContent>
+          </Card>
 
-          {/* Desperdicios */}
-          <section className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-error opacity-80" />
-            <div className="flex items-center justify-between mb-md">
-              <div className="flex items-center gap-sm">
-                <span className="material-symbols-outlined text-error">delete_sweep</span>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">Desperdicios</h3>
-              </div>
-              <button
+          <Card>
+            <CardHeader className="flex-row items-center justify-between space-y-0 pb-4">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <ChefHat className="size-5 text-primary" /> Producción
+              </CardTitle>
+              <Button
                 type="button"
-                onClick={() => setDesperdicios((r) => [...r, desperdicioVacio()])}
-                className="text-primary text-label-md font-label-md inline-flex items-center gap-1"
+                variant="ghost"
+                size="sm"
+                className="text-primary"
+                onClick={() => setProducciones((r) => [...r, produccionVacia()])}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
-                  add
-                </span>
-                Añadir desperdicio
-              </button>
-            </div>
-            <div className="space-y-md">
+                <Plus /> Añadir producción
+              </Button>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {producciones.map((p, i) => (
+                <div key={i} className="grid grid-cols-12 items-end gap-2">
+                  <Campo
+                    label={i === 0 ? "Producto elaborado" : ""}
+                    className="col-span-12 sm:col-span-6"
+                  >
+                    <Input
+                      aria-label="Producto elaborado"
+                      placeholder="Ej. Arroz con pollo"
+                      value={p.productoAsociado}
+                      onChange={(e) => actualizarProduccion(i, { productoAsociado: e.target.value })}
+                    />
+                  </Campo>
+                  <Campo label={i === 0 ? "Cant." : ""} className="col-span-5 sm:col-span-3">
+                    <Input
+                      aria-label="Cantidad producida"
+                      inputMode="decimal"
+                      placeholder="Ej. 20"
+                      value={p.cantidadProducida}
+                      onChange={(e) => actualizarProduccion(i, { cantidadProducida: e.target.value })}
+                    />
+                  </Campo>
+                  <Campo label={i === 0 ? "Unidad" : ""} className="col-span-5 sm:col-span-2">
+                    <Input
+                      aria-label="Unidad de producción"
+                      placeholder="porciones"
+                      value={p.unidad}
+                      onChange={(e) => actualizarProduccion(i, { unidad: e.target.value })}
+                    />
+                  </Campo>
+                  <div className="col-span-2 flex justify-end sm:col-span-1 sm:justify-center">
+                    {producciones.length > 1 && (
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        aria-label="Quitar producción"
+                        className="text-muted-foreground hover:text-destructive"
+                        onClick={() => setProducciones((r) => r.filter((_, idx) => idx !== i))}
+                      >
+                        <X />
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex-row items-center justify-between space-y-0 pb-4">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Trash2 className="size-5 text-destructive" /> Desperdicios
+              </CardTitle>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="text-primary"
+                onClick={() => setDesperdicios((r) => [...r, desperdicioVacio()])}
+              >
+                <Plus /> Añadir desperdicio
+              </Button>
+            </CardHeader>
+            <CardContent className="space-y-4">
               {desperdicios.map((d, i) => (
-                <div
-                  key={i}
-                  className="rounded-lg border border-outline-variant/40 bg-surface-container-low p-sm space-y-sm"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-sm">
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Producto / plato</label>
-                      <input
-                        className={inputCls}
+                <div key={i} className="space-y-4 rounded-lg border bg-secondary/40 p-4">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <Campo label="Producto / plato">
+                      <Input
                         placeholder="Ej. Arroz, recortes de verdura"
                         value={d.productoAsociado}
-                        onChange={(e) => actualizarDesperdicio(i, { productoAsociado: e.target.value })}
+                        onChange={(e) =>
+                          actualizarDesperdicio(i, { productoAsociado: e.target.value })
+                        }
                       />
-                    </div>
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Categoría</label>
-                      <select
-                        className={inputCls}
+                    </Campo>
+                    <Campo label="Categoría">
+                      <NativeSelect
                         value={d.categoria}
                         onChange={(e) =>
-                          actualizarDesperdicio(i, { categoria: e.target.value as CategoriaResiduo })
+                          actualizarDesperdicio(i, {
+                            categoria: e.target.value as CategoriaResiduo,
+                          })
                         }
                       >
-                        {opcionesDe(ETIQUETA_CATEGORIA).map((o) => (
-                          <option key={o.valor} value={o.valor}>
-                            {o.etiqueta}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                        <Opciones mapa={ETIQUETA_CATEGORIA} />
+                      </NativeSelect>
+                    </Campo>
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-sm">
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Kilos</label>
-                      <input
-                        className={inputCls}
+                  <div className="grid grid-cols-2 gap-4">
+                    <Campo label="Kilos">
+                      <Input
                         inputMode="decimal"
                         placeholder="0.0"
                         value={d.cantidadKg}
                         onChange={(e) => actualizarDesperdicio(i, { cantidadKg: e.target.value })}
                       />
-                    </div>
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Motivo</label>
-                      <select
-                        className={inputCls}
+                    </Campo>
+                    <Campo label="Motivo">
+                      <NativeSelect
                         value={d.motivo}
                         onChange={(e) =>
                           actualizarDesperdicio(i, { motivo: e.target.value as MotivoGeneracion })
                         }
                       >
-                        {opcionesDe(ETIQUETA_MOTIVO).map((o) => (
-                          <option key={o.valor} value={o.valor}>
-                            {o.etiqueta}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Área</label>
-                      <select
-                        className={inputCls}
+                        <Opciones mapa={ETIQUETA_MOTIVO} />
+                      </NativeSelect>
+                    </Campo>
+                    <Campo label="Área">
+                      <NativeSelect
                         value={d.area}
                         onChange={(e) =>
                           actualizarDesperdicio(i, { area: e.target.value as AreaProceso })
                         }
                       >
-                        {opcionesDe(ETIQUETA_AREA).map((o) => (
-                          <option key={o.valor} value={o.valor}>
-                            {o.etiqueta}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Costo S/ (opc.)</label>
-                      <input
-                        className={inputCls}
+                        <Opciones mapa={ETIQUETA_AREA} />
+                      </NativeSelect>
+                    </Campo>
+                    <Campo label="Costo S/ (opc.)">
+                      <Input
                         inputMode="decimal"
                         placeholder="auto"
                         value={d.costoManual}
                         onChange={(e) => actualizarDesperdicio(i, { costoManual: e.target.value })}
                       />
-                    </div>
+                    </Campo>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-sm items-end">
-                    <div className="flex flex-col gap-xs">
-                      <label className={labelCls}>Destino previsto</label>
-                      <select
-                        className={inputCls}
+                  <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-2">
+                    <Campo label="Destino previsto">
+                      <NativeSelect
                         value={d.destinoPrevisto}
                         onChange={(e) =>
                           actualizarDesperdicio(i, {
@@ -414,57 +492,51 @@ function RegisterPage() {
                           })
                         }
                       >
-                        {opcionesDe(ETIQUETA_DESTINO).map((o) => (
-                          <option key={o.valor} value={o.valor}>
-                            {o.etiqueta}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                        <Opciones mapa={ETIQUETA_DESTINO} />
+                      </NativeSelect>
+                    </Campo>
                     {desperdicios.length > 1 && (
-                      <button
+                      <Button
                         type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="justify-self-start text-muted-foreground hover:text-destructive md:justify-self-end"
                         onClick={() => setDesperdicios((r) => r.filter((_, idx) => idx !== i))}
-                        className="text-on-surface-variant hover:text-error text-label-md font-label-md inline-flex items-center gap-1 justify-self-start md:justify-self-end"
                       >
-                        <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
-                          delete
-                        </span>
-                        Quitar
-                      </button>
+                        <Trash2 /> Quitar
+                      </Button>
                     )}
                   </div>
                 </div>
               ))}
-            </div>
-          </section>
+            </CardContent>
+          </Card>
 
-          {/* Observaciones */}
-          <section className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30">
-            <label className={labelCls} htmlFor="obs">
-              Observaciones (opcional)
-            </label>
-            <textarea
-              id="obs"
-              rows={2}
-              className="w-full mt-xs px-3 py-2 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-              value={observaciones}
-              onChange={(e) => setObservaciones(e.target.value)}
-            />
-          </section>
+          <Card>
+            <CardContent className="pt-6">
+              <Campo label="Observaciones (opcional)" htmlFor="obs">
+                <Textarea
+                  id="obs"
+                  rows={2}
+                  value={observaciones}
+                  onChange={(e) => setObservaciones(e.target.value)}
+                />
+              </Campo>
+            </CardContent>
+          </Card>
 
-          {mutation.isError && <p className="text-sm text-error">{errorMessage(mutation.error)}</p>}
+          {mutation.isError && (
+            <p className="text-sm text-destructive">{errorMessage(mutation.error)}</p>
+          )}
 
-          <div className="pt-sm pb-xl">
-            <button
-              className="w-full h-12 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg shadow-sm active:scale-95 transition-all flex justify-center items-center gap-sm hover:bg-primary/90 disabled:opacity-60"
-              disabled={mutation.isPending || !restauranteId || !hayAlgo}
-              type="submit"
-            >
-              <span className="material-symbols-outlined">save</span>
-              {mutation.isPending ? "Guardando…" : "Guardar registro"}
-            </button>
-          </div>
+          <Button
+            size="lg"
+            className="w-full"
+            disabled={mutation.isPending || !restauranteId || !hayAlgo}
+            type="submit"
+          >
+            <Save /> {mutation.isPending ? "Guardando…" : "Guardar registro"}
+          </Button>
         </form>
       </div>
     </AppShell>

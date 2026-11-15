@@ -1,7 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { CalendarDays, Search, SearchX, Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
+import { PageHeader } from "@/components/PageHeader";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { NativeSelect } from "@/components/ui/native-select";
+import { Skeleton } from "@/components/ui/skeleton";
 import { requireSession, useSession } from "@/lib/session";
 import { deleteOperacion, listOperaciones, type RegistroOperacion, type Turno } from "@/lib/api";
 
@@ -46,6 +55,15 @@ function totals(op: RegistroOperacion) {
   return { sales, wasteKg, impact, missingCost };
 }
 
+function Dato({ label, value, tone }: { label: string; value: string; tone?: string }) {
+  return (
+    <div>
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className={`mt-0.5 text-base font-semibold tabular-nums ${tone ?? ""}`}>{value}</p>
+    </div>
+  );
+}
+
 function RecordCard({
   op,
   onDelete,
@@ -57,60 +75,44 @@ function RecordCard({
 }) {
   const { sales, wasteKg, impact, missingCost } = totals(op);
   return (
-    <div className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_12px_rgba(31,27,23,0.02)] hover:shadow-[0_4px_12px_rgba(31,27,23,0.05)] transition-all group">
-      <div className="flex justify-between items-start mb-sm">
-        <div className="flex items-center gap-sm">
-          <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
-            <span className="material-symbols-outlined">calendar_today</span>
-          </div>
+    <Card className="group p-5 transition-shadow hover:shadow-md">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span className="flex size-10 items-center justify-center rounded-lg bg-accent text-primary">
+            <CalendarDays className="size-5" />
+          </span>
           <div>
-            <h4 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
-              {fmtDate(op.fecha)}
-            </h4>
-            <p className="font-label-sm text-label-sm text-on-surface-variant">
+            <h3 className="text-base font-semibold">{fmtDate(op.fecha)}</h3>
+            <p className="text-xs text-muted-foreground">
               Turno {ETIQUETA_TURNO_CORTO[op.turno]}
               {op.observaciones ? ` · ${op.observaciones}` : ""}
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-sm">
-          <span
-            className={`px-2 py-1 rounded-full font-label-sm text-label-sm ${
-              missingCost
-                ? "bg-error-container text-on-error-container"
-                : "bg-secondary-container text-on-secondary-container"
-            }`}
-          >
+        <div className="flex items-center gap-2">
+          <Badge variant={missingCost ? "warning" : "success"}>
             {missingCost ? "Falta costo" : "Conciliado"}
-          </span>
-          <button
-            className="text-on-surface-variant hover:text-error transition-colors disabled:opacity-40"
+          </Badge>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="size-8 text-muted-foreground hover:text-destructive"
             disabled={deleting}
             onClick={() => onDelete(op.id)}
             title="Eliminar registro"
+            aria-label="Eliminar registro"
             type="button"
           >
-            <span className="material-symbols-outlined text-[20px]">delete</span>
-          </button>
+            <Trash2 />
+          </Button>
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-sm pt-sm border-t border-surface-container">
-        <div>
-          <p className="font-label-sm text-label-sm text-on-surface-variant mb-xs">Ventas</p>
-          <p className="font-headline-sm text-headline-sm text-on-surface">S/ {sales.toFixed(2)}</p>
-        </div>
-        <div>
-          <p className="font-label-sm text-label-sm text-on-surface-variant mb-xs">Desperdicio</p>
-          <p className="font-headline-sm text-headline-sm text-on-surface">
-            {wasteKg.toFixed(1)} kg
-          </p>
-        </div>
-        <div>
-          <p className="font-label-sm text-label-sm text-on-surface-variant mb-xs">Impacto econ.</p>
-          <p className="font-headline-sm text-headline-sm text-error">- S/ {impact.toFixed(2)}</p>
-        </div>
+      <div className="mt-4 grid grid-cols-2 gap-4 border-t pt-4 sm:grid-cols-3">
+        <Dato label="Ventas" value={`S/ ${sales.toFixed(2)}`} />
+        <Dato label="Desperdicio" value={`${wasteKg.toFixed(1)} kg`} />
+        <Dato label="Impacto econ." value={`- S/ ${impact.toFixed(2)}`} tone="text-destructive" />
       </div>
-    </div>
+    </Card>
   );
 }
 
@@ -124,6 +126,7 @@ function HistoryPage() {
   const [turno, setTurno] = useState<Turno | "">("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const rangoInvalido = !!from && !!to && from > to;
 
   const operaciones = useQuery({
     queryKey: ["operaciones", restauranteId, debouncedSearch, turno, from, to],
@@ -134,7 +137,7 @@ function HistoryPage() {
         ...(from ? { from } : {}),
         ...(to ? { to } : {}),
       }),
-    enabled: !!restauranteId,
+    enabled: !!restauranteId && !rangoInvalido,
   });
 
   const deleteMutation = useMutation({
@@ -147,76 +150,82 @@ function HistoryPage() {
 
   return (
     <AppShell active="/history">
-      <div className="max-w-4xl mx-auto space-y-lg">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-md">
-          <div>
-            <h2 className="font-headline-sm text-headline-sm-mobile md:font-headline-md md:text-headline-md text-on-surface">
-              Historial de registros
-            </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-xs">
-              Revisa los registros diarios y su impacto económico.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-sm w-full md:w-auto flex-wrap">
-            <div className="relative flex-1 sm:w-64">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
-                search
-              </span>
-              <input
-                className="w-full h-12 pl-10 pr-4 rounded-lg bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md outline-none transition-all"
-                placeholder="Buscar registros..."
-                type="text"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
-            <select
-              className="h-12 px-md rounded-lg bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface outline-none"
-              value={turno}
-              onChange={(e) => setTurno(e.target.value as Turno | "")}
-            >
-              <option value="">Todos los turnos</option>
-              <option value="MANANA">Mañana</option>
-              <option value="TARDE">Tarde</option>
-              <option value="NOCHE">Noche</option>
-            </select>
-            <input
-              className="h-12 px-md rounded-lg bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface outline-none"
-              type="date"
-              value={from}
-              onChange={(e) => setFrom(e.target.value)}
-            />
-            <input
-              className="h-12 px-md rounded-lg bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface outline-none"
-              type="date"
-              value={to}
-              onChange={(e) => setTo(e.target.value)}
-            />
-          </div>
-        </div>
+      <PageHeader
+        title="Historial de registros"
+        description="Revisa los registros diarios y su impacto económico."
+      />
 
-        {operaciones.isError && (
-          <p className="text-sm text-red-600">No se pudo cargar el historial.</p>
+      <Card className="p-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_180px_160px_160px]">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              className="pl-9"
+              placeholder="Buscar registros..."
+              type="text"
+              aria-label="Buscar registros"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          <NativeSelect
+            aria-label="Turno"
+            value={turno}
+            onChange={(e) => setTurno(e.target.value as Turno | "")}
+          >
+            <option value="">Todos los turnos</option>
+            <option value="MANANA">Mañana</option>
+            <option value="TARDE">Tarde</option>
+            <option value="NOCHE">Noche</option>
+          </NativeSelect>
+          <Input
+            type="date"
+            aria-label="Desde"
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+          />
+          <Input
+            type="date"
+            aria-label="Hasta"
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+          />
+        </div>
+      </Card>
+
+      {rangoInvalido && (
+        <p role="alert" className="text-sm text-destructive">
+          La fecha de inicio no puede ser posterior a la fecha de fin.
+        </p>
+      )}
+
+      {operaciones.isError && !rangoInvalido && (
+        <p className="text-sm text-destructive">No se pudo cargar el historial.</p>
+      )}
+
+      <div className="space-y-3">
+        {operaciones.isLoading &&
+          [0, 1, 2].map((i) => <Skeleton key={i} className="h-32 w-full rounded-xl" />)}
+        {operaciones.data?.length === 0 && (
+          <Card>
+            <EmptyState
+              icon={SearchX}
+              title="Ningún registro coincide con estos filtros."
+              description="Prueba con otro turno o amplía el rango de fechas."
+            />
+          </Card>
         )}
-
-        <div className="space-y-sm">
-          {operaciones.data?.length === 0 && (
-            <p className="text-sm text-on-surface-variant py-lg text-center">
-              Ningún registro coincide con estos filtros.
-            </p>
-          )}
-          {operaciones.data?.map((op) => (
-            <RecordCard
-              deleting={deleteMutation.isPending && deleteMutation.variables === op.id}
-              key={op.id}
-              onDelete={(id) => {
-                if (confirm("¿Eliminar este registro? Esta acción no se puede deshacer."))
-                  deleteMutation.mutate(id);
-              }}
-              op={op}
-            />
-          ))}
-        </div>
+        {operaciones.data?.map((op) => (
+          <RecordCard
+            deleting={deleteMutation.isPending && deleteMutation.variables === op.id}
+            key={op.id}
+            onDelete={(id) => {
+              if (confirm("¿Eliminar este registro? Esta acción no se puede deshacer."))
+                deleteMutation.mutate(id);
+            }}
+            op={op}
+          />
+        ))}
       </div>
     </AppShell>
   );

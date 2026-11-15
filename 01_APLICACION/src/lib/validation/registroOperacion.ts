@@ -36,9 +36,14 @@ export const updateRegistroOperacionSchema = z.object({
   desperdicios: z.array(residuoItemSchema).optional(),
 });
 
-export const registroOperacionFiltersSchema = z.object({
-  from: z.coerce.date().optional(),
-  to: z.coerce.date().optional(),
-  turno: z.enum(Turno).optional(),
-  q: z.string().min(1).optional(),
-});
+export const registroOperacionFiltersSchema = z
+  .object({
+    from: z.coerce.date().optional(),
+    to: z.coerce.date().optional(),
+    turno: z.enum(Turno).optional(),
+    q: z.string().min(1).optional(),
+  })
+  .refine((f) => !f.from || !f.to || f.from <= f.to, {
+    message: "La fecha de inicio no puede ser posterior a la fecha de fin.",
+    path: ["from"],
+  });

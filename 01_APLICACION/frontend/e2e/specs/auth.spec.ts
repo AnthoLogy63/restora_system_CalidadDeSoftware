@@ -14,7 +14,7 @@ test.describe("login", () => {
     await page.locator("#login-email").fill("demo@circularaqp.pe");
     await page.locator("#login-password").fill("wrong-password");
     await page.getByRole("button", { name: "Iniciar sesión" }).click();
-    await expect(page.locator("form p.text-red-600")).toBeVisible();
+    await expect(page.locator("form [role=alert]")).toBeVisible();
     await expect(page).toHaveURL("/auth");
   });
 });

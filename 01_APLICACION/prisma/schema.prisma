@@ -131,6 +131,8 @@ model Producto {
   restaurante   Restaurante @relation(fields: [restauranteId], references: [id], onDelete: Cascade)
   nombre        String
   costoUnitario Float
+  /// CC-01 (FRQ-0005): un producto con operaciones históricas se inactiva en lugar de eliminarse.
+  activo        Boolean     @default(true)
   createdAt     DateTime    @default(now())
 
   residuos Residuo[]

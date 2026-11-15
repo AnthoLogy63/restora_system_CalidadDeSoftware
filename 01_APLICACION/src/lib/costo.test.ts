@@ -25,6 +25,20 @@ describe("calcularCostoTotal", () => {
     expect(costo).toBe(9.5);
   });
 
+  it("solo considera productos activos al calcular el costo (CC-01)", async () => {
+    findFirst.mockResolvedValue(null);
+    const costo = await calcularCostoTotal({
+      restauranteId: "r1",
+      cantidadKg: 2,
+      productoId: "p-inactivo",
+      costoManual: 7,
+    });
+    expect(findFirst).toHaveBeenCalledWith({
+      where: { id: "p-inactivo", restauranteId: "r1", activo: true },
+    });
+    expect(costo).toBe(7);
+  });
+
   it("usa el costo manual cuando no se pasa productoId", async () => {
     const costo = await calcularCostoTotal({ restauranteId: "r1", cantidadKg: 2, costoManual: 20 });
     expect(costo).toBe(20);
@@ -39,6 +53,6 @@ describe("calcularCostoTotal", () => {
   it("scopea la búsqueda del producto al restaurante (aislamiento multi-tenant)", async () => {
     findFirst.mockResolvedValue({ id: "p1", restauranteId: "r1", costoUnitario: 5 });
     await calcularCostoTotal({ restauranteId: "r1", cantidadKg: 1, productoId: "p1" });
-    expect(findFirst).toHaveBeenCalledWith({ where: { id: "p1", restauranteId: "r1" } });
+    expect(findFirst).toHaveBeenCalledWith({ where: { id: "p1", restauranteId: "r1", activo: true } });
   });
 });

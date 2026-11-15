@@ -16,11 +16,19 @@ export function handleRouteError(error: unknown): NextResponse {
   if (error instanceof NotFoundError) {
     return jsonError(404, error.message);
   }
+  if (isUniqueViolation(error)) {
+    return jsonError(409, "Ya existe un registro con esos datos (por ejemplo, la misma fecha y turno).");
+  }
   console.error(error);
   return jsonError(500, "Error interno del servidor");
 }
 
 export class NotFoundError extends Error {}
+
+/** Violación de restricción única (Prisma P2002): se informa como conflicto, no como error interno. */
+export function isUniqueViolation(error: unknown): boolean {
+  return typeof error === "object" && error !== null && (error as { code?: unknown }).code === "P2002";
+}
 
 export function parseDateRange(searchParams: URLSearchParams): { from: Date; to: Date } {
   const fromRaw = searchParams.get("from");

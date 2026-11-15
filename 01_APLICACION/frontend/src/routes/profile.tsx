@@ -1,7 +1,15 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { BadgeCheck, Bell, LogOut, Mail, MapPin, Pencil, Scale, Sparkles } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { PageHeader } from "@/components/PageHeader";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { requireSession, useSession } from "@/lib/session";
 import { logout, updateRestaurante, ApiError } from "@/lib/api";
 
@@ -11,11 +19,35 @@ export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
       { title: "Perfil y ajustes - restora" },
-      { name: "description", content: "Gestiona los datos de tu restaurante, preferencias y cuenta." },
+      {
+        name: "description",
+        content: "Gestiona los datos de tu restaurante, preferencias y cuenta.",
+      },
     ],
   }),
   component: ProfilePage,
 });
+
+function CampoIcono({
+  id,
+  label,
+  icon: Icon,
+  ...props
+}: React.ComponentProps<typeof Input> & {
+  id: string;
+  label: string;
+  icon: typeof Mail;
+}) {
+  return (
+    <div className="space-y-1.5">
+      <Label htmlFor={id}>{label}</Label>
+      <div className="relative">
+        <Icon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+        <Input id={id} className="pl-9 disabled:bg-secondary/50 disabled:opacity-100" {...props} />
+      </div>
+    </div>
+  );
+}
 
 function ProfilePage() {
   const navigate = useNavigate();
@@ -60,214 +92,147 @@ function ProfilePage() {
 
   return (
     <AppShell active="/profile">
-      <div className="mb-lg">
-        <h2 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-xs">
-          Perfil y ajustes
-        </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          Gestiona los datos de tu restaurante, preferencias y cuenta.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-md">
-        {/* Restaurant Profile */}
-        <div className="md:col-span-8 bg-surface-container-lowest rounded-xl p-lg border border-outline-variant sillar-shadow">
-          <div className="flex items-center justify-between mb-lg">
-            <h3 className="font-headline-sm text-headline-sm text-on-surface">
-              Perfil del restaurante
-            </h3>
+      <PageHeader
+        title="Perfil y ajustes"
+        description="Gestiona los datos de tu restaurante, preferencias y cuenta."
+      />
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <Card className="lg:col-span-2">
+          <CardHeader className="flex-row items-start justify-between space-y-0">
+            <div className="space-y-1.5">
+              <CardTitle className="text-base">Perfil del restaurante</CardTitle>
+              <CardDescription>Datos usados en reportes e indicadores.</CardDescription>
+            </div>
             {editing ? (
-              <div className="flex gap-sm">
-                <button
-                  className="text-on-surface-variant hover:bg-surface-container px-3 py-1 rounded-full transition-colors font-label-md text-label-md"
-                  onClick={() => setEditing(false)}
-                  type="button"
-                >
+              <div className="flex gap-2">
+                <Button variant="ghost" size="sm" onClick={() => setEditing(false)} type="button">
                   Cancelar
-                </button>
-                <button
-                  className="text-primary hover:bg-surface-container px-3 py-1 rounded-full transition-colors font-label-md text-label-md disabled:opacity-60"
+                </Button>
+                <Button
+                  size="sm"
                   disabled={saveMutation.isPending}
                   onClick={() => saveMutation.mutate()}
                   type="button"
                 >
                   {saveMutation.isPending ? "Guardando…" : "Guardar"}
-                </button>
+                </Button>
               </div>
             ) : (
-              <button
-                className="text-primary hover:bg-surface-container px-3 py-1 rounded-full transition-colors font-label-md text-label-md"
-                onClick={() => setEditing(true)}
-                type="button"
-              >
-                Editar
-              </button>
+              <Button variant="outline" size="sm" onClick={() => setEditing(true)} type="button">
+                <Pencil /> Editar
+              </Button>
             )}
-          </div>
-          {saveMutation.isError && (
-            <p className="text-sm text-red-600 mb-md">
-              {saveMutation.error instanceof ApiError
-                ? saveMutation.error.message
-                : "No se pudieron guardar los cambios."}
-            </p>
-          )}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-lg mb-lg">
-            <div className="flex-1 w-full space-y-sm">
-              <div>
-                <label
-                  className="block font-label-sm text-label-sm text-on-surface-variant mb-1"
-                  htmlFor="profile-nombre"
-                >
-                  Nombre del restaurante
-                </label>
-                <input
-                  className="w-full h-[48px] px-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-md text-body-md text-on-surface disabled:opacity-70"
-                  disabled={!editing}
-                  id="profile-nombre"
-                  onChange={(e) => setNombre(e.target.value)}
-                  type="text"
-                  value={nombre}
-                />
-              </div>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {saveMutation.isError && (
+              <p className="text-sm text-destructive">
+                {saveMutation.error instanceof ApiError
+                  ? saveMutation.error.message
+                  : "No se pudieron guardar los cambios."}
+              </p>
+            )}
+            <div className="space-y-1.5">
+              <Label htmlFor="profile-nombre">Nombre del restaurante</Label>
+              <Input
+                className="disabled:bg-secondary/50 disabled:opacity-100"
+                disabled={!editing}
+                id="profile-nombre"
+                onChange={(e) => setNombre(e.target.value)}
+                type="text"
+                value={nombre}
+              />
             </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
-            <div>
-              <label
-                className="block font-label-sm text-label-sm text-on-surface-variant mb-1"
-                htmlFor="profile-ciudad"
-              >
-                Ciudad
-              </label>
-              <div className="relative">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">
-                  location_on
-                </span>
-                <input
-                  className="w-full h-[48px] pl-10 pr-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-md text-body-md text-on-surface disabled:opacity-70"
-                  disabled={!editing}
-                  id="profile-ciudad"
-                  onChange={(e) => setCiudad(e.target.value)}
-                  type="text"
-                  value={ciudad}
-                />
-              </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <CampoIcono
+                id="profile-ciudad"
+                label="Ciudad"
+                icon={MapPin}
+                disabled={!editing}
+                onChange={(e) => setCiudad(e.target.value)}
+                type="text"
+                value={ciudad}
+              />
+              <CampoIcono
+                id="profile-email"
+                label="Correo de contacto"
+                icon={Mail}
+                disabled
+                readOnly
+                type="email"
+                value={session.data?.email ?? ""}
+              />
+              <CampoIcono
+                id="profile-linea-base"
+                label="Línea base semanal (kg)"
+                icon={Scale}
+                disabled={!editing}
+                inputMode="decimal"
+                onChange={(e) => setLineaBase(e.target.value)}
+                placeholder="Se usa para el indicador de Prevención"
+                type="text"
+                value={lineaBase}
+              />
             </div>
-            <div>
-              <label
-                className="block font-label-sm text-label-sm text-on-surface-variant mb-1"
-                htmlFor="profile-email"
-              >
-                Correo de contacto
-              </label>
-              <div className="relative">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">
-                  mail
-                </span>
-                <input
-                  className="w-full h-[48px] pl-10 pr-sm rounded-lg border border-outline bg-surface-container-lowest font-body-md text-body-md text-on-surface opacity-70"
-                  id="profile-email"
-                  readOnly
-                  type="email"
-                  value={session.data?.email ?? ""}
-                />
-              </div>
-            </div>
-            <div>
-              <label
-                className="block font-label-sm text-label-sm text-on-surface-variant mb-1"
-                htmlFor="profile-linea-base"
-              >
-                Línea base semanal (kg)
-              </label>
-              <div className="relative">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">
-                  scale
-                </span>
-                <input
-                  className="w-full h-[48px] pl-10 pr-sm rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-md text-body-md text-on-surface disabled:opacity-70"
-                  disabled={!editing}
-                  id="profile-linea-base"
-                  inputMode="decimal"
-                  onChange={(e) => setLineaBase(e.target.value)}
-                  placeholder="Se usa para el indicador de Prevención"
-                  type="text"
-                  value={lineaBase}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        {/* Subscription Card */}
-        <div className="md:col-span-4 bg-primary-container text-on-primary-container rounded-xl p-lg flex flex-col justify-between relative overflow-hidden sillar-shadow">
-          <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl pointer-events-none" />
-          <div>
-            <div className="flex items-center justify-between mb-sm relative z-10">
-              <span className="font-label-md text-label-md uppercase tracking-wider bg-white/20 px-2 py-1 rounded-full">
+        <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-primary to-[#4a1528] text-primary-foreground">
+          <div className="pointer-events-none absolute -right-8 -top-8 size-36 rounded-full bg-white/10 blur-2xl" />
+          <CardHeader className="relative">
+            <div className="flex items-center justify-between">
+              <Badge className="border-transparent bg-white/20 text-white hover:bg-white/20">
                 Plan activo
-              </span>
-              <span className="material-symbols-outlined" data-weight="fill">
-                verified
-              </span>
+              </Badge>
+              <BadgeCheck className="size-5" />
             </div>
-            <h3 className="font-display-lg-mobile text-display-lg-mobile font-bold mb-xs relative z-10">
-              IA Premium
-            </h3>
-            <p className="font-body-md text-body-md opacity-90 relative z-10">
-              Acceso completo a análisis avanzado, registro automatizado con IA y soporte
-              prioritario.
-            </p>
-          </div>
-        </div>
+            <CardTitle className="flex items-center gap-2 pt-3 text-2xl">
+              <Sparkles className="size-5 text-amber-300" /> IA Premium
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="relative text-sm text-white/85">
+            Acceso completo a análisis avanzado, registro automatizado con IA y soporte prioritario.
+          </CardContent>
+        </Card>
 
-        {/* Preferences */}
-        <div className="md:col-span-12 bg-surface-container-lowest rounded-xl p-0 border border-outline-variant overflow-hidden sillar-shadow">
-          <div className="p-lg border-b border-outline-variant bg-surface-container-low">
-            <h3 className="font-headline-sm text-headline-sm text-on-surface">
-              Preferencias de la app
-            </h3>
-          </div>
-          <ul className="divide-y divide-outline-variant">
-            <li className="flex items-center justify-between p-md hover:bg-surface-container transition-colors">
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center mr-md text-on-surface-variant">
-                  <span className="material-symbols-outlined">notifications_active</span>
-                </div>
+        <Card className="lg:col-span-3">
+          <CardHeader className="border-b bg-secondary/40">
+            <CardTitle className="text-base">Preferencias de la app</CardTitle>
+          </CardHeader>
+          <CardContent className="p-0">
+            <div className="flex items-center justify-between gap-4 p-4">
+              <div className="flex items-center gap-3">
+                <span className="flex size-10 items-center justify-center rounded-full bg-secondary text-muted-foreground">
+                  <Bell className="size-5" />
+                </span>
                 <div>
-                  <h4 className="font-body-lg text-body-lg text-on-surface font-medium">
+                  <Label htmlFor="pref-push" className="text-sm font-medium">
                     Notificaciones push
-                  </h4>
-                  <p className="font-label-sm text-label-sm text-on-surface-variant">
+                  </Label>
+                  <p className="text-xs text-muted-foreground">
                     Alertas de nuevos registros y reportes.
                   </p>
                 </div>
               </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  checked={pushNotifications}
-                  onChange={() => setPushNotifications((v) => !v)}
-                  className="sr-only peer"
-                  type="checkbox"
-                />
-                <div className="w-11 h-6 bg-surface-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary" />
-              </label>
-            </li>
-          </ul>
-        </div>
-
-        {/* Danger Zone */}
-        <div className="md:col-span-12 mt-md">
-          <button
-            className="w-full md:w-auto h-[48px] px-lg rounded-lg border border-error text-error hover:bg-error-container hover:text-on-error-container transition-colors font-label-md text-label-md font-bold flex items-center justify-center disabled:opacity-60"
-            disabled={logoutMutation.isPending}
-            onClick={() => logoutMutation.mutate()}
-            type="button"
-          >
-            <span className="material-symbols-outlined mr-2 text-[20px]">logout</span>
-            {logoutMutation.isPending ? "Cerrando sesión…" : "Cerrar sesión"}
-          </button>
-        </div>
+              <Switch
+                id="pref-push"
+                checked={pushNotifications}
+                onCheckedChange={setPushNotifications}
+              />
+            </div>
+          </CardContent>
+        </Card>
       </div>
+
+      <Button
+        variant="outline"
+        className="border-destructive/40 text-destructive hover:bg-destructive/10 hover:text-destructive"
+        disabled={logoutMutation.isPending}
+        onClick={() => logoutMutation.mutate()}
+        type="button"
+      >
+        <LogOut /> {logoutMutation.isPending ? "Cerrando sesión…" : "Cerrar sesión"}
+      </Button>
     </AppShell>
   );
 }

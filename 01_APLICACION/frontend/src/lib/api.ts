@@ -96,6 +96,7 @@ export interface Producto {
   restauranteId: string;
   nombre: string;
   costoUnitario: number;
+  activo: boolean;
   createdAt: string;
 }
 
@@ -392,12 +393,14 @@ export function createProducto(
 export function updateProducto(
   restauranteId: string,
   productoId: string,
-  data: Partial<{ nombre: string; costoUnitario: number }>,
+  data: Partial<{ nombre: string; costoUnitario: number; activo: boolean }>,
 ) {
   return patch<Producto>(`/restaurantes/${restauranteId}/productos/${productoId}`, data);
 }
 export function deleteProducto(restauranteId: string, productoId: string) {
-  return del<{ ok: true }>(`/restaurantes/${restauranteId}/productos/${productoId}`);
+  return del<{ ok: true; inactivado: boolean }>(
+    `/restaurantes/${restauranteId}/productos/${productoId}`,
+  );
 }
 
 // ---------------------------------------------------------------------------

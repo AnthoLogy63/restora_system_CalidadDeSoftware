@@ -1,12 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import { BadgeCheck, GraduationCap, Package, Plus, RotateCcw, Trash2, Users } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
+import { PageHeader } from "@/components/PageHeader";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { NativeSelect } from "@/components/ui/native-select";
 import { requireSession, useSession } from "@/lib/session";
 import {
   listProductos,
   createProducto,
   deleteProducto,
+  updateProducto,
   listColaboradores,
   createColaborador,
   updateColaborador,
@@ -42,15 +52,12 @@ function CatalogoPage() {
 
   return (
     <AppShell active="/catalogo">
-      <header className="mb-lg">
-        <h2 className="font-headline-md text-headline-md text-on-surface mb-xs">Catálogo y equipo</h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          Registra tus productos con su costo para calcular automáticamente la pérdida económica del
-          desperdicio, y a tu personal con su nivel de capacitación.
-        </p>
-      </header>
+      <PageHeader
+        title="Catálogo y equipo"
+        description="Registra tus productos con su costo para calcular automáticamente la pérdida económica del desperdicio, y a tu personal con su nivel de capacitación."
+      />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+      <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
         <ProductosPanel restauranteId={restauranteId} queryClient={queryClient} />
         <ColaboradoresPanel restauranteId={restauranteId} queryClient={queryClient} />
       </div>
@@ -60,7 +67,13 @@ function CatalogoPage() {
 
 type QC = ReturnType<typeof useQueryClient>;
 
-function ProductosPanel({ restauranteId, queryClient }: { restauranteId: string; queryClient: QC }) {
+function ProductosPanel({
+  restauranteId,
+  queryClient,
+}: {
+  restauranteId: string;
+  queryClient: QC;
+}) {
   const [nombre, setNombre] = useState("");
   const [costo, setCosto] = useState("");
 
@@ -71,84 +84,130 @@ function ProductosPanel({ restauranteId, queryClient }: { restauranteId: string;
   });
 
   const crear = useMutation({
-    mutationFn: () => createProducto(restauranteId, { nombre: nombre.trim(), costoUnitario: Number(costo) }),
+    mutationFn: () =>
+      createProducto(restauranteId, { nombre: nombre.trim(), costoUnitario: Number(costo) }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["productos"] });
       setNombre("");
       setCosto("");
     },
   });
+  const [aviso, setAviso] = useState<string | null>(null);
   const eliminar = useMutation({
     mutationFn: (id: string) => deleteProducto(restauranteId, id),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["productos"] }),
+    onSuccess: (res) => {
+      setAviso(
+        res.inactivado
+          ? "El producto tiene registros históricos: se inactivó para conservar su costo y trazabilidad."
+          : null,
+      );
+      queryClient.invalidateQueries({ queryKey: ["productos"] });
+    },
+  });
+  const reactivar = useMutation({
+    mutationFn: (id: string) => updateProducto(restauranteId, id, { activo: true }),
+    onSuccess: () => {
+      setAviso(null);
+      queryClient.invalidateQueries({ queryKey: ["productos"] });
+    },
   });
 
   const puede = restauranteId && nombre.trim().length >= 2 && Number(costo) > 0;
 
   return (
-    <section className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/40">
-      <div className="flex items-center gap-sm mb-md">
-        <span className="material-symbols-outlined text-primary">inventory_2</span>
-        <h3 className="font-headline-sm text-headline-sm text-on-surface">Productos</h3>
-      </div>
+    <section>
+      <Card>
+        <CardHeader className="pb-4">
+          <h2 className="flex items-center gap-2 text-base font-semibold">
+            <Package className="size-5 text-primary" /> Productos
+          </h2>
+        </CardHeader>
+        <CardContent>
+          <form
+            className="mb-4 flex flex-col gap-2 sm:flex-row"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (puede) crear.mutate();
+            }}
+          >
+            <Input
+              aria-label="Nombre del producto"
+              placeholder="Nombre del producto"
+              className="flex-1"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+            <Input
+              aria-label="Costo en soles"
+              placeholder="Costo S/"
+              inputMode="decimal"
+              className="sm:w-28"
+              value={costo}
+              onChange={(e) => setCosto(e.target.value)}
+            />
+            <Button type="submit" disabled={!puede || crear.isPending}>
+              <Plus /> Agregar
+            </Button>
+          </form>
+          {crear.isError && (
+            <p className="mb-3 text-sm text-destructive">
+              {errMsg(crear.error, "No se pudo crear el producto.")}
+            </p>
+          )}
 
-      <form
-        className="flex flex-col sm:flex-row gap-sm mb-md"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (puede) crear.mutate();
-        }}
-      >
-        <input
-          placeholder="Nombre del producto"
-          className="flex-1 h-11 px-3 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-        />
-        <input
-          placeholder="Costo S/"
-          inputMode="decimal"
-          className="sm:w-28 h-11 px-3 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-          value={costo}
-          onChange={(e) => setCosto(e.target.value)}
-        />
-        <button
-          type="submit"
-          disabled={!puede || crear.isPending}
-          className="h-11 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold active:scale-95 transition-all disabled:opacity-60"
-        >
-          Agregar
-        </button>
-      </form>
-      {crear.isError && (
-        <p className="text-sm text-error mb-sm">{errMsg(crear.error, "No se pudo crear el producto.")}</p>
-      )}
-
-      {productos.data?.length === 0 && (
-        <p className="text-sm text-on-surface-variant">Aún no hay productos en el catálogo.</p>
-      )}
-      <ul className="divide-y divide-outline-variant/30">
-        {productos.data?.map((p) => (
-          <li key={p.id} className="flex items-center justify-between py-2">
-            <div>
-              <span className="font-label-md text-label-md text-on-surface">{p.nombre}</span>
-              <span className="text-body-sm text-on-surface-variant ml-2">S/ {p.costoUnitario}</span>
-            </div>
-            <button
-              type="button"
-              aria-label="Eliminar producto"
-              onClick={() => {
-                if (confirm(`¿Eliminar "${p.nombre}"?`)) eliminar.mutate(p.id);
-              }}
-              className="text-on-surface-variant hover:text-error transition-colors"
+          {aviso && (
+            <p
+              role="status"
+              className="mb-3 rounded-md border border-warning/30 bg-warning/10 px-3 py-2 text-sm text-warning"
             >
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                delete
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
+              {aviso}
+            </p>
+          )}
+
+          {productos.data?.length === 0 && (
+            <EmptyState icon={Package} title="Aún no hay productos en el catálogo." />
+          )}
+          <ul className="divide-y">
+            {productos.data?.map((p) => (
+              <li key={p.id} className="flex items-center justify-between py-2.5">
+                <div className={`flex items-center gap-2 ${p.activo ? "" : "opacity-60"}`}>
+                  <span className="text-sm font-medium">{p.nombre}</span>
+                  <Badge variant="secondary">S/ {p.costoUnitario}</Badge>
+                  {!p.activo && <Badge variant="warning">Inactivo</Badge>}
+                </div>
+                <div className="flex items-center">
+                  {!p.activo && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="text-primary"
+                      disabled={reactivar.isPending}
+                      onClick={() => reactivar.mutate(p.id)}
+                    >
+                      <RotateCcw /> Reactivar
+                    </Button>
+                  )}
+                  {p.activo && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      aria-label="Eliminar producto"
+                      className="size-8 text-muted-foreground hover:text-destructive"
+                      onClick={() => {
+                        if (confirm(`¿Eliminar "${p.nombre}"?`)) eliminar.mutate(p.id);
+                      }}
+                    >
+                      <Trash2 />
+                    </Button>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     </section>
   );
 }
@@ -198,103 +257,101 @@ function ColaboradoresPanel({
   const puede = restauranteId && nombre.trim().length >= 2;
 
   return (
-    <section className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/40">
-      <div className="flex items-center gap-sm mb-md">
-        <span className="material-symbols-outlined text-secondary">group</span>
-        <h3 className="font-headline-sm text-headline-sm text-on-surface">Colaboradores</h3>
-      </div>
-
-      <form
-        className="space-y-sm mb-md"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (puede) crear.mutate();
-        }}
-      >
-        <div className="flex flex-col sm:flex-row gap-sm">
-          <input
-            placeholder="Nombre"
-            className="flex-1 h-11 px-3 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-          <select
-            className="sm:w-40 h-11 px-3 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-            value={rol}
-            onChange={(e) => setRol(e.target.value as RolColaborador)}
+    <section>
+      <Card>
+        <CardHeader className="pb-4">
+          <h2 className="flex items-center gap-2 text-base font-semibold">
+            <Users className="size-5 text-success" /> Colaboradores
+          </h2>
+        </CardHeader>
+        <CardContent>
+          <form
+            className="mb-4 space-y-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (puede) crear.mutate();
+            }}
           >
-            {opcionesDe(ETIQUETA_ROL).map((o) => (
-              <option key={o.valor} value={o.valor}>
-                {o.etiqueta}
-              </option>
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <Input
+                aria-label="Nombre del colaborador"
+                placeholder="Nombre"
+                className="flex-1"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+              />
+              <div className="sm:w-44">
+                <NativeSelect
+                  aria-label="Rol"
+                  value={rol}
+                  onChange={(e) => setRol(e.target.value as RolColaborador)}
+                >
+                  {opcionesDe(ETIQUETA_ROL).map((o) => (
+                    <option key={o.valor} value={o.valor}>
+                      {o.etiqueta}
+                    </option>
+                  ))}
+                </NativeSelect>
+              </div>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <label className="flex items-center gap-2 text-sm">
+                <Checkbox checked={capacitado} onCheckedChange={(v) => setCapacitado(v === true)} />
+                Capacitado en manejo de residuos
+              </label>
+              <Button type="submit" disabled={!puede || crear.isPending}>
+                <Plus /> Agregar
+              </Button>
+            </div>
+          </form>
+          {crear.isError && (
+            <p className="mb-3 text-sm text-destructive">
+              {errMsg(crear.error, "No se pudo crear el colaborador.")}
+            </p>
+          )}
+
+          {colaboradores.data?.length === 0 && (
+            <EmptyState icon={Users} title="Aún no hay colaboradores registrados." />
+          )}
+          <ul className="divide-y">
+            {colaboradores.data?.map((c) => (
+              <li key={c.id} className="flex items-center justify-between gap-2 py-2.5">
+                <div className="min-w-0">
+                  <span className="text-sm font-medium">{c.nombre}</span>
+                  <span className="ml-2 text-sm text-muted-foreground">{ETIQUETA_ROL[c.rol]}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() =>
+                      alternarCapacitado.mutate({ id: c.id, capacitado: !c.capacitado })
+                    }
+                    className={c.capacitado ? "text-success" : "text-muted-foreground"}
+                    title="Alternar capacitación"
+                  >
+                    {c.capacitado ? <BadgeCheck /> : <GraduationCap />}
+                    {c.capacitado ? "Capacitado" : "Sin capacitar"}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Eliminar colaborador"
+                    className="size-8 text-muted-foreground hover:text-destructive"
+                    onClick={() => {
+                      if (confirm(`¿Eliminar a "${c.nombre}"?`)) eliminar.mutate(c.id);
+                    }}
+                  >
+                    <Trash2 />
+                  </Button>
+                </div>
+              </li>
             ))}
-          </select>
-        </div>
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-body-md text-on-surface">
-            <input
-              type="checkbox"
-              className="w-4 h-4 accent-primary"
-              checked={capacitado}
-              onChange={(e) => setCapacitado(e.target.checked)}
-            />
-            Capacitado en manejo de residuos
-          </label>
-          <button
-            type="submit"
-            disabled={!puede || crear.isPending}
-            className="h-11 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold active:scale-95 transition-all disabled:opacity-60"
-          >
-            Agregar
-          </button>
-        </div>
-      </form>
-      {crear.isError && (
-        <p className="text-sm text-error mb-sm">{errMsg(crear.error, "No se pudo crear el colaborador.")}</p>
-      )}
-
-      {colaboradores.data?.length === 0 && (
-        <p className="text-sm text-on-surface-variant">Aún no hay colaboradores registrados.</p>
-      )}
-      <ul className="divide-y divide-outline-variant/30">
-        {colaboradores.data?.map((c) => (
-          <li key={c.id} className="flex items-center justify-between py-2">
-            <div>
-              <span className="font-label-md text-label-md text-on-surface">{c.nombre}</span>
-              <span className="text-body-sm text-on-surface-variant ml-2">{ETIQUETA_ROL[c.rol]}</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => alternarCapacitado.mutate({ id: c.id, capacitado: !c.capacitado })}
-                className={
-                  c.capacitado
-                    ? "inline-flex items-center gap-1 text-label-sm text-secondary"
-                    : "inline-flex items-center gap-1 text-label-sm text-on-surface-variant"
-                }
-                title="Alternar capacitación"
-              >
-                <span className="material-symbols-outlined" style={{ fontSize: 18 }} data-weight={c.capacitado ? "fill" : undefined}>
-                  {c.capacitado ? "verified" : "school"}
-                </span>
-                {c.capacitado ? "Capacitado" : "Sin capacitar"}
-              </button>
-              <button
-                type="button"
-                aria-label="Eliminar colaborador"
-                onClick={() => {
-                  if (confirm(`¿Eliminar a "${c.nombre}"?`)) eliminar.mutate(c.id);
-                }}
-                className="text-on-surface-variant hover:text-error transition-colors"
-              >
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                  delete
-                </span>
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+          </ul>
+        </CardContent>
+      </Card>
     </section>
   );
 }

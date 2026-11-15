@@ -10,7 +10,7 @@ export async function calcularCostoTotal(params: {
 
   if (productoId) {
     const producto = await db.producto.findFirst({
-      where: { id: productoId, restauranteId },
+      where: { id: productoId, restauranteId, activo: true },
     });
     if (producto) {
       return producto.costoUnitario * cantidadKg;

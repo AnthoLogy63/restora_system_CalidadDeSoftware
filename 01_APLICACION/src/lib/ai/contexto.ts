@@ -29,7 +29,7 @@ export async function obtenerContextoRestaurante(
   const [restaurante, productos, colaboradores, ventas, stats] = await Promise.all([
     db.restaurante.findUnique({ where: { id: restauranteId } }),
     db.producto.findMany({
-      where: { restauranteId },
+      where: { restauranteId, activo: true },
       select: { nombre: true, costoUnitario: true },
       orderBy: { nombre: "asc" },
     }),

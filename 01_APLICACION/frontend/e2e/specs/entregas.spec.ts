@@ -13,7 +13,7 @@ test("registers a new entrega and deletes it", async ({ page }) => {
   await expect(submit).toBeEnabled();
   await submit.click();
 
-  const card = page.locator("div.flex.items-start.justify-between.gap-md", { hasText: receptor });
+  const card = page.locator("li", { hasText: receptor });
   await expect(card).toHaveCount(1);
   await expect(card).toContainText("Cartón");
 

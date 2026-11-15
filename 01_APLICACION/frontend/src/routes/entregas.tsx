@@ -1,7 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import { Camera, FileText, PackageOpen, Recycle, Save, Trash2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
+import { PageHeader } from "@/components/PageHeader";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { NativeSelect } from "@/components/ui/native-select";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Textarea } from "@/components/ui/textarea";
 import { requireSession, useSession } from "@/lib/session";
 import {
   listEntregas,
@@ -31,7 +41,11 @@ function todayISO() {
   return new Date().toISOString().slice(0, 10);
 }
 function fmtFecha(iso: string) {
-  return new Date(iso).toLocaleDateString("es-PE", { day: "numeric", month: "short", year: "numeric" });
+  return new Date(iso).toLocaleDateString("es-PE", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }
 function errMsg(err: unknown, fallback: string) {
   return err instanceof ApiError ? err.message : fallback;
@@ -91,225 +105,201 @@ function EntregasPage() {
 
   return (
     <AppShell active="/entregas">
-      <header className="mb-lg">
-        <h2 className="font-headline-md text-headline-md text-on-surface mb-xs">
-          Entregas a recicladores
-        </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          Registra a quién entregas tus residuos valorizables y adjunta evidencia. Esto alimenta los
-          indicadores de valorización y trazabilidad.
-        </p>
-      </header>
+      <PageHeader
+        title="Entregas a recicladores"
+        description="Registra a quién entregas tus residuos valorizables y adjunta evidencia. Esto alimenta los indicadores de valorización y trazabilidad."
+      />
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-lg">
-        {/* Formulario */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
         <section className="lg:col-span-2">
-          <form
-            className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/40 space-y-md"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (puedeGuardar) crear.mutate();
-            }}
-          >
-            <div className="flex items-center gap-sm">
-              <span className="material-symbols-outlined text-secondary">recycling</span>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface">Nueva entrega</h3>
-            </div>
-
-            <div className="flex flex-col gap-xs">
-              <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-cat">
-                Categoría
-              </label>
-              <select
-                id="e-cat"
-                className="w-full h-12 px-4 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                value={categoria}
-                onChange={(e) => setCategoria(e.target.value as CategoriaResiduo)}
+          <Card>
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Recycle className="size-5 text-success" /> Nueva entrega
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (puedeGuardar) crear.mutate();
+                }}
               >
-                {opcionesDe(ETIQUETA_CATEGORIA).map((o) => (
-                  <option key={o.valor} value={o.valor}>
-                    {o.etiqueta}
-                    {CATEGORIAS_VALORIZABLES.includes(o.valor) ? " ♻️" : ""}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="e-cat">Categoría</Label>
+                  <NativeSelect
+                    id="e-cat"
+                    value={categoria}
+                    onChange={(e) => setCategoria(e.target.value as CategoriaResiduo)}
+                  >
+                    {opcionesDe(ETIQUETA_CATEGORIA).map((o) => (
+                      <option key={o.valor} value={o.valor}>
+                        {o.etiqueta}
+                        {CATEGORIAS_VALORIZABLES.includes(o.valor) ? " ♻️" : ""}
+                      </option>
+                    ))}
+                  </NativeSelect>
+                </div>
 
-            <div className="grid grid-cols-2 gap-md">
-              <div className="flex flex-col gap-xs">
-                <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-peso">
-                  Peso (kg)
-                </label>
-                <input
-                  id="e-peso"
-                  inputMode="decimal"
-                  placeholder="0.0"
-                  className="w-full h-12 px-4 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                  value={pesoKg}
-                  onChange={(e) => setPesoKg(e.target.value)}
-                />
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-fecha">
-                  Fecha
-                </label>
-                <input
-                  id="e-fecha"
-                  type="date"
-                  className="w-full h-12 px-4 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                  value={fecha}
-                  onChange={(e) => setFecha(e.target.value)}
-                />
-              </div>
-            </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="e-peso">Peso (kg)</Label>
+                    <Input
+                      id="e-peso"
+                      inputMode="decimal"
+                      placeholder="0.0"
+                      value={pesoKg}
+                      onChange={(e) => setPesoKg(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="e-fecha">Fecha</Label>
+                    <Input
+                      id="e-fecha"
+                      type="date"
+                      value={fecha}
+                      onChange={(e) => setFecha(e.target.value)}
+                    />
+                  </div>
+                </div>
 
-            <div className="flex flex-col gap-xs">
-              <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-receptor">
-                Receptor / reciclador
-              </label>
-              <input
-                id="e-receptor"
-                placeholder="Ej. Recicladora San Martín"
-                className="w-full h-12 px-4 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                value={receptor}
-                onChange={(e) => setReceptor(e.target.value)}
-              />
-            </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="e-receptor">Receptor / reciclador</Label>
+                  <Input
+                    id="e-receptor"
+                    placeholder="Ej. Recicladora San Martín"
+                    value={receptor}
+                    onChange={(e) => setReceptor(e.target.value)}
+                  />
+                </div>
 
-            <div className="flex flex-col gap-xs">
-              <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-foto">
-                URL de fotografía (opcional)
-              </label>
-              <input
-                id="e-foto"
-                placeholder="https://…"
-                className="w-full h-12 px-4 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                value={fotografiaUrl}
-                onChange={(e) => setFotografiaUrl(e.target.value)}
-              />
-            </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="e-foto">URL de fotografía (opcional)</Label>
+                  <Input
+                    id="e-foto"
+                    placeholder="https://…"
+                    value={fotografiaUrl}
+                    onChange={(e) => setFotografiaUrl(e.target.value)}
+                  />
+                </div>
 
-            <div className="flex flex-col gap-xs">
-              <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-const">
-                URL de constancia (opcional)
-              </label>
-              <input
-                id="e-const"
-                placeholder="https://…"
-                className="w-full h-12 px-4 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                value={constanciaUrl}
-                onChange={(e) => setConstanciaUrl(e.target.value)}
-              />
-            </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="e-const">URL de constancia (opcional)</Label>
+                  <Input
+                    id="e-const"
+                    placeholder="https://…"
+                    value={constanciaUrl}
+                    onChange={(e) => setConstanciaUrl(e.target.value)}
+                  />
+                </div>
 
-            <div className="flex flex-col gap-xs">
-              <label className="font-label-md text-label-md text-on-surface-variant" htmlFor="e-obs">
-                Observaciones (opcional)
-              </label>
-              <textarea
-                id="e-obs"
-                rows={2}
-                className="w-full px-4 py-2 bg-surface rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface"
-                value={observaciones}
-                onChange={(e) => setObservaciones(e.target.value)}
-              />
-            </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="e-obs">Observaciones (opcional)</Label>
+                  <Textarea
+                    id="e-obs"
+                    rows={2}
+                    value={observaciones}
+                    onChange={(e) => setObservaciones(e.target.value)}
+                  />
+                </div>
 
-            {crear.isError && (
-              <p className="text-sm text-error">{errMsg(crear.error, "No se pudo registrar la entrega.")}</p>
-            )}
+                {crear.isError && (
+                  <p className="text-sm text-destructive">
+                    {errMsg(crear.error, "No se pudo registrar la entrega.")}
+                  </p>
+                )}
 
-            <button
-              type="submit"
-              disabled={!puedeGuardar || crear.isPending}
-              className="w-full h-12 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-2 active:scale-95 transition-all disabled:opacity-60"
-            >
-              <span className="material-symbols-outlined">save</span>
-              {crear.isPending ? "Guardando…" : "Registrar entrega"}
-            </button>
-          </form>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  disabled={!puedeGuardar || crear.isPending}
+                >
+                  <Save /> {crear.isPending ? "Guardando…" : "Registrar entrega"}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </section>
 
-        {/* Listado */}
-        <section className="lg:col-span-3">
-          <h3 className="font-headline-sm text-headline-sm text-on-surface mb-sm">
-            Entregas registradas
-          </h3>
-          {entregas.isLoading && <p className="text-sm text-on-surface-variant">Cargando…</p>}
-          {entregas.isError && (
-            <p className="text-sm text-error">No se pudo cargar el historial de entregas.</p>
-          )}
-          {entregas.data?.length === 0 && (
-            <div className="rounded-xl border border-dashed border-outline-variant p-lg text-center text-on-surface-variant">
-              <span className="material-symbols-outlined text-[40px] mb-xs block">recycling</span>
-              Aún no registras entregas. La primera entrega hará subir tu % de valorización.
+        <section className="space-y-3 lg:col-span-3">
+          <h2 className="text-base font-semibold">Entregas registradas</h2>
+          {entregas.isLoading && (
+            <div className="space-y-3">
+              {[0, 1, 2].map((i) => (
+                <Skeleton key={i} className="h-24 w-full rounded-xl" />
+              ))}
             </div>
           )}
-          <div className="space-y-sm">
+          {entregas.isError && (
+            <p className="text-sm text-destructive">No se pudo cargar el historial de entregas.</p>
+          )}
+          {entregas.data?.length === 0 && (
+            <Card className="border-dashed">
+              <EmptyState
+                icon={PackageOpen}
+                title="Aún no registras entregas."
+                description="La primera entrega hará subir tu % de valorización."
+              />
+            </Card>
+          )}
+          <ul className="space-y-3">
             {entregas.data?.map((e) => (
-              <div
-                key={e.id}
-                className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-md flex items-start justify-between gap-md"
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-xs">
-                    <span className="material-symbols-outlined text-secondary" style={{ fontSize: 20 }}>
-                      recycling
-                    </span>
-                    <span className="font-label-md text-label-md font-bold text-on-surface">
+              <li key={e.id}>
+                <Card className="flex items-start justify-between gap-4 p-4">
+                  <div className="min-w-0 space-y-1">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <span className="flex size-8 items-center justify-center rounded-lg bg-success/12 text-success">
+                        <Recycle className="size-4" />
+                      </span>
                       {ETIQUETA_CATEGORIA[e.categoria]} · {e.pesoKg} kg
-                    </span>
-                  </div>
-                  <p className="text-body-sm text-on-surface-variant">
-                    {fmtFecha(e.fecha)} · {e.receptor}
-                  </p>
-                  <div className="flex gap-2 mt-xs">
-                    {e.fotografiaUrl && (
-                      <a
-                        href={e.fotografiaUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-label-sm text-primary inline-flex items-center gap-1"
-                      >
-                        <span className="material-symbols-outlined" style={{ fontSize: 14 }}>
-                          photo_camera
-                        </span>
-                        Foto
-                      </a>
-                    )}
-                    {e.constanciaUrl && (
-                      <a
-                        href={e.constanciaUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-label-sm text-primary inline-flex items-center gap-1"
-                      >
-                        <span className="material-symbols-outlined" style={{ fontSize: 14 }}>
-                          description
-                        </span>
-                        Constancia
-                      </a>
-                    )}
-                  </div>
-                  {e.observaciones && (
-                    <p className="text-body-sm text-on-surface-variant mt-xs italic">
-                      {e.observaciones}
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {fmtFecha(e.fecha)} · {e.receptor}
                     </p>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  aria-label="Eliminar entrega"
-                  onClick={() => {
-                    if (confirm("¿Eliminar esta entrega?")) eliminar.mutate(e.id);
-                  }}
-                  className="text-on-surface-variant hover:text-error transition-colors shrink-0"
-                >
-                  <span className="material-symbols-outlined">delete</span>
-                </button>
-              </div>
+                    <div className="flex gap-3">
+                      {e.fotografiaUrl && (
+                        <a
+                          href={e.fotografiaUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+                        >
+                          <Camera className="size-3.5" /> Foto
+                        </a>
+                      )}
+                      {e.constanciaUrl && (
+                        <a
+                          href={e.constanciaUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+                        >
+                          <FileText className="size-3.5" /> Constancia
+                        </a>
+                      )}
+                    </div>
+                    {e.observaciones && (
+                      <p className="text-sm italic text-muted-foreground">{e.observaciones}</p>
+                    )}
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Eliminar entrega"
+                    className="shrink-0 text-muted-foreground hover:text-destructive"
+                    onClick={() => {
+                      if (confirm("¿Eliminar esta entrega?")) eliminar.mutate(e.id);
+                    }}
+                  >
+                    <Trash2 />
+                  </Button>
+                </Card>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       </div>
     </AppShell>

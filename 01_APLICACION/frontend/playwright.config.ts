@@ -16,6 +16,8 @@ export default defineConfig({
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
     baseURL: "http://localhost:8080",
+    // PW_CHANNEL=chrome usa el Chrome instalado en lugar de descargar Chromium.
+    channel: process.env.PW_CHANNEL || undefined,
     trace: "off",
     video: "off",
     screenshot: "only-on-failure",

@@ -9,7 +9,7 @@ import { uniqueFechaTurno } from "../utils/dates";
  */
 
 async function sendChatMessage(page: import("@playwright/test").Page, text: string) {
-  const input = page.getByPlaceholder("Escribe tu respuesta…");
+  const input = page.getByPlaceholder(/Escribe( o dicta)? tu respuesta/);
   await input.fill(text);
   await page.getByRole("button", { name: "Enviar" }).click();
 }
