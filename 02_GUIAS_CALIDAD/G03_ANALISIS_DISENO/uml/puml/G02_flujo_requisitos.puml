@@ -1,0 +1,13 @@
+@startuml
+!pragma layout smetana
+[*] --> Registrado
+Registrado --> Analizado : analizar (Analista)
+Analizado --> Aprobado : aprobar (Comite de cambios)
+Analizado --> Rechazado : rechazar con sustento
+Aprobado --> Implementado : implementar (Desarrollador)
+Implementado --> Verificado : verificar (Evaluador de calidad)
+Verificado --> Implementado : falla la verificacion
+Verificado --> Cerrado : cerrar (Coordinacion)
+Rechazado --> Cerrado : cerrar sin implementacion
+Cerrado --> [*]
+@enduml

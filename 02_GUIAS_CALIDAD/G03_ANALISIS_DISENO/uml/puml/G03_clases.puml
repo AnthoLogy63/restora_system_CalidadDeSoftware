@@ -1,0 +1,86 @@
+@startuml
+!pragma layout smetana
+hide empty members
+class Restaurante {
+  id : String
+  nombre : String
+  ciudad : String
+  lineaBaseSemanalKg : Float
+}
+class Usuario {
+  id : String
+  nombre : String
+  email : String
+  passwordHash : String
+}
+class Colaborador {
+  id : String
+  nombre : String
+  rol : RolColaborador
+  capacitado : Boolean
+}
+class Producto {
+  id : String
+  nombre : String
+  costoUnitario : Float
+  activo : Boolean
+  inactivar()
+  reactivar()
+}
+class RegistroOperacion {
+  id : String
+  fecha : DateTime
+  turno : Turno
+  observaciones : String
+  totalVentas()
+  totalDesperdicioKg()
+}
+class Venta {
+  concepto : String
+  cantidad : Float
+  montoTotal : Float
+}
+class Produccion {
+  productoAsociado : String
+  cantidadProducida : Float
+  unidad : String
+}
+class Residuo {
+  categoria : CategoriaResiduo
+  cantidadKg : Float
+  motivo : MotivoGeneracion
+  costoTotal : Float
+  calcularCosto()
+}
+class Entrega {
+  categoria : CategoriaResiduo
+  pesoKg : Float
+  receptor : String
+}
+class Reporte {
+  periodoFrom : DateTime
+  periodoTo : DateTime
+  csv : String
+}
+class AccionAplicada {
+  recomendacionCodigo : String
+  descripcion : String
+}
+class Prediccion {
+  tipo : String
+  estado : EstadoPrediccion
+}
+Restaurante "1" -- "1" Usuario
+Restaurante "1" -- "0..*" Colaborador
+Restaurante "1" -- "0..*" RegistroOperacion
+Restaurante "1" -- "0..*" Producto
+Restaurante "1" -- "0..*" Entrega
+Restaurante "1" -- "0..*" Reporte
+Restaurante "1" -- "0..*" AccionAplicada
+Restaurante "1" -- "0..*" Prediccion
+RegistroOperacion "1" *-- "1..*" Venta
+RegistroOperacion "1" *-- "0..*" Produccion
+RegistroOperacion "1" *-- "0..*" Residuo
+Residuo "0..*" ..> "0..1" Producto : referencia
+Colaborador "0..1" .. "0..*" RegistroOperacion
+@enduml

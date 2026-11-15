@@ -1,0 +1,84 @@
+
+ RUN  v3.2.7 C:/Users/LENOVO/Documents/workspace/unsa/CaS/lab/restora_system_CalidadDeSoftware/01_APLICACION
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > cae a Gemini cuando Groq falla
+[voz] Groq Whisper respondió 500
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > devuelve null cuando ambos proveedores fallan
+[voz] Groq Whisper respondió 500
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > devuelve null cuando ambos proveedores fallan
+[voz] Gemini respondió 500
+
+ ❯ src/lib/costo.test.ts (6 tests | 1 failed) 14ms
+   ✓ calcularCostoTotal > usa el costo unitario del producto del catálogo (costo = unitario * kg) 2ms
+   ✓ calcularCostoTotal > cae al costo manual cuando el producto no existe 0ms
+   ✓ calcularCostoTotal > solo considera productos activos al calcular el costo (CC-01) 2ms
+   ✓ calcularCostoTotal > usa el costo manual cuando no se pasa productoId 0ms
+   ✓ calcularCostoTotal > devuelve null cuando no hay producto ni costo manual 0ms
+   × calcularCostoTotal > scopea la búsqueda del producto al restaurante (aislamiento multi-tenant) 8ms
+     → expected "spy" to be called with arguments: [ { where: { id: 'p1', …(1) } } ]
+
+Received: 
+
+  1st spy call:
+
+  [
+    {
+      "where": {
++       "activo": true,
+        "id": "p1",
+        "restauranteId": "r1",
+      },
+    },
+  ]
+
+
+Number of calls: 1
+
+ ✓ src/lib/ai/transcripcion.test.ts (7 tests) 13ms
+ ✓ src/lib/csv.test.ts (5 tests) 4ms
+ ✓ src/lib/catalogo.test.ts (5 tests) 5ms
+ ✓ src/lib/estadisticas.test.ts (17 tests) 7ms
+ ✓ src/lib/recomendaciones.test.ts (14 tests) 7ms
+ ✓ src/lib/validation/auth.test.ts (7 tests) 6ms
+ ✓ src/lib/password.test.ts (5 tests) 274ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/costo.test.ts > calcularCostoTotal > scopea la búsqueda del producto al restaurante (aislamiento multi-tenant)
+AssertionError: expected "spy" to be called with arguments: [ { where: { id: 'p1', …(1) } } ]
+
+Received: 
+
+  1st spy call:
+
+  [
+    {
+      "where": {
++       "activo": true,
+        "id": "p1",
+        "restauranteId": "r1",
+      },
+    },
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/lib/costo.test.ts:56:23
+     54|     findFirst.mockResolvedValue({ id: "p1", restauranteId: "r1", costo…
+     55|     await calcularCostoTotal({ restauranteId: "r1", cantidadKg: 1, pro…
+     56|     expect(findFirst).toHaveBeenCalledWith({ where: { id: "p1", restau…
+       |                       ^
+     57|   });
+     58| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 65 passed (66)
+   Start at  18:17:46
+   Duration  791ms (transform 295ms, setup 0ms, collect 763ms, tests 330ms, environment 2ms, prepare 1.34s)
+

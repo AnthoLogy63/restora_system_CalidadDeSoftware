@@ -1,0 +1,7 @@
+@startuml
+!pragma layout smetana
+[*] --> Activo : crear
+Activo --> Inactivo : baja [con historial]
+Inactivo --> Activo : reactivar
+Activo --> [*] : baja [sin historial] (se elimina)
+@enduml

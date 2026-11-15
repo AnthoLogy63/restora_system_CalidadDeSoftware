@@ -1,0 +1,18 @@
+@startuml
+!pragma layout smetana
+node "Navegador (React + TanStack Start :8080)" as FE
+node "Proxy de Vite (/api -> :3000)" as PX
+node "API Next.js 16 (:3000)" as BE {
+  component "Rutas REST + requireSession + Zod" as RT
+  component "Reglas src/lib (estadisticas, recomendaciones, costo, catalogo)" as LG
+}
+database "SQLite (Prisma 7)" as DB
+node "Predictor Python (RandomForest)" as PY
+node "Asistente (Gemini -> Groq -> modo guiado)" as AS
+FE --> PX
+PX --> RT
+RT --> LG
+LG --> DB
+LG ..> PY : spawn
+RT ..> AS
+@enduml

@@ -1,0 +1,74 @@
+@startuml
+!pragma layout smetana
+hide circle
+entity Restaurante {
+  *id : PK
+  nombre
+  ciudad
+  lineaBaseSemanalKg
+}
+entity Usuario {
+  *id : PK
+  restauranteId : FK unico
+  email unico
+  passwordHash
+}
+entity Colaborador {
+  *id : PK
+  restauranteId : FK
+  rol
+  capacitado
+}
+entity Producto {
+  *id : PK
+  restauranteId : FK
+  nombre
+  costoUnitario
+  activo
+}
+entity RegistroOperacion {
+  *id : PK
+  restauranteId : FK
+  colaboradorId : FK
+  fecha
+  turno
+  UNIQUE(restauranteId, fecha, turno)
+}
+entity Venta {
+  *id : PK
+  registroOperacionId : FK
+  concepto
+  cantidad
+  montoTotal
+}
+entity Produccion {
+  *id : PK
+  registroOperacionId : FK
+  productoAsociado
+  cantidadProducida
+}
+entity Residuo {
+  *id : PK
+  registroOperacionId : FK
+  productoId : FK
+  categoria
+  cantidadKg
+  costoTotal
+}
+entity Entrega {
+  *id : PK
+  restauranteId : FK
+  categoria
+  pesoKg
+  receptor
+}
+Restaurante ||--|| Usuario
+Restaurante ||--o{ Colaborador
+Restaurante ||--o{ Producto
+Restaurante ||--o{ RegistroOperacion
+Restaurante ||--o{ Entrega
+RegistroOperacion ||--o{ Venta
+RegistroOperacion ||--o{ Produccion
+RegistroOperacion ||--o{ Residuo
+Residuo }o..o| Producto
+@enduml

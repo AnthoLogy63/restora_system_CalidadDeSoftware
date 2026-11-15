@@ -1,0 +1,30 @@
+@startuml
+!pragma layout smetana
+left to right direction
+actor "Administrador" as Adm
+actor "Personal operativo" as Op
+actor "Modelo predictivo" as Ml
+rectangle "Sistema RESTORA" {
+  usecase "CU-04 Iniciar sesion" as CU04
+  usecase "CU-05 Mantener catalogo" as CU05
+  usecase "CU-03 Consultar indicadores" as CU03
+  usecase "CU-09 Generar reporte" as CU09
+  usecase "CU-08 Predecir demanda" as CU08
+  usecase "CU-01 Registrar turno" as CU01
+  usecase "CU-07 Registrar con asistente" as CU07
+  usecase "CU-02 Registrar entrega" as CU02
+  usecase "CU-06 Consultar historial" as CU06
+}
+Adm --> CU04
+Adm --> CU05
+Adm --> CU03
+Adm --> CU09
+Adm --> CU08
+Op --> CU04
+Op --> CU01
+Op --> CU07
+Op --> CU02
+Op --> CU06
+CU07 .> CU01 : extend
+Ml --> CU08
+@enduml

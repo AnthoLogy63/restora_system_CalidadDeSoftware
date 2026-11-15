@@ -1,0 +1,30 @@
+[7/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /register to /auth
+[8/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /history to /auth
+[9/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /entregas to /auth
+[10/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /analytics to /auth
+[11/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /catalogo to /auth
+[12/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /reports to /auth
+[13/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /predict to /auth
+[14/35] [unauthenticated] › e2e\specs\protected-routes.spec.ts:16:3 › redirects unauthenticated visitors from /profile to /auth
+[15/35] [authenticated] › e2e\specs\analytics.spec.ts:3:1 › renders indicator cards and charts, and can toggle the period
+[16/35] [authenticated] › e2e\specs\analytics.spec.ts:15:1 › marks a pending recommendation as applied, if one exists this period
+[17/35] [authenticated] › e2e\specs\asistente.spec.ts:17:1 › chatbot: 'producto' flow completes a full conversation and creates the producto
+[18/35] [authenticated] › e2e\specs\asistente.spec.ts:46:1 › chatbot: 'operacion' flow completes a full conversation and creates the daily operation
+[19/35] [authenticated] › e2e\specs\catalogo.spec.ts:4:1 › adds and deletes a producto
+[20/35] [authenticated] › e2e\specs\catalogo.spec.ts:24:1 › adds a colaborador, toggles capacitado, then deletes
+[21/35] [authenticated] › e2e\specs\catalogo.spec.ts:51:1 › CC-01: un producto con historial se inactiva en lugar de eliminarse
+[22/35] [authenticated] › e2e\specs\dashboard.spec.ts:3:1 › dashboard shows stat cards, weekly chart, and recent activity
+[23/35] [authenticated] › e2e\specs\dashboard.spec.ts:13:1 › assistant widget opens and shows the flow picker
+[24/35] [authenticated] › e2e\specs\entregas.spec.ts:4:1 › registers a new entrega and deletes it
+[25/35] [authenticated] › e2e\specs\operations.spec.ts:5:1 › creates a daily operation with a venta and a desperdicio row, then finds and deletes it in history
+[26/35] [authenticated] › e2e\specs\operations.spec.ts:45:1 › search filter shows an empty state for a non-matching term
+[27/35] [authenticated] › e2e\specs\operations.spec.ts:51:1 › OBS-04: registrar dos veces la misma fecha y turno responde 409 con mensaje claro
+[28/35] [authenticated] › e2e\specs\operations.spec.ts:65:1 › OBS-01: el formulario manual captura producción y la guarda en el registro
+[29/35] [authenticated] › e2e\specs\operations.spec.ts:93:1 › OBS-03: el historial informa un intervalo con inicio posterior al fin
+[30/35] [authenticated] › e2e\specs\predict.spec.ts:6:3 › predictive model correctness › demo restaurant: POST /predicciones returns a correctly-shaped, sane result
+[31/35] [authenticated] › e2e\specs\predict.spec.ts:40:3 › predictive model correctness › demo restaurant: UI renders the forecast, confidence panel, and production goals
+[32/35] [authenticated] › e2e\specs\predict.spec.ts:56:3 › predictive model correctness › fresh restaurant with no sales history gets a genuine 422 insufficient-data response
+[33/35] [authenticated] › e2e\specs\profile.spec.ts:3:1 › edits and saves restaurant profile fields
+[34/35] [authenticated] › e2e\specs\profile.spec.ts:15:1 › logs out and redirects to /auth
+[35/35] [authenticated] › e2e\specs\reports.spec.ts:3:1 › generates a report and downloads it as CSV
+  35 passed (1.9m)

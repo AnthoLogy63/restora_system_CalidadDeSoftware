@@ -1,0 +1,27 @@
+@startuml
+!pragma layout smetana
+actor Usuario
+participant "register.tsx" as UI
+participant "lib/api.ts" as API
+participant "POST /operaciones" as R
+participant "lib/auth.ts" as A
+participant "Zod" as Z
+participant "lib/costo.ts" as C
+database "Prisma / SQLite" as DB
+Usuario -> UI : completa fecha, turno, ventas y desperdicios
+Usuario -> UI : Guardar registro
+UI -> API : createOperacion(restauranteId, datos)
+API -> R : POST /api/restaurantes/{id}/operaciones
+R -> A : requireSession(request, id)
+A --> R : sesion valida (o 401/403)
+R -> Z : createRegistroOperacionSchema.parse(body)
+Z --> R : datos validos (o 400)
+R -> C : calcularCostoTotal(producto activo, kg, costoManual)
+C -> DB : producto.findFirst(activo = true)
+DB --> C : costoUnitario (o null)
+C --> R : costoTotal
+R -> DB : registroOperacion.create(ventas, producciones, residuos)
+DB --> R : registro creado
+R --> API : 201 Created
+UI --> Usuario : redirige al Historial
+@enduml

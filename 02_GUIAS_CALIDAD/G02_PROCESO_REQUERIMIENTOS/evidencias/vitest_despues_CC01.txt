@@ -1,0 +1,26 @@
+
+ RUN  v3.2.7 C:/Users/LENOVO/Documents/workspace/unsa/CaS/lab/restora_system_CalidadDeSoftware/01_APLICACION
+
+ ✓ src/lib/costo.test.ts (6 tests) 7ms
+ ✓ src/lib/csv.test.ts (5 tests) 4ms
+ ✓ src/lib/catalogo.test.ts (5 tests) 5ms
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > cae a Gemini cuando Groq falla
+[voz] Groq Whisper respondió 500
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > devuelve null cuando ambos proveedores fallan
+[voz] Groq Whisper respondió 500
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > devuelve null cuando ambos proveedores fallan
+[voz] Gemini respondió 500
+
+ ✓ src/lib/ai/transcripcion.test.ts (7 tests) 17ms
+ ✓ src/lib/estadisticas.test.ts (17 tests) 8ms
+ ✓ src/lib/recomendaciones.test.ts (14 tests) 10ms
+ ✓ src/lib/validation/auth.test.ts (7 tests) 9ms
+ ✓ src/lib/password.test.ts (5 tests) 279ms
+
+ Test Files  8 passed (8)
+      Tests  66 passed (66)
+   Start at  18:17:48
+   Duration  822ms (transform 327ms, setup 0ms, collect 827ms, tests 338ms, environment 1ms, prepare 1.43s)
+
