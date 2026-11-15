@@ -1,0 +1,800 @@
+{
+  "changed_paragraphs": 197,
+  "remaining_encoding_errors": 0,
+  "verified_cases": 114,
+  "verified_passed": 114,
+  "coverage_lines": 100,
+  "coverage_branches": 95.69,
+  "restoration_sha256_verified": true,
+  "status": "replaced original",
+  "changes": [
+    {
+      "before": "La ejecución inicial ampliada obtuvo 65,15 % de líneas dentro de los cinco archivos seleccionados: el cálculo de estadísticas y tendencias tenía bloques importantes sin ejecutar. En lugar de excluir estadisticas.ts, se incorporaron casos que invocan sus funciones de consulta con dobles y comparan los resultados. La medición posterior alcanzó 100 % de líneas y funciones y 95,69 % de ramas. La cobertura indica código recorrido; no certifica todas las combinaciones de datos, exactitud de requisitos ni ausencia de defectos [1].",
+      "after": "La revisión inicial de los cinco archivos seleccionados mostró una carencia de pruebas: el cálculo de estadísticas y tendencias tenía bloques importantes sin ejecutar. En lugar de excluir estadisticas.ts, se incorporaron casos que invocan sus funciones de consulta con dobles y comparan los resultados. La medición posterior alcanzó 100 % de líneas y funciones y 95,69 % de ramas. La cobertura indica código recorrido; no certifica todas las combinaciones de datos, exactitud de requisitos ni ausencia de defectos [1]."
+    },
+    {
+      "before": "Unidad y objetivo: calcularCostoTotal. Condición que se comprueba: usa el costo unitario del producto del catÃ¡logo (costo = unitario * kg). Relación documental: FRQ-0013; relación parcial con NFR-0001.",
+      "after": "Unidad y objetivo: calcularCostoTotal. Condición que se comprueba: usa el costo unitario del producto del catálogo (costo = unitario * kg). Relación documental: FRQ-0013; relación parcial con NFR-0001."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:11.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:11."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:17.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:17."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:28.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:28."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:34.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:34."
+    },
+    {
+      "before": "Unidad y objetivo: calcularCostoTotal. Condición que se comprueba: scopea la bÃºsqueda del producto al restaurante (aislamiento multi-tenant). Relación documental: FRQ-0013; relación parcial con NFR-0001.",
+      "after": "Unidad y objetivo: calcularCostoTotal. Condición que se comprueba: scopea la búsqueda del producto al restaurante (aislamiento multi-tenant). Relación documental: FRQ-0013; relación parcial con NFR-0001."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:39.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/costo.test.ts:39."
+    },
+    {
+      "before": "Unidad y objetivo: toCsv. Condición que se comprueba: cadena vacÃ­a cuando no hay filas. Relación documental: Complemento de FRQ-0018.",
+      "after": "Unidad y objetivo: toCsv. Condición que se comprueba: cadena vacía cuando no hay filas. Relación documental: Complemento de FRQ-0018."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:5.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:5."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:9.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:9."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:14.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:14."
+    },
+    {
+      "before": "Unidad y objetivo: toCsv. Condición que se comprueba: entrecomilla valores con coma, comillas o salto de lÃ­nea. Relación documental: Complemento de FRQ-0018.",
+      "after": "Unidad y objetivo: toCsv. Condición que se comprueba: entrecomilla valores con coma, comillas o salto de línea. Relación documental: Complemento de FRQ-0018."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:22.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:22."
+    },
+    {
+      "before": "Unidad y objetivo: toCsv. Condición que se comprueba: trata null y undefined como celda vacÃ­a. Relación documental: Complemento de FRQ-0018.",
+      "after": "Unidad y objetivo: toCsv. Condición que se comprueba: trata null y undefined como celda vacía. Relación documental: Complemento de FRQ-0018."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:27.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/csv.test.ts:27."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: periodo vacÃ­o conserva totales cero y categorÃ­as crÃ­ticas nulas. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: periodo vacío conserva totales cero y categorías críticas nulas. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:9.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:9."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: suma cantidades y separa kilos sin costo conocido. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: suma cantidades y separa kilos sin costo conocido. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:10.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:10."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: cuenta dÃ­as distintos y no movimientos del mismo dÃ­a. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: cuenta días distintos y no movimientos del mismo día. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:11.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:11."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: respeta filtro de restaurante y fechas en consultas. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: respeta filtro de restaurante y fechas en consultas. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:12.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:12."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: clasifica Ã¡rea y turno de mayor peso. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: clasifica área y turno de mayor peso. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:13.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:13."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: cuenta entregas con receptor y fotografÃ­a o constancia. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: cuenta entregas con receptor y fotografía o constancia. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:14.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:14."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: incorpora colaboradores capacitados acciones y lÃ­nea base. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: incorpora colaboradores capacitados acciones y línea base. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:15.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:15."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: propaga fallo de consulta para no informar Ã©xito falso. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: propaga fallo de consulta para no informar éxito falso. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:16.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:16."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: tendencia vacÃ­a no inventa semanas. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: tendencia vacía no inventa semanas. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:17.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:17."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: agrupa lunes y domingo en una semana y separa lunes siguiente. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: agrupa lunes y domingo en una semana y separa lunes siguiente. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:18.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:18."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: tendencia consulta restaurante y orden temporal. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: tendencia consulta restaurante y orden temporal. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:19.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:19."
+    },
+    {
+      "before": "Unidad y objetivo: G07 agregaciÃ³n de indicadores y tendencias. Condición que se comprueba: suma costos conocidos de una misma semana. Relación documental: FRQ-0014; FRQ-0016.",
+      "after": "Unidad y objetivo: G07 agregación de indicadores y tendencias. Condición que se comprueba: suma costos conocidos de una misma semana. Relación documental: FRQ-0014; FRQ-0016."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:20.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas-agregacion.test.ts:20."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:46.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:46."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:49.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:49."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:53.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:53."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:60.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:60."
+    },
+    {
+      "before": "Unidad y objetivo: valorizacionPct. Condición que se comprueba: proporciÃ³n entregada sobre valorizable generado. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: valorizacionPct. Condición que se comprueba: proporción entregada sobre valorizable generado. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:63.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:63."
+    },
+    {
+      "before": "Unidad y objetivo: valorizacionPct. Condición que se comprueba: se satura a 100% aunque se entregue de mÃ¡s. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: valorizacionPct. Condición que se comprueba: se satura a 100% aunque se entregue de más. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:70.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:70."
+    },
+    {
+      "before": "Unidad y objetivo: prevencionPct. Condición que se comprueba: null sin lÃ­nea base. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: prevencionPct. Condición que se comprueba: null sin línea base. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:80.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:80."
+    },
+    {
+      "before": "Unidad y objetivo: prevencionPct. Condición que se comprueba: positivo cuando se genera menos que la lÃ­nea base esperada. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: prevencionPct. Condición que se comprueba: positivo cuando se genera menos que la línea base esperada. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:83.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:83."
+    },
+    {
+      "before": "Unidad y objetivo: prevencionPct. Condición que se comprueba: negativo cuando se supera la lÃ­nea base. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: prevencionPct. Condición que se comprueba: negativo cuando se supera la línea base. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:88.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:88."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:95.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:95."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:98.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:98."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:105.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:105."
+    },
+    {
+      "before": "Unidad y objetivo: trazabilidadPct. Condición que se comprueba: proporciÃ³n de entregas con evidencia. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: trazabilidadPct. Condición que se comprueba: proporción de entregas con evidencia. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:108.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:108."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:115.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:115."
+    },
+    {
+      "before": "Unidad y objetivo: personalCapacitadoPct. Condición que se comprueba: proporciÃ³n de capacitados. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: personalCapacitadoPct. Condición que se comprueba: proporción de capacitados. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:118.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:118."
+    },
+    {
+      "before": "Unidad y objetivo: adopcionPct. Condición que se comprueba: dÃ­as con registro sobre dÃ­as del periodo. Relación documental: FRQ-0016; complemento de FRQ-0017.",
+      "after": "Unidad y objetivo: adopcionPct. Condición que se comprueba: días con registro sobre días del periodo. Relación documental: FRQ-0016; complemento de FRQ-0017."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:125.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:125."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:128.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/estadisticas.test.ts:128."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:5.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:5."
+    },
+    {
+      "before": "Unidad y objetivo: password hashing. Condición que se comprueba: verifica correctamente la contraseÃ±a correcta. Relación documental: NFR-0002, comprobación parcial.",
+      "after": "Unidad y objetivo: password hashing. Condición que se comprueba: verifica correctamente la contraseña correcta. Relación documental: NFR-0002, comprobación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:10.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:10."
+    },
+    {
+      "before": "Unidad y objetivo: password hashing. Condición que se comprueba: rechaza una contraseÃ±a incorrecta. Relación documental: NFR-0002, comprobación parcial.",
+      "after": "Unidad y objetivo: password hashing. Condición que se comprueba: rechaza una contraseña incorrecta. Relación documental: NFR-0002, comprobación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:15.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:15."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:20.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:20."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:26.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/password.test.ts:26."
+    },
+    {
+      "before": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: sin patrones crÃ­ticos devuelve solo R10. Relación documental: FRQ-0020, correspondencia parcial.",
+      "after": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: sin patrones críticos devuelve solo R10. Relación documental: FRQ-0020, correspondencia parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:48.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:48."
+    },
+    {
+      "before": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: R1 cuando la sobreproducciÃ³n supera el 15%. Relación documental: FRQ-0020, correspondencia parcial.",
+      "after": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: R1 cuando la sobreproducción supera el 15%. Relación documental: FRQ-0020, correspondencia parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:52.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:52."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:59.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:59."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:66.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:66."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:73.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:73."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:80.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:80."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:87.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:87."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:94.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:94."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:102.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:102."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:110.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:110."
+    },
+    {
+      "before": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: R8 cuando un Ã¡rea concentra mÃ¡s del 40%. Relación documental: FRQ-0020, correspondencia parcial.",
+      "after": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: R8 cuando un área concentra más del 40%. Relación documental: FRQ-0020, correspondencia parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:117.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:117."
+    },
+    {
+      "before": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: R9 cuando la valorizaciÃ³n es baja (<30%). Relación documental: FRQ-0020, correspondencia parcial.",
+      "after": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: R9 cuando la valorización es baja (<30%). Relación documental: FRQ-0020, correspondencia parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:127.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:127."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:135.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:135."
+    },
+    {
+      "before": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: nunca devuelve una lista vacÃ­a. Relación documental: FRQ-0020, correspondencia parcial.",
+      "after": "Unidad y objetivo: generarRecomendaciones. Condición que se comprueba: nunca devuelve una lista vacía. Relación documental: FRQ-0020, correspondencia parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:147.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/recomendaciones.test.ts:147."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:23.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:23."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:26.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:26."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:34.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:34."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:46.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:46."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:64.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:64."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:70.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:70."
+    },
+    {
+      "before": "Unidad y objetivo: transcribirAudio. Condición que se comprueba: ignora respuesta de Groq con texto vacÃ­o y cae a Gemini. Relación documental: Complementario al alcance G01; módulo de voz existente.",
+      "after": "Unidad y objetivo: transcribirAudio. Condición que se comprueba: ignora respuesta de Groq con texto vacío y cae a Gemini. Relación documental: Complementario al alcance G01; módulo de voz existente."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:81.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/ai/transcripcion.test.ts:81."
+    },
+    {
+      "before": "Unidad y objetivo: registerSchema. Condición que se comprueba: acepta un registro vÃ¡lido. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: registerSchema. Condición que se comprueba: acepta un registro válido. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:5.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:5."
+    },
+    {
+      "before": "Unidad y objetivo: registerSchema. Condición que se comprueba: rechaza email invÃ¡lido. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: registerSchema. Condición que se comprueba: rechaza email inválido. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:15.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:15."
+    },
+    {
+      "before": "Unidad y objetivo: registerSchema. Condición que se comprueba: rechaza contraseÃ±a de menos de 8 caracteres. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: registerSchema. Condición que se comprueba: rechaza contraseña de menos de 8 caracteres. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:25.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:25."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:35.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:35."
+    },
+    {
+      "before": "Unidad y objetivo: loginSchema. Condición que se comprueba: acepta credenciales con cualquier contraseÃ±a no vacÃ­a. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: loginSchema. Condición que se comprueba: acepta credenciales con cualquier contraseña no vacía. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:47.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:47."
+    },
+    {
+      "before": "Unidad y objetivo: loginSchema. Condición que se comprueba: rechaza contraseÃ±a vacÃ­a. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: loginSchema. Condición que se comprueba: rechaza contraseña vacía. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:50.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:50."
+    },
+    {
+      "before": "Unidad y objetivo: resetPasswordSchema. Condición que se comprueba: exige token y contraseÃ±a de 8+ caracteres. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: resetPasswordSchema. Condición que se comprueba: exige token y contraseña de 8+ caracteres. Relación documental: FRQ-0001; FRQ-0003; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:56.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/auth.test.ts:56."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad -100. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad -100. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -100.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -100."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad -1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad -1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -1.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -1."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad -0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad -0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -0.01.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -0.01."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad 0. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad 0. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad 0.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad 0."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad NaN. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad NaN. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad NaN.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad NaN."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad Infinity.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad Infinity."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad -Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad -Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -Infinity.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad -Infinity."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 0.01.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 0.01."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 0.5. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 0.5. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 0.5.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 0.5."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 1.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 1."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 2. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 2. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 2.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 2."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 10. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 10. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 10.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 10."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 100. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 100. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 100.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 100."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 1000. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta cantidad positiva 1000. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 1000.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:9. Valor efectivo del caso parametrizado: acepta cantidad positiva 1000."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza monto -100. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza monto -100. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto -100.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto -100."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza monto -1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza monto -1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto -1.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto -1."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza monto -0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza monto -0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto -0.01.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto -0.01."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza monto NaN. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza monto NaN. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto NaN.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto NaN."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza monto Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza monto Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto Infinity.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:11. Valor efectivo del caso parametrizado: rechaza monto Infinity."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta monto no negativo 0. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta monto no negativo 0. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 0.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 0."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta monto no negativo 0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta monto no negativo 0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 0.01.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 0.01."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta monto no negativo 20. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta monto no negativo 20. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 20.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 20."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: acepta monto no negativo 1000. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: acepta monto no negativo 1000. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 1000.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:13. Valor efectivo del caso parametrizado: acepta monto no negativo 1000."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza concepto vacÃ­o. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza concepto vacío. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:14.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:14."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de cantidades de venta. Condición que se comprueba: rechaza cantidad textual sin coerciÃ³n. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de cantidades de venta. Condición que se comprueba: rechaza cantidad textual sin coerción. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad textual sin coerciÃ³n.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:7. Valor efectivo del caso parametrizado: rechaza cantidad textual sin coerción."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza producciÃ³n -2. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza producción -2. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producciÃ³n -2.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producción -2."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza producciÃ³n -0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza producción -0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producciÃ³n -0.01.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producción -0.01."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza producciÃ³n 0. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza producción 0. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producciÃ³n 0.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producción 0."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza producciÃ³n NaN. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza producción NaN. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producciÃ³n NaN.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producción NaN."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza producciÃ³n Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza producción Infinity. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producciÃ³n Infinity.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:19. Valor efectivo del caso parametrizado: rechaza producción Infinity."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: acepta producciÃ³n 0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: acepta producción 0.01. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producciÃ³n 0.01.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producción 0.01."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: acepta producciÃ³n 1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: acepta producción 1. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producciÃ³n 1.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producción 1."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: acepta producciÃ³n 20. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: acepta producción 20. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producciÃ³n 20.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producción 20."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: acepta producciÃ³n 200. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: acepta producción 200. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producciÃ³n 200.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:21. Valor efectivo del caso parametrizado: acepta producción 200."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza producto vacÃ­o. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza producto vacío. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:22.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:22."
+    },
+    {
+      "before": "Unidad y objetivo: G07 validaciÃ³n de producciÃ³n. Condición que se comprueba: rechaza unidad explÃ­cita vacÃ­a. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 validación de producción. Condición que se comprueba: rechaza unidad explícita vacía. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:23.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:23."
+    },
+    {
+      "before": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: convierte fecha vÃ¡lida. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: convierte fecha válida. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:27.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:27."
+    },
+    {
+      "before": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza fecha invÃ¡lida. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza fecha inválida. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:28.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:28."
+    },
+    {
+      "before": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza turno ajeno al catÃ¡logo. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza turno ajeno al catálogo. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:29.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:29."
+    },
+    {
+      "before": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza venta invÃ¡lida dentro del lote. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza venta inválida dentro del lote. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:30.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:30."
+    },
+    {
+      "before": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza producciÃ³n invÃ¡lida dentro del lote. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: rechaza producción inválida dentro del lote. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:31.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:31."
+    },
+    {
+      "before": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: acepta lote de producciÃ³n y venta vÃ¡lidas. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial.",
+      "after": "Unidad y objetivo: G07 registro de operaciones. Condición que se comprueba: acepta lote de producción y venta válidas. Relación documental: FRQ-0006; FRQ-0008; NFR-0003, relación parcial."
+    },
+    {
+      "before": "Datos y preparación verificables: el bloque siguiente contiene las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:32.",
+      "after": "Datos y preparación verificables: la captura siguiente muestra las entradas y expectativas de esta ejecución. Fuente: src/lib/validation/g07.test.ts:32."
+    },
+    {
+      "before": "La cobertura final alcanzó el 100 % de líneas y funciones y el 95,69 % de ramas en cinco archivos declarados. El aumento respecto del 65,15 % inicial se obtuvo añadiendo pruebas de código previamente no recorrido. Se conservaron los archivos del alcance y se documentó expresamente que las métricas no corresponden al backend completo.",
+      "after": "La cobertura final alcanzó el 100 % de líneas y funciones y el 95,69 % de ramas en cinco archivos declarados. Se incorporaron pruebas de los bloques de agregación y tendencias, conservando los cinco archivos dentro del alcance de medición. Se conservaron los archivos del alcance y se documentó expresamente que las métricas no corresponden al backend completo."
+    }
+  ]
+}

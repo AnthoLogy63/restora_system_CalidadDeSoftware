@@ -125,6 +125,16 @@ Read `references/IEEE_REFERENCES.md` before starting citation work.
 - Develop analysis around RESTORA's actual requirement IDs, actors, rules, examples and companion filenames. Explain how a finding affects a decision and what remains to validate. A table or generic statement does not replace an explanation. Distinguish represented interviews, documentary review, planned effort and measured execution.
 - Before delivery, verify the new headings' red formatting, paragraph separation, body justification, table alignment and borders, section placement and preservation of previous content. If the user prohibits PDF generation, respect that instruction and use available non-PDF checks; do not claim rendered page review that was not performed.
 
+### Spanish characters and evidence checks before delivery
+
+- When serializing DOCX XML, use the declaration `encoding="UTF-8"`, not the alias `encoding="utf8"`; validate the saved package by opening it in Word when available. A successful ZIP/XML parse alone does not establish Word compatibility.
+- Read and write Spanish JSON, source extracts, Markdown and HTML with an explicit UTF-8 encoding. Normalize line endings when comparing source fragments and preserve Unicode in DOCX XML. Do not rely on the Windows default code page or repeatedly encode/decode already valid Spanish.
+- Audit the saved artifact, not only the builder input. Inspect body paragraphs, tables, headers, footers, captions and workbook cells for corrupted sequences such as `Ã³`, `Ã±`, `Â`, `â€™`, replacement characters (`U+FFFD`) and unexpected C1 control characters. Check accents, ñ, inverted question marks and currency symbols. Console display corruption alone is not proof that the file is damaged: inspect Unicode code points or serialized content.
+- Mixed valid and corrupted text must not be repaired by re-encoding an entire paragraph blindly. Reconstruct case titles, descriptions and parameters from the verified UTF-8 source or execution record, or repair a known malformed sequence locally. Preserve run formatting, embedded images and document structure. Reopen the saved artifact and verify that no suspect sequences remain.
+- Verify every case ID, expected condition and observed state against the actual test source and execution JSON. Check totals and coverage against delivered machine-readable reports, identify the coverage scope, and distinguish unit behavior from complete application validation. Remove or qualify precise historical measurements whose original report was overwritten and is not retained in the delivery.
+- For captured source fragments, validate their content against the current source, keep provenance (path, line and file hash), and inspect the rendered image for accented characters and clipping. An image is a readable view of evidence, not independent proof of execution. Never repair a screenshot by inventing code, outcomes or measurements.
+- Record the audit in the results/evidence folder, preserving the requested clean root layout. A successful save or a high page count does not establish correct encoding or factual accuracy.
+
 ### Compact pagination and continuity in Word
 
 Optimize the distribution of content across pages so the report remains professional, compact and orderly, without changing the original information or the institutional template's visual identity.

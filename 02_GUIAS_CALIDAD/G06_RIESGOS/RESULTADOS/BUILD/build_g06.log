@@ -1,0 +1,9 @@
+Inspect result written to file: C:/Users/36nue/Documents/CURSOS - 2026-B/CALIDAD DE SOFWTARE/LAB/proyecto-Calidad/02_GUIAS_CALIDAD/G06_RIESGOS/Matriz_Riesgos_RESTORA_G06.xlsx.inspect.ndjson
+{"kind":"sheet","id":"ws/u744wk","name":"Resumen","index":0,"range":"A1:F18","address":"A1:F18"}
+{"kind":"sheet","id":"ws/vzrv7g","name":"Activos RESTORA","index":1,"range":"A1:J19","address":"A1:J19"}
+{"kind":"sheet","id":"ws/jknce4","name":"Registro de riesgos","index":2,"range":"A1:T34","address":"A1:T34"}
+{"kind":"sheet","id":"ws/x29pbe","name":"Tratamiento","index":3,"range":"A1:N16","address":"A1:N16"}
+{"kind":"sheet","id":"ws/a4ikx1","name":"Comparativa","index":4,"range":"A1:E11","address":"A1:E11"}
+{"kind":"sheet","id":"ws/00k7hs","name":"Ejemplo docente","index":5,"range":"A1:L10","address":"A1:L10"}
+{"kind":"sheet","id":"ws/1rsgox","name":"Fuentes","index":6,"range":"A1:E14","address":"A1:E14"}
+Workbook exported and rendered.

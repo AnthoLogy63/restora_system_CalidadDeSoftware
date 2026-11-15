@@ -1,0 +1,914 @@
+[
+  {
+    "id": "PU-001",
+    "file": "src/lib/costo.test.ts",
+    "line": 11,
+    "source_sha256": "7d250ed8c82dae2f8cf1ed83f6a3ed4b5e87a0be7226ec157dbd6bfb9fd057c9",
+    "image": "EVIDENCIAS/CODIGO/PU-001.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-002",
+    "file": "src/lib/costo.test.ts",
+    "line": 17,
+    "source_sha256": "7d250ed8c82dae2f8cf1ed83f6a3ed4b5e87a0be7226ec157dbd6bfb9fd057c9",
+    "image": "EVIDENCIAS/CODIGO/PU-002.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-003",
+    "file": "src/lib/costo.test.ts",
+    "line": 28,
+    "source_sha256": "7d250ed8c82dae2f8cf1ed83f6a3ed4b5e87a0be7226ec157dbd6bfb9fd057c9",
+    "image": "EVIDENCIAS/CODIGO/PU-003.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-004",
+    "file": "src/lib/costo.test.ts",
+    "line": 34,
+    "source_sha256": "7d250ed8c82dae2f8cf1ed83f6a3ed4b5e87a0be7226ec157dbd6bfb9fd057c9",
+    "image": "EVIDENCIAS/CODIGO/PU-004.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-005",
+    "file": "src/lib/costo.test.ts",
+    "line": 39,
+    "source_sha256": "7d250ed8c82dae2f8cf1ed83f6a3ed4b5e87a0be7226ec157dbd6bfb9fd057c9",
+    "image": "EVIDENCIAS/CODIGO/PU-005.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-006",
+    "file": "src/lib/csv.test.ts",
+    "line": 5,
+    "source_sha256": "c7f8742b5ab7a4d1202bdbe8f81dce499de49d6f3b21c5c691b7314985002332",
+    "image": "EVIDENCIAS/CODIGO/PU-006.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-007",
+    "file": "src/lib/csv.test.ts",
+    "line": 9,
+    "source_sha256": "c7f8742b5ab7a4d1202bdbe8f81dce499de49d6f3b21c5c691b7314985002332",
+    "image": "EVIDENCIAS/CODIGO/PU-007.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-008",
+    "file": "src/lib/csv.test.ts",
+    "line": 14,
+    "source_sha256": "c7f8742b5ab7a4d1202bdbe8f81dce499de49d6f3b21c5c691b7314985002332",
+    "image": "EVIDENCIAS/CODIGO/PU-008.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-009",
+    "file": "src/lib/csv.test.ts",
+    "line": 22,
+    "source_sha256": "c7f8742b5ab7a4d1202bdbe8f81dce499de49d6f3b21c5c691b7314985002332",
+    "image": "EVIDENCIAS/CODIGO/PU-009.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-010",
+    "file": "src/lib/csv.test.ts",
+    "line": 27,
+    "source_sha256": "c7f8742b5ab7a4d1202bdbe8f81dce499de49d6f3b21c5c691b7314985002332",
+    "image": "EVIDENCIAS/CODIGO/PU-010.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-011",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 9,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-011.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-012",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 10,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-012.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-013",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 11,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-013.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-014",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 12,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-014.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-015",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 13,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-015.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-016",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 14,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-016.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-017",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 15,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-017.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-018",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 16,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-018.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-019",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 17,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-019.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-020",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 18,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-020.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-021",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 19,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-021.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-022",
+    "file": "src/lib/estadisticas-agregacion.test.ts",
+    "line": 20,
+    "source_sha256": "c2f43aa59890985b198605aca879ed255e5cea18e81842c916b22e3ad551d573",
+    "image": "EVIDENCIAS/CODIGO/PU-022.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-023",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 46,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-023.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-024",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 49,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-024.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-025",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 53,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-025.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-026",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 60,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-026.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-027",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 63,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-027.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-028",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 70,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-028.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-029",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 80,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-029.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-030",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 83,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-030.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-031",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 88,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-031.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-032",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 95,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-032.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-033",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 98,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-033.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-034",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 105,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-034.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-035",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 108,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-035.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-036",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 115,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-036.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-037",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 118,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-037.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-038",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 125,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-038.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-039",
+    "file": "src/lib/estadisticas.test.ts",
+    "line": 128,
+    "source_sha256": "aae59aead864426ee6e995d3e8ca080e1971e2099b0d56006c705db4cf1c69d6",
+    "image": "EVIDENCIAS/CODIGO/PU-039.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-040",
+    "file": "src/lib/password.test.ts",
+    "line": 5,
+    "source_sha256": "523d62b0b58b3eb5d3ee6105ac26abd0779ef8ac245b54a4c0c1e8823e5fe000",
+    "image": "EVIDENCIAS/CODIGO/PU-040.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-041",
+    "file": "src/lib/password.test.ts",
+    "line": 10,
+    "source_sha256": "523d62b0b58b3eb5d3ee6105ac26abd0779ef8ac245b54a4c0c1e8823e5fe000",
+    "image": "EVIDENCIAS/CODIGO/PU-041.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-042",
+    "file": "src/lib/password.test.ts",
+    "line": 15,
+    "source_sha256": "523d62b0b58b3eb5d3ee6105ac26abd0779ef8ac245b54a4c0c1e8823e5fe000",
+    "image": "EVIDENCIAS/CODIGO/PU-042.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-043",
+    "file": "src/lib/password.test.ts",
+    "line": 20,
+    "source_sha256": "523d62b0b58b3eb5d3ee6105ac26abd0779ef8ac245b54a4c0c1e8823e5fe000",
+    "image": "EVIDENCIAS/CODIGO/PU-043.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-044",
+    "file": "src/lib/password.test.ts",
+    "line": 26,
+    "source_sha256": "523d62b0b58b3eb5d3ee6105ac26abd0779ef8ac245b54a4c0c1e8823e5fe000",
+    "image": "EVIDENCIAS/CODIGO/PU-044.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-045",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 48,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-045.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-046",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 52,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-046.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-047",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 59,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-047.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-048",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 66,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-048.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-049",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 73,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-049.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-050",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 80,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-050.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-051",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 87,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-051.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-052",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 94,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-052.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-053",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 102,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-053.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-054",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 110,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-054.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-055",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 117,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-055.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-056",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 127,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-056.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-057",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 135,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-057.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-058",
+    "file": "src/lib/recomendaciones.test.ts",
+    "line": 147,
+    "source_sha256": "d670238664f81e3ed257c8bf10657a70c36920b3b7f92b325ab302c3a8982543",
+    "image": "EVIDENCIAS/CODIGO/PU-058.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-059",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 23,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-059.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-060",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 26,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-060.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-061",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 34,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-061.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-062",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 46,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-062.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-063",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 64,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-063.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-064",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 70,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-064.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-065",
+    "file": "src/lib/ai/transcripcion.test.ts",
+    "line": 81,
+    "source_sha256": "b1052b5912b04ff66c369ece2c6a3d1f92bbc810a9c21d4395c3d3c6e4230ef8",
+    "image": "EVIDENCIAS/CODIGO/PU-065.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-066",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 5,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-066.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-067",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 15,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-067.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-068",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 25,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-068.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-069",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 35,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-069.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-070",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 47,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-070.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-071",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 50,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-071.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-072",
+    "file": "src/lib/validation/auth.test.ts",
+    "line": 56,
+    "source_sha256": "7f96dd20fe84f45758b67a21f69f339e0be98f2b6d9bb23fc39b3816f62d59c8",
+    "image": "EVIDENCIAS/CODIGO/PU-072.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-073",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-073.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-074",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-074.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-075",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-075.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-076",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-076.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-077",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-077.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-078",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-078.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-079",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-079.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-080",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-080.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-081",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-081.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-082",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-082.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-083",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-083.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-084",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-084.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-085",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-085.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-086",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 9,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-086.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-087",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 11,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-087.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-088",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 11,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-088.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-089",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 11,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-089.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-090",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 11,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-090.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-091",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 11,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-091.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-092",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 13,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-092.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-093",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 13,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-093.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-094",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 13,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-094.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-095",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 13,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-095.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-096",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 14,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-096.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-097",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 7,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-097.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-098",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 19,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-098.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-099",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 19,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-099.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-100",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 19,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-100.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-101",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 19,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-101.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-102",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 19,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-102.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-103",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 21,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-103.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-104",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 21,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-104.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-105",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 21,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-105.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-106",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 21,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-106.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-107",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 22,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-107.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-108",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 23,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-108.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-109",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 27,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-109.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-110",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 28,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-110.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-111",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 29,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-111.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-112",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 30,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-112.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-113",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 31,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-113.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  },
+  {
+    "id": "PU-114",
+    "file": "src/lib/validation/g07.test.ts",
+    "line": 32,
+    "source_sha256": "6bf91271a86be7141793f36eeb238cd8e1acdc537871b43395a681530b531ed4",
+    "image": "EVIDENCIAS/CODIGO/PU-114.png",
+    "kind": "Captura de vista de fragmento fuente verificado; no interfaz de IDE"
+  }
+]
