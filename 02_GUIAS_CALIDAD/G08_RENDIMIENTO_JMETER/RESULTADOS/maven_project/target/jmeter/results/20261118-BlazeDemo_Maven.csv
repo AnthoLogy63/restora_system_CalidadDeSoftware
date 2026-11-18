@@ -1,0 +1,201 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1795014755774,765,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4852,111,1,1,https://blazedemo.com/,762,0,368
+1795014757768,403,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7476,241,2,2,https://blazedemo.com/reserve.php,401,0,0
+1795014758275,918,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4846,111,3,3,https://blazedemo.com/,917,0,415
+1795014759553,329,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6809,288,3,3,https://blazedemo.com/purchase.php,321,0,0
+1795014759960,464,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7476,241,3,3,https://blazedemo.com/reserve.php,462,0,0
+1795014760100,717,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4852,111,3,3,https://blazedemo.com/,716,0,330
+1795014760805,436,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5871,420,4,4,https://blazedemo.com/confirmation.php,434,0,0
+1795014761496,358,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6806,288,4,4,https://blazedemo.com/purchase.php,352,0,0
+1795014761744,318,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7472,241,4,4,https://blazedemo.com/reserve.php,308,0,0
+1795014762484,499,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4848,111,5,5,https://blazedemo.com/,498,0,0
+1795014762114,869,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4848,111,5,5,https://blazedemo.com/,868,0,302
+1795014762673,342,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,341,0,0
+1795014762663,413,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,406,0,0
+1795014763380,402,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,393,0,0
+1795014763681,339,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,330,0,0
+1795014764264,388,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4847,111,5,5,https://blazedemo.com/,384,0,0
+1795014763988,704,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,702,0,305
+1795014764459,323,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,315,0,0
+1795014764809,387,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,378,0,0
+1795014765362,312,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4848,111,5,5,https://blazedemo.com/,306,0,0
+1795014765456,362,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,347,0,0
+1795014765768,389,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,388,0,0
+1795014765819,431,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,423,0,0
+1795014766319,388,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6810,288,5,5,https://blazedemo.com/purchase.php,380,0,0
+1795014766504,465,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,457,0,0
+1795014766706,367,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,358,0,0
+1795014767178,412,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,411,0,0
+1795014767244,352,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,347,0,0
+1795014768099,295,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5874,420,5,5,https://blazedemo.com/confirmation.php,290,0,0
+1795014768038,373,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4847,111,5,5,https://blazedemo.com/,364,0,0
+1795014768081,363,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,358,0,0
+1795014768371,345,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4848,111,5,5,https://blazedemo.com/,343,0,0
+1795014768395,367,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5869,420,5,5,https://blazedemo.com/confirmation.php,360,0,0
+1795014769273,401,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,391,0,0
+1795014769412,307,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,302,0,0
+1795014769447,301,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5869,420,5,5,https://blazedemo.com/confirmation.php,293,0,0
+1795014770063,309,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,298,0,0
+1795014770051,370,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4847,111,5,5,https://blazedemo.com/,370,0,0
+1795014770329,332,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4847,111,5,5,https://blazedemo.com/,326,0,0
+1795014770626,343,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,342,0,0
+1795014770605,367,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,363,0,0
+1795014771077,325,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,316,0,0
+1795014771128,290,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,281,0,0
+1795014771259,395,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,385,0,0
+1795014771511,319,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,313,0,0
+1795014772046,317,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,312,0,0
+1795014772103,320,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,313,0,0
+1795014772363,402,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5875,420,5,5,https://blazedemo.com/confirmation.php,394,0,0
+1795014772550,317,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,311,0,0
+1795014772873,373,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,364,0,0
+1795014773090,336,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,330,0,0
+1795014773518,338,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4847,111,5,5,https://blazedemo.com/,332,0,0
+1795014773739,296,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,289,0,0
+1795014773563,472,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4848,111,5,5,https://blazedemo.com/,466,0,0
+1795014774233,385,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,378,0,0
+1795014774410,324,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4848,111,5,5,https://blazedemo.com/,319,0,0
+1795014774699,367,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7470,241,5,5,https://blazedemo.com/reserve.php,366,0,0
+1795014775284,339,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,339,0,0
+1795014775256,391,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,383,0,0
+1795014775606,431,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4848,111,5,5,https://blazedemo.com/,425,0,0
+1795014775808,328,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,320,0,0
+1795014775849,399,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,389,0,0
+1795014776634,314,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,314,0,0
+1795014776936,372,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7470,241,5,5,https://blazedemo.com/reserve.php,364,0,0
+1795014777014,368,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,359,0,0
+1795014777130,327,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,322,0,0
+1795014777489,375,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,369,0,0
+1795014777832,409,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,408,0,0
+1795014778380,376,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,376,0,0
+1795014778342,414,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,412,0,0
+1795014778451,313,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,308,0,0
+1795014778831,282,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4847,111,5,5,https://blazedemo.com/,277,0,0
+1795014779663,324,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,320,0,0
+1795014779864,344,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4847,111,5,5,https://blazedemo.com/,340,0,0
+1795014779905,337,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4848,111,5,5,https://blazedemo.com/,334,0,0
+1795014779965,421,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,415,0,0
+1795014780253,336,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7470,241,5,5,https://blazedemo.com/reserve.php,327,0,0
+1795014780914,458,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,448,0,0
+1795014781155,472,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7476,241,5,5,https://blazedemo.com/reserve.php,463,0,0
+1795014781469,337,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4848,111,5,5,https://blazedemo.com/,332,0,0
+1795014781472,375,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,366,0,0
+1795014781481,404,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,398,0,0
+1795014782312,331,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,331,0,0
+1795014782755,340,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,329,0,0
+1795014782911,385,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,376,0,0
+1795014782974,329,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,325,0,0
+1795014783043,318,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,310,0,0
+1795014783211,356,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,349,0,0
+1795014783961,384,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,377,0,0
+1795014784370,321,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,314,0,0
+1795014784390,486,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,479,0,0
+1795014784713,338,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,332,0,0
+1795014784867,644,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4847,111,5,5,https://blazedemo.com/,643,0,0
+1795014785061,450,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4848,111,5,5,https://blazedemo.com/,449,0,0
+1795014785581,340,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,337,0,0
+1795014785916,434,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,432,0,0
+1795014786399,441,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4847,111,5,5,https://blazedemo.com/,441,0,0
+1795014786447,393,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,393,0,0
+1795014786578,307,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,299,0,0
+1795014786608,399,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,394,0,0
+1795014787480,386,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4847,111,5,5,https://blazedemo.com/,384,0,0
+1795014788038,312,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5874,420,5,5,https://blazedemo.com/confirmation.php,312,0,0
+1795014788193,328,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,320,0,0
+1795014788319,374,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,364,0,0
+1795014788465,353,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,346,0,0
+1795014789075,578,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,574,0,0
+1795014789474,323,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,316,0,0
+1795014789471,367,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,358,0,0
+1795014789413,467,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5869,420,5,5,https://blazedemo.com/confirmation.php,460,0,0
+1795014789911,338,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,332,0,0
+1795014790563,361,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,352,0,0
+1795014790546,409,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,402,0,0
+1795014790885,377,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4847,111,5,5,https://blazedemo.com/,370,0,0
+1795014791132,302,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,296,0,0
+1795014791438,423,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4847,111,5,5,https://blazedemo.com/,420,0,0
+1795014792077,372,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,363,0,0
+1795014792234,368,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,362,0,0
+1795014792410,293,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,286,0,0
+1795014792376,334,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7470,241,5,5,https://blazedemo.com/reserve.php,327,0,0
+1795014792682,405,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4847,111,5,5,https://blazedemo.com/,404,0,0
+1795014793214,343,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4848,111,5,5,https://blazedemo.com/,336,0,0
+1795014793369,376,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,373,0,0
+1795014793515,365,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,358,0,0
+1795014793942,321,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,315,0,0
+1795014794147,318,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,316,0,0
+1795014794902,386,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,376,0,0
+1795014794967,371,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,366,0,0
+1795014795219,302,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,296,0,0
+1795014795349,321,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4848,111,5,5,https://blazedemo.com/,314,0,0
+1795014795754,303,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,302,0,0
+1795014796426,313,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,311,0,0
+1795014796423,319,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,314,0,0
+1795014796486,375,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,368,0,0
+1795014796876,368,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4847,111,5,5,https://blazedemo.com/,363,0,0
+1795014797296,334,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4847,111,5,5,https://blazedemo.com/,328,0,0
+1795014797823,332,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6804,288,5,5,https://blazedemo.com/purchase.php,326,0,0
+1795014798001,334,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4848,111,5,5,https://blazedemo.com/,327,0,0
+1795014797918,541,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,534,0,0
+1795014797988,490,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,480,0,0
+1795014798210,315,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,305,0,0
+1795014799017,348,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,344,0,0
+1795014799232,319,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,309,0,0
+1795014799278,462,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4847,111,5,5,https://blazedemo.com/,455,0,0
+1795014799496,345,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,341,0,0
+1795014799619,497,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,492,0,0
+1795014799879,387,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7470,241,5,5,https://blazedemo.com/reserve.php,376,0,0
+1795014800353,328,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,320,0,0
+1795014800569,312,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4847,111,5,5,https://blazedemo.com/,308,0,0
+1795014800889,369,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,365,0,0
+1795014801021,392,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,387,0,0
+1795014801613,383,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4848,111,5,5,https://blazedemo.com/,383,0,0
+1795014801596,400,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,400,0,0
+1795014801673,451,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,446,0,0
+1795014802024,411,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4846,111,5,5,https://blazedemo.com/,405,0,0
+1795014802055,388,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6804,288,5,5,https://blazedemo.com/purchase.php,380,0,0
+1795014802725,320,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4847,111,5,5,https://blazedemo.com/,314,0,0
+1795014803011,288,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,277,0,0
+1795014803001,391,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,381,0,0
+1795014803266,298,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,289,0,0
+1795014803657,386,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,381,0,0
+1795014803869,324,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,313,0,0
+1795014804166,389,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,387,0,0
+1795014804305,475,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,471,0,0
+1795014805012,364,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,362,0,0
+1795014805106,370,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4847,111,5,5,https://blazedemo.com/,362,0,0
+1795014805197,324,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,315,0,0
+1795014805735,460,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4847,111,5,5,https://blazedemo.com/,460,0,0
+1795014805746,451,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,449,0,0
+1795014806585,390,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7470,241,5,5,https://blazedemo.com/reserve.php,380,0,0
+1795014806682,311,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,304,0,0
+1795014806644,357,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,351,0,0
+1795014807045,361,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4847,111,5,5,https://blazedemo.com/,354,0,0
+1795014807418,365,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,357,0,0
+1795014807872,294,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,4848,111,5,5,https://blazedemo.com/,289,0,0
+1795014807967,315,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,4846,111,5,5,https://blazedemo.com/,310,0,0
+1795014808118,362,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,354,0,0
+1795014808330,339,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,330,0,0
+1795014808417,340,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,329,0,0
+1795014809402,336,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,331,0,0
+1795014809605,326,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,7472,241,5,5,https://blazedemo.com/reserve.php,316,0,0
+1795014809530,403,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,395,0,0
+1795014809757,318,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,7471,241,5,5,https://blazedemo.com/reserve.php,308,0,0
+1795014809585,523,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6806,288,5,5,https://blazedemo.com/purchase.php,516,0,0
+1795014810734,340,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,6804,288,5,5,https://blazedemo.com/purchase.php,333,0,0
+1795014810762,368,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,4848,111,5,5,https://blazedemo.com/,360,0,0
+1795014810938,336,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,4847,111,5,5,https://blazedemo.com/,331,0,0
+1795014811184,438,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5871,420,5,5,https://blazedemo.com/confirmation.php,436,0,0
+1795014811230,392,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,6805,288,5,5,https://blazedemo.com/purchase.php,392,0,0
+1795014812044,299,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,7475,241,5,5,https://blazedemo.com/reserve.php,291,0,0
+1795014812238,348,01 - GET Pagina de inicio,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,4848,111,5,5,https://blazedemo.com/,343,0,0
+1795014812285,331,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-3,text,true,,5870,420,5,5,https://blazedemo.com/confirmation.php,327,0,0
+1795014812346,356,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,7471,241,4,4,https://blazedemo.com/reserve.php,346,0,0
+1795014812564,322,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-1,text,true,,5870,420,4,4,https://blazedemo.com/confirmation.php,317,0,0
+1795014813096,369,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,6804,288,3,3,https://blazedemo.com/purchase.php,367,0,0
+1795014813487,343,02 - POST Buscar vuelos,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,7472,241,3,3,https://blazedemo.com/reserve.php,333,0,0
+1795014813690,491,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,6809,288,3,3,https://blazedemo.com/purchase.php,490,0,0
+1795014814463,436,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-5,text,true,,5870,420,3,3,https://blazedemo.com/confirmation.php,436,0,0
+1795014814538,402,03 - POST Seleccionar vuelo,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,6805,288,2,2,https://blazedemo.com/purchase.php,396,0,0
+1795014815617,445,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-2,text,true,,5871,420,2,2,https://blazedemo.com/confirmation.php,438,0,0
+1795014816037,350,04 - POST Confirmar compra,200,OK,TG - Usuarios concurrentes (5 x 10) 1-4,text,true,,5871,420,1,1,https://blazedemo.com/confirmation.php,342,0,0
