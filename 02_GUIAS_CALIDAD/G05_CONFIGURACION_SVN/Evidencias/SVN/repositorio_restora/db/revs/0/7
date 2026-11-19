@@ -1,0 +1,146 @@
+PLAIN
+K 7
+.claude
+V 19
+dir 4-1.0.r1/488110
+K 13
+.dockerignore
+V 20
+file 9-1.0.r1/488240
+K 12
+.env.example
+V 20
+file b-1.0.r1/488424
+K 10
+.gitignore
+V 20
+file d-1.0.r1/488608
+K 9
+AGENTS.md
+V 20
+file f-1.0.r1/488791
+K 15
+ARCHITECTURE.md
+V 20
+file h-1.0.r1/488972
+K 9
+CLAUDE.md
+V 20
+file j-1.0.r1/489161
+K 10
+Dockerfile
+V 20
+file l-1.0.r1/489344
+K 9
+README.md
+V 20
+file n-1.0.r1/489527
+K 5
+brand
+V 19
+dir p-1.0.r1/489981
+K 20
+docker-entrypoint.sh
+V 20
+file t-1.0.r1/490109
+K 17
+eslint.config.mjs
+V 20
+file v-1.0.r1/490302
+K 8
+frontend
+V 19
+dir x-1.0.r1/522733
+K 5
+infra
+V 20
+dir 83-1.0.r1/523556
+K 8
+logo.jpg
+V 21
+file 8b-1.0.r1/523751
+K 14
+next.config.ts
+V 21
+file 8d-1.0.r1/523993
+K 17
+package-lock.json
+V 21
+file 8f-1.0.r1/524183
+K 12
+package.json
+V 21
+file 8h-1.0.r1/524381
+K 18
+postcss.config.mjs
+V 21
+file 8j-1.0.r1/524570
+K 9
+predictor
+V 20
+dir 8l-1.0.r1/526175
+K 6
+prisma
+V 20
+dir 8z-1.0.r1/528348
+K 16
+prisma.config.ts
+V 21
+file 9h-1.0.r1/528480
+K 6
+public
+V 20
+dir 9j-1.0.r1/529858
+K 3
+src
+V 20
+dir 9v-1.0.r1/556753
+K 13
+tsconfig.json
+V 21
+file g1-1.0.r1/556880
+K 16
+vitest.config.ts
+V 21
+file g3-1.0.r1/557069
+END
+ENDREP
+id: 3-1.0.r7/1129
+type: dir
+pred: 3-1.0.r6/1534
+count: 4
+text: 7 0 1116 1116 e60779662d033ed1371dff2210abf39a
+props: 6 1469 52 0 ce18ed38144a00acc430eea01f63cd3d
+cpath: /trunk
+copyroot: 0 /
+minfo-cnt: 1
+minfo-here: y
+
+PLAIN
+K 8
+branches
+V 17
+dir 0-1.0.r4/1705
+K 4
+tags
+V 19
+dir 2-1.0.r1/487795
+K 5
+trunk
+V 17
+dir 3-1.0.r7/1129
+END
+ENDREP
+id: 0.0.r7/1467
+type: dir
+pred: 0.0.r6/1874
+count: 7
+text: 7 1347 107 107 9df684379a905a20ff554efd0db6fadf
+cpath: /
+copyroot: 0 /
+minfo-cnt: 1
+
+1-2.0.r6/89 delete-file false false /trunk/G05-conflict-demo.txt
+
+
+1467 1611

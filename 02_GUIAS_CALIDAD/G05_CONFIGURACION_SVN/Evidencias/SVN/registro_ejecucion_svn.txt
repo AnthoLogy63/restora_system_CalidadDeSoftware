@@ -1,0 +1,413 @@
+EVIDENCIA G05 — SESIÓN SVN REPRODUCIBLE
+Fecha: 19/11/2026.
+
+ORIGEN Y AISLAMIENTO
+El trunk se importó a partir de una copia de los archivos versionados de 01_APLICACION existentes al inicio de la demostración. Incluye cambios locales preexistentes; no se modificó el directorio original. Se copiaron y validaron por SHA-256 los archivos incluidos en snapshot_manifest.csv; total: 226 archivos. Se omitieron archivos .env reales y claves/certificados. El repositorio es local, no se configuró un servidor ni hubo acceso remoto.
+Git HEAD de referencia: b3c8269d82c21a3d3956cb25f75ad474b6a43c57
+Cliente Subversion: 1.7.8
+
+CRONOLOGÍA VERIFICADA
+r1 importación de la aplicación a trunk y creación de branches/tags.
+r2 creación del archivo aislado G05-conflict-demo.txt con valor base.
+r3 creación de branches/feature-g05 desde trunk.
+r4 modificación del archivo de prueba en feature-g05.
+r5 modificación concurrente de la misma línea en trunk.
+Antes de fusionar se detectó una copia de trabajo de revisiones mixtas; el primer intento fue rechazado por SVN con E195020. Se ejecutó svn update y se repitió el merge con --accept postpone.
+El merge reportó “C” y “Conflictos de texto: 1”; svn status identificó el archivo en conflicto y se verificaron los marcadores antes de resolverlo.
+r6 resolución manual que conserva ambas variantes (“resultado = rama + trunk”) y commit de la fusión.
+Tras r6, se ejecutó svn update -r 2 y un update de retorno a HEAD.
+r7 eliminación del archivo temporal de conflicto, dejando limpio el árbol del producto.
+r8 creación de /tags/Version_1.0.0 desde /trunk en r7.
+
+VALIDACIONES
+La salida de svn diff --summarize entre trunk@7 y tags/Version_1.0.0@8 fue vacía: el tag coincide con el trunk final. Los hashes de los archivos de aplicación del trunk coinciden con el manifiesto del snapshot inicial. El estado final de la copia de trabajo SVN está limpio.
+El dump comprimido se descomprimió y cargó en un repositorio limpio; la restauración conserva las ocho revisiones.
+Estado observado en 01_APLICACION antes/después: tres archivos ya modificados (frontend/bun.lock, package.json y src/app/page.tsx). No se escribieron archivos en 01_APLICACION; se mantiene el mismo estado.
+El único conflicto se provocó y resolvió en G05-conflict-demo.txt, archivo de laboratorio retirado en r7; no se alteró código de RESTORA.
+
+COMANDOS Y SALIDAS DE VERIFICACIÓN
+$ svn log -q -r 1:8 <repositorio local>
+------------------------------------------------------------------------
+r1 | hp | 2026-11-19 10:21:17 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r2 | hp | 2026-11-19 10:21:49 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r3 | hp | 2026-11-19 10:21:49 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r4 | hp | 2026-11-19 10:22:17 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r5 | hp | 2026-11-19 10:22:18 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r6 | hp | 2026-11-19 10:30:24 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r7 | hp | 2026-11-19 10:30:25 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r8 | hp | 2026-11-19 10:30:25 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+
+$ svn log -v -r 1:8 <repositorio local>
+------------------------------------------------------------------------
+r1 | hp | 2026-11-19 10:21:17 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   A /branches
+   A /tags
+   A /trunk
+   A /trunk/.claude
+   A /trunk/.claude/launch.json
+   A /trunk/.dockerignore
+   A /trunk/.env.example
+   A /trunk/.gitignore
+   A /trunk/AGENTS.md
+   A /trunk/ARCHITECTURE.md
+   A /trunk/CLAUDE.md
+   A /trunk/Dockerfile
+   A /trunk/README.md
+   A /trunk/brand
+   A /trunk/brand/restora-motion.html
+   A /trunk/docker-entrypoint.sh
+   A /trunk/eslint.config.mjs
+   A /trunk/frontend
+   A /trunk/frontend/.dockerignore
+   A /trunk/frontend/.gitignore
+   A /trunk/frontend/.prettierignore
+   A /trunk/frontend/.prettierrc
+   A /trunk/frontend/AGENTS.md
+   A /trunk/frontend/Dockerfile
+   A /trunk/frontend/README.md
+   A /trunk/frontend/bun.lock
+   A /trunk/frontend/bunfig.toml
+   A /trunk/frontend/components.json
+   A /trunk/frontend/e2e
+   A /trunk/frontend/e2e/fixtures
+   A /trunk/frontend/e2e/fixtures/auth.setup.ts
+   A /trunk/frontend/e2e/specs
+   A /trunk/frontend/e2e/specs/analytics.spec.ts
+   A /trunk/frontend/e2e/specs/asistente.spec.ts
+   A /trunk/frontend/e2e/specs/auth.spec.ts
+   A /trunk/frontend/e2e/specs/catalogo.spec.ts
+   A /trunk/frontend/e2e/specs/dashboard.spec.ts
+   A /trunk/frontend/e2e/specs/entregas.spec.ts
+   A /trunk/frontend/e2e/specs/operations.spec.ts
+   A /trunk/frontend/e2e/specs/predict.spec.ts
+   A /trunk/frontend/e2e/specs/profile.spec.ts
+   A /trunk/frontend/e2e/specs/protected-routes.spec.ts
+   A /trunk/frontend/e2e/specs/reports.spec.ts
+   A /trunk/frontend/e2e/utils
+   A /trunk/frontend/e2e/utils/dates.ts
+   A /trunk/frontend/e2e/utils/dialogs.ts
+   A /trunk/frontend/eslint.config.js
+   A /trunk/frontend/package-lock.json
+   A /trunk/frontend/package.json
+   A /trunk/frontend/playwright.config.ts
+   A /trunk/frontend/public
+   A /trunk/frontend/public/favicon.ico
+   A /trunk/frontend/public/robots.txt
+   A /trunk/frontend/src
+   A /trunk/frontend/src/components
+   A /trunk/frontend/src/components/AppShell.tsx
+   A /trunk/frontend/src/components/Brand.tsx
+   A /trunk/frontend/src/components/EmptyState.tsx
+   A /trunk/frontend/src/components/PageHeader.tsx
+   A /trunk/frontend/src/components/StatCard.tsx
+   A /trunk/frontend/src/components/asistente
+   A /trunk/frontend/src/components/asistente/AsistenteWidget.tsx
+   A /trunk/frontend/src/components/asistente/BorradorPanel.tsx
+   A /trunk/frontend/src/components/asistente/ResumenConfirmacion.tsx
+   A /trunk/frontend/src/components/ui
+   A /trunk/frontend/src/components/ui/accordion.tsx
+   A /trunk/frontend/src/components/ui/alert-dialog.tsx
+   A /trunk/frontend/src/components/ui/alert.tsx
+   A /trunk/frontend/src/components/ui/aspect-ratio.tsx
+   A /trunk/frontend/src/components/ui/avatar.tsx
+   A /trunk/frontend/src/components/ui/badge.tsx
+   A /trunk/frontend/src/components/ui/breadcrumb.tsx
+   A /trunk/frontend/src/components/ui/button.tsx
+   A /trunk/frontend/src/components/ui/calendar.tsx
+   A /trunk/frontend/src/components/ui/card.tsx
+   A /trunk/frontend/src/components/ui/carousel.tsx
+   A /trunk/frontend/src/components/ui/chart.tsx
+   A /trunk/frontend/src/components/ui/checkbox.tsx
+   A /trunk/frontend/src/components/ui/collapsible.tsx
+   A /trunk/frontend/src/components/ui/command.tsx
+   A /trunk/frontend/src/components/ui/context-menu.tsx
+   A /trunk/frontend/src/components/ui/dialog.tsx
+   A /trunk/frontend/src/components/ui/drawer.tsx
+   A /trunk/frontend/src/components/ui/dropdown-menu.tsx
+   A /trunk/frontend/src/components/ui/form.tsx
+   A /trunk/frontend/src/components/ui/hover-card.tsx
+   A /trunk/frontend/src/components/ui/input-otp.tsx
+   A /trunk/frontend/src/components/ui/input.tsx
+   A /trunk/frontend/src/components/ui/label.tsx
+   A /trunk/frontend/src/components/ui/menubar.tsx
+   A /trunk/frontend/src/components/ui/native-select.tsx
+   A /trunk/frontend/src/components/ui/navigation-menu.tsx
+   A /trunk/frontend/src/components/ui/pagination.tsx
+   A /trunk/frontend/src/components/ui/popover.tsx
+   A /trunk/frontend/src/components/ui/progress.tsx
+   A /trunk/frontend/src/components/ui/radio-group.tsx
+   A /trunk/frontend/src/components/ui/resizable.tsx
+   A /trunk/frontend/src/components/ui/scroll-area.tsx
+   A /trunk/frontend/src/components/ui/select.tsx
+   A /trunk/frontend/src/components/ui/separator.tsx
+   A /trunk/frontend/src/components/ui/sheet.tsx
+   A /trunk/frontend/src/components/ui/sidebar.tsx
+   A /trunk/frontend/src/components/ui/skeleton.tsx
+   A /trunk/frontend/src/components/ui/slider.tsx
+   A /trunk/frontend/src/components/ui/sonner.tsx
+   A /trunk/frontend/src/components/ui/switch.tsx
+   A /trunk/frontend/src/components/ui/table.tsx
+   A /trunk/frontend/src/components/ui/tabs.tsx
+   A /trunk/frontend/src/components/ui/textarea.tsx
+   A /trunk/frontend/src/components/ui/toggle-group.tsx
+   A /trunk/frontend/src/components/ui/toggle.tsx
+   A /trunk/frontend/src/components/ui/tooltip.tsx
+   A /trunk/frontend/src/hooks
+   A /trunk/frontend/src/hooks/use-mobile.tsx
+   A /trunk/frontend/src/hooks/useAsistente.ts
+   A /trunk/frontend/src/hooks/useGrabacionVoz.ts
+   A /trunk/frontend/src/lib
+   A /trunk/frontend/src/lib/api.ts
+   A /trunk/frontend/src/lib/asistente.ts
+   A /trunk/frontend/src/lib/error-capture.ts
+   A /trunk/frontend/src/lib/error-page.ts
+   A /trunk/frontend/src/lib/etiquetas.ts
+   A /trunk/frontend/src/lib/lovable-error-reporting.ts
+   A /trunk/frontend/src/lib/session.ts
+   A /trunk/frontend/src/lib/utils.ts
+   A /trunk/frontend/src/routeTree.gen.ts
+   A /trunk/frontend/src/router.tsx
+   A /trunk/frontend/src/routes
+   A /trunk/frontend/src/routes/README.md
+   A /trunk/frontend/src/routes/__root.tsx
+   A /trunk/frontend/src/routes/analytics.tsx
+   A /trunk/frontend/src/routes/auth.tsx
+   A /trunk/frontend/src/routes/catalogo.tsx
+   A /trunk/frontend/src/routes/dashboard.tsx
+   A /trunk/frontend/src/routes/entregas.tsx
+   A /trunk/frontend/src/routes/history.tsx
+   A /trunk/frontend/src/routes/index.tsx
+   A /trunk/frontend/src/routes/predict.tsx
+   A /trunk/frontend/src/routes/profile.tsx
+   A /trunk/frontend/src/routes/register.tsx
+   A /trunk/frontend/src/routes/reports.tsx
+   A /trunk/frontend/src/server.ts
+   A /trunk/frontend/src/start.ts
+   A /trunk/frontend/src/styles.css
+   A /trunk/frontend/tsconfig.json
+   A /trunk/frontend/vite.config.ts
+   A /trunk/infra
+   A /trunk/infra/prod
+   A /trunk/infra/prod/.env.example
+   A /trunk/infra/prod/compose.yml
+   A /trunk/logo.jpg
+   A /trunk/next.config.ts
+   A /trunk/package-lock.json
+   A /trunk/package.json
+   A /trunk/postcss.config.mjs
+   A /trunk/predictor
+   A /trunk/predictor/common.py
+   A /trunk/predictor/models
+   A /trunk/predictor/models/.gitkeep
+   A /trunk/predictor/predict.py
+   A /trunk/predictor/requirements.txt
+   A /trunk/predictor/train.py
+   A /trunk/prisma
+   A /trunk/prisma/migrations
+   A /trunk/prisma/migrations/20260803194331_alinear_flujo_app
+   A /trunk/prisma/migrations/20260803194331_alinear_flujo_app/migration.sql
+   A /trunk/prisma/migrations/20261114231615_producto_activo
+   A /trunk/prisma/migrations/20261114231615_producto_activo/migration.sql
+   A /trunk/prisma/migrations/migration_lock.toml
+   A /trunk/prisma/schema.prisma
+   A /trunk/prisma/seed.ts
+   A /trunk/prisma.config.ts
+   A /trunk/public
+   A /trunk/public/file.svg
+   A /trunk/public/globe.svg
+   A /trunk/public/next.svg
+   A /trunk/public/vercel.svg
+   A /trunk/public/window.svg
+   A /trunk/src
+   A /trunk/src/app
+   A /trunk/src/app/api
+   A /trunk/src/app/api/auth
+   A /trunk/src/app/api/auth/forgot-password
+   A /trunk/src/app/api/auth/forgot-password/route.ts
+   A /trunk/src/app/api/auth/login
+   A /trunk/src/app/api/auth/login/route.ts
+   A /trunk/src/app/api/auth/logout
+   A /trunk/src/app/api/auth/logout/route.ts
+   A /trunk/src/app/api/auth/me
+   A /trunk/src/app/api/auth/me/route.ts
+   A /trunk/src/app/api/auth/register
+   A /trunk/src/app/api/auth/register/route.ts
+   A /trunk/src/app/api/auth/reset-password
+   A /trunk/src/app/api/auth/reset-password/route.ts
+   A /trunk/src/app/api/health
+   A /trunk/src/app/api/health/route.ts
+   A /trunk/src/app/api/restaurantes
+   A /trunk/src/app/api/restaurantes/[id]
+   A /trunk/src/app/api/restaurantes/[id]/acciones
+   A /trunk/src/app/api/restaurantes/[id]/acciones/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/asistente
+   A /trunk/src/app/api/restaurantes/[id]/asistente/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/asistente/voz
+   A /trunk/src/app/api/restaurantes/[id]/asistente/voz/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/colaboradores
+   A /trunk/src/app/api/restaurantes/[id]/colaboradores/[colaboradorId]
+   A /trunk/src/app/api/restaurantes/[id]/colaboradores/[colaboradorId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/colaboradores/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/dashboard
+   A /trunk/src/app/api/restaurantes/[id]/dashboard/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/entregas
+   A /trunk/src/app/api/restaurantes/[id]/entregas/[entregaId]
+   A /trunk/src/app/api/restaurantes/[id]/entregas/[entregaId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/entregas/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/indicadores
+   A /trunk/src/app/api/restaurantes/[id]/indicadores/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/operaciones
+   A /trunk/src/app/api/restaurantes/[id]/operaciones/[operacionId]
+   A /trunk/src/app/api/restaurantes/[id]/operaciones/[operacionId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/operaciones/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/predicciones
+   A /trunk/src/app/api/restaurantes/[id]/predicciones/[prediccionId]
+   A /trunk/src/app/api/restaurantes/[id]/predicciones/[prediccionId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/predicciones/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/productos
+   A /trunk/src/app/api/restaurantes/[id]/productos/[productoId]
+   A /trunk/src/app/api/restaurantes/[id]/productos/[productoId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/productos/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/recomendaciones
+   A /trunk/src/app/api/restaurantes/[id]/recomendaciones/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/reportes
+   A /trunk/src/app/api/restaurantes/[id]/reportes/[reporteId]
+   A /trunk/src/app/api/restaurantes/[id]/reportes/[reporteId]/export
+   A /trunk/src/app/api/restaurantes/[id]/reportes/[reporteId]/export/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/reportes/[reporteId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/reportes/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/residuos
+   A /trunk/src/app/api/restaurantes/[id]/residuos/[residuoId]
+   A /trunk/src/app/api/restaurantes/[id]/residuos/[residuoId]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/residuos/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/route.ts
+   A /trunk/src/app/api/restaurantes/[id]/tendencias
+   A /trunk/src/app/api/restaurantes/[id]/tendencias/route.ts
+   A /trunk/src/app/favicon.ico
+   A /trunk/src/app/globals.css
+   A /trunk/src/app/layout.tsx
+   A /trunk/src/app/page.tsx
+   A /trunk/src/lib
+   A /trunk/src/lib/ai
+   A /trunk/src/lib/ai/contexto.ts
+   A /trunk/src/lib/ai/dialogo.ts
+   A /trunk/src/lib/ai/flujos.ts
+   A /trunk/src/lib/ai/prompt.ts
+   A /trunk/src/lib/ai/provider.ts
+   A /trunk/src/lib/ai/transcripcion.test.ts
+   A /trunk/src/lib/ai/transcripcion.ts
+   A /trunk/src/lib/api-helpers.test.ts
+   A /trunk/src/lib/api-helpers.ts
+   A /trunk/src/lib/auth.ts
+   A /trunk/src/lib/catalogo.test.ts
+   A /trunk/src/lib/catalogo.ts
+   A /trunk/src/lib/costo.test.ts
+   A /trunk/src/lib/costo.ts
+   A /trunk/src/lib/csv.test.ts
+   A /trunk/src/lib/csv.ts
+   A /trunk/src/lib/db.ts
+   A /trunk/src/lib/estadisticas-agregacion.test.ts
+   A /trunk/src/lib/estadisticas.test.ts
+   A /trunk/src/lib/estadisticas.ts
+   A /trunk/src/lib/password.test.ts
+   A /trunk/src/lib/password.ts
+   A /trunk/src/lib/prediccion.ts
+   A /trunk/src/lib/pythonBridge.ts
+   A /trunk/src/lib/recomendaciones.test.ts
+   A /trunk/src/lib/recomendaciones.ts
+   A /trunk/src/lib/reporte.ts
+   A /trunk/src/lib/validation
+   A /trunk/src/lib/validation/accion.ts
+   A /trunk/src/lib/validation/auth.test.ts
+   A /trunk/src/lib/validation/auth.ts
+   A /trunk/src/lib/validation/colaborador.ts
+   A /trunk/src/lib/validation/entrega.ts
+   A /trunk/src/lib/validation/g07.test.ts
+   A /trunk/src/lib/validation/prediccion.ts
+   A /trunk/src/lib/validation/producto.ts
+   A /trunk/src/lib/validation/registroOperacion.test.ts
+   A /trunk/src/lib/validation/registroOperacion.ts
+   A /trunk/src/lib/validation/residuo.ts
+   A /trunk/src/lib/validation/restaurante.ts
+   A /trunk/tsconfig.json
+   A /trunk/vitest.config.ts
+
+chore: importar snapshot actual de RESTORA para G05
+------------------------------------------------------------------------
+r2 | hp | 2026-11-19 10:21:49 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   A /trunk/G05-conflict-demo.txt
+
+test: preparar archivo de conflicto de la práctica G05
+------------------------------------------------------------------------
+r3 | hp | 2026-11-19 10:21:49 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   A /branches/feature-g05 (de /trunk:2)
+
+chore: crear rama feature-g05 desde trunk
+------------------------------------------------------------------------
+r4 | hp | 2026-11-19 10:22:17 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   M /branches/feature-g05/G05-conflict-demo.txt
+
+feat: cambiar resultado en feature-g05
+------------------------------------------------------------------------
+r5 | hp | 2026-11-19 10:22:18 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   M /trunk/G05-conflict-demo.txt
+
+feat: cambiar el mismo resultado en trunk
+------------------------------------------------------------------------
+r6 | hp | 2026-11-19 10:30:24 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   M /trunk
+   M /trunk/G05-conflict-demo.txt
+
+merge: resolver conflicto de feature-g05 e integrar en trunk
+------------------------------------------------------------------------
+r7 | hp | 2026-11-19 10:30:25 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   D /trunk/G05-conflict-demo.txt
+
+chore: retirar archivo temporal de conflicto de la práctica
+------------------------------------------------------------------------
+r8 | hp | 2026-11-19 10:30:25 -0500 (jue. 19 de nov. de 2026) | 1 línea
+Rutas cambiadas:
+   A /tags/Version_1.0.0 (de /trunk:7)
+
+release: etiquetar snapshot final de RESTORA tras verificar trunk r7
+------------------------------------------------------------------------
+
+$ svn diff --summarize <repositorio>/trunk@7 <repositorio>/tags/Version_1.0.0@8
+(sin diferencias; resultado esperado)
+
+$ svn status <copia de trabajo trunk>
+(sin cambios locales pendientes)
+
+$ svn log -q -r 1:8 <repositorio restaurado desde el dump>
+------------------------------------------------------------------------
+r1 | hp | 2026-11-19 10:21:17 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r2 | hp | 2026-11-19 10:21:49 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r3 | hp | 2026-11-19 10:21:49 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r4 | hp | 2026-11-19 10:22:17 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r5 | hp | 2026-11-19 10:22:18 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r6 | hp | 2026-11-19 10:30:24 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r7 | hp | 2026-11-19 10:30:25 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
+r8 | hp | 2026-11-19 10:30:25 -0500 (jue. 19 de nov. de 2026)
+------------------------------------------------------------------------
