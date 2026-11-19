@@ -1,0 +1,157 @@
+# Descripción general del proyecto
+
+## 1. Descripción del proyecto
+
+El proyecto consiste en el desarrollo de una plataforma web orientada a mejorar la gestión operativa de pequeños y medianos restaurantes mediante el registro, seguimiento y análisis de información relacionada con la producción de alimentos, las ventas y los desperdicios generados durante sus actividades diarias.
+
+La plataforma busca proporcionar herramientas digitales que permitan a los establecimientos conocer con mayor precisión el uso de sus recursos, identificar las principales causas de desperdicio alimentario y estimar las pérdidas económicas asociadas.
+
+A través de un sistema centralizado, los responsables del restaurante podrán consultar información histórica, visualizar indicadores operativos y obtener datos que faciliten la planificación de sus actividades.
+
+La solución pretende contribuir a una administración más eficiente, reducir costos innecesarios y promover prácticas sostenibles dentro del sector gastronómico.
+
+## 2. Problemática identificada
+
+Muchos restaurantes, especialmente los pequeños y medianos establecimientos, realizan el control de su producción, ventas y desperdicios mediante procedimientos manuales, registros dispersos o estimaciones basadas en la experiencia de sus trabajadores.
+
+Esta situación dificulta identificar cuánto alimento se desperdicia diariamente, cuáles son las principales causas de estas pérdidas y qué impacto económico representan para el negocio.
+
+Entre los problemas identificados se encuentran la preparación excesiva de alimentos, la compra inadecuada de insumos, la falta de seguimiento de productos desperdiciados y la ausencia de información histórica que permita reconocer patrones de consumo.
+
+Además, la falta de indicadores dificulta evaluar la eficiencia operativa y determinar qué medidas podrían implementarse para reducir las pérdidas.
+
+En consecuencia, los establecimientos necesitan herramientas accesibles que permitan registrar sus operaciones y transformar esa información en conocimiento útil para la toma de decisiones.
+
+## 3. Solución propuesta
+
+Se propone implementar una aplicación web que centralice la información relacionada con las operaciones diarias de un restaurante.
+
+El sistema permitirá registrar cantidades de alimentos preparados y vendidos, documentar los desperdicios generados, clasificar sus causas y calcular las pérdidas económicas estimadas.
+
+La información almacenada será procesada para generar indicadores, reportes y análisis que ayuden a identificar oportunidades de mejora.
+
+La plataforma contará con mecanismos de autenticación, gestión de usuarios y permisos diferenciados para garantizar que cada persona acceda únicamente a las funcionalidades correspondientes a sus responsabilidades.
+
+Asimismo, se contempla incorporar alertas y recomendaciones basadas en los datos registrados para apoyar la planificación de la producción y el aprovechamiento de los recursos.
+
+## 4. Objetivo general
+
+Desarrollar una plataforma web que permita registrar, monitorear y analizar las operaciones de producción, ventas y desperdicio alimentario de restaurantes, proporcionando información que facilite la reducción de pérdidas económicas y la optimización de recursos.
+
+## 5. Objetivos específicos
+
+1. Implementar un sistema digital para registrar las operaciones diarias relacionadas con la producción y venta de alimentos.
+
+2. Desarrollar funcionalidades para registrar y clasificar los desperdicios alimentarios según su cantidad, origen y causa.
+
+3. Calcular las pérdidas económicas estimadas a partir de los desperdicios registrados.
+
+4. Implementar paneles de visualización que presenten indicadores operativos e información histórica.
+
+5. Facilitar la consulta, búsqueda y generación de reportes sobre las operaciones del establecimiento.
+
+6. Incorporar mecanismos de autenticación y autorización que permitan gestionar el acceso de diferentes usuarios.
+
+7. Proporcionar información y recomendaciones que contribuyan a mejorar la planificación y reducir el desperdicio alimentario.
+
+## 6. Funcionalidades principales
+
+La plataforma contempla los siguientes módulos funcionales:
+
+**Gestión de usuarios y autenticación:** permitirá registrar y administrar usuarios, iniciar sesión y controlar el acceso a las funcionalidades del sistema mediante roles y permisos.
+
+**Panel principal:** presentará información resumida sobre producción, ventas, desperdicios y pérdidas económicas mediante indicadores y visualizaciones.
+
+**Gestión de producción:** permitirá registrar los alimentos preparados diariamente, sus cantidades y la información necesaria para realizar el seguimiento operativo.
+
+**Gestión de ventas:** facilitará el registro y consulta de las cantidades vendidas para relacionar la producción con la demanda.
+
+**Gestión de desperdicios:** permitirá documentar los alimentos descartados, especificando cantidades, categorías, causas y costos estimados.
+
+**Historial de operaciones:** proporcionará acceso a registros anteriores para consultar información por fechas y otros criterios de búsqueda.
+
+**Reportes y análisis:** permitirá generar resúmenes e identificar tendencias relacionadas con la producción y los desperdicios.
+
+**Alertas y recomendaciones:** contemplará la identificación de situaciones que requieran atención, como cantidades elevadas de desperdicio o pérdidas recurrentes.
+
+Estas funcionalidades representan el alcance propuesto y deberán priorizarse según los requerimientos definidos durante el desarrollo.
+
+## 7. Usuarios del sistema
+
+La plataforma contempla dos tipos principales de usuarios.
+
+**Administrador o gerente:** será responsable de gestionar la información general del establecimiento, administrar usuarios, consultar indicadores, revisar reportes y utilizar los resultados del análisis para tomar decisiones operativas.
+
+**Personal operativo:** estará encargado de registrar las actividades diarias relacionadas con la producción, las ventas y los desperdicios alimentarios. Su acceso estará limitado a las funcionalidades autorizadas para su rol.
+
+La separación de responsabilidades permitirá mantener un mejor control sobre la información registrada y las operaciones realizadas.
+
+## 8. Público objetivo
+
+La solución está dirigida principalmente a pequeños y medianos restaurantes que necesitan mejorar el control de sus operaciones y reducir las pérdidas asociadas al desperdicio de alimentos.
+
+Se considera especialmente útil para establecimientos que preparan alimentos diariamente, administran inventarios perecederos y presentan variaciones en la demanda de sus productos.
+
+El sistema podrá adaptarse progresivamente a distintos tipos de establecimientos gastronómicos según sus necesidades operativas.
+
+## 9. Alcance del sistema
+
+El proyecto contempla el desarrollo de una aplicación web funcional que integre una interfaz de usuario, lógica de negocio y una base de datos persistente.
+
+El sistema deberá permitir la autenticación de usuarios, la gestión de permisos, el registro y consulta de información, la validación de datos y la ejecución de operaciones de creación, lectura, actualización y eliminación.
+
+Se considera la implementación de procesos completos relacionados con el registro de operaciones, el seguimiento de desperdicios y la consulta de resultados.
+
+La aplicación deberá mantener una estructura que facilite su mantenimiento, evolución y evaluación mediante pruebas de software.
+
+Las funcionalidades avanzadas, como predicciones mediante inteligencia artificial o integraciones automáticas con sistemas externos, podrán considerarse ampliaciones futuras y no forman parte necesariamente del alcance inicial.
+
+## 10. Requerimientos generales
+
+El sistema deberá contemplar requisitos funcionales que describan las operaciones que los usuarios podrán realizar, así como requisitos no funcionales relacionados con su calidad.
+
+Entre los aspectos funcionales se consideran la autenticación, la administración de usuarios, el registro de producción, el registro de ventas, la gestión de desperdicios, la consulta de información histórica y la generación de reportes.
+
+Entre los aspectos no funcionales se consideran el rendimiento, la seguridad, la usabilidad, la disponibilidad, la mantenibilidad y la integridad de los datos.
+
+Estos requisitos deberán especificarse posteriormente mediante criterios verificables y medibles que permitan comprobar su cumplimiento.
+
+## 11. Calidad del software
+
+El desarrollo del sistema estará acompañado de actividades de ingeniería y aseguramiento de la calidad.
+
+Estas actividades comprenderán la identificación y documentación de requisitos, el análisis y diseño de la solución, la estimación del esfuerzo de desarrollo, la gestión de configuración y el análisis de riesgos.
+
+También se realizarán pruebas unitarias para verificar componentes individuales, pruebas de rendimiento para evaluar el comportamiento bajo diferentes condiciones de carga y pruebas automatizadas de interfaz para comprobar los principales flujos de usuario.
+
+La documentación de los resultados permitirá identificar defectos, registrar correcciones y evaluar el nivel de cumplimiento de los requisitos establecidos.
+
+## 12. Beneficios esperados
+
+La implementación de la plataforma busca proporcionar beneficios operativos, económicos y ambientales.
+
+Desde el punto de vista operativo, permitirá organizar la información del establecimiento, reducir la dependencia de registros manuales y facilitar el seguimiento de sus actividades.
+
+Desde el punto de vista económico, ayudará a identificar pérdidas asociadas al desperdicio y reconocer oportunidades para mejorar el uso de insumos.
+
+Desde el punto de vista administrativo, proporcionará información histórica e indicadores que respalden la toma de decisiones.
+
+Finalmente, desde el punto de vista ambiental, contribuirá a promover una gestión más responsable de los alimentos mediante la identificación y reducción de desperdicios evitables.
+
+## 13. Resultados esperados
+
+Al finalizar el proyecto, se espera disponer de una aplicación web funcional que permita gestionar información operativa de un restaurante y realizar el seguimiento de sus desperdicios alimentarios.
+
+El sistema deberá contar con una base de datos que almacene los registros, mecanismos de acceso seguro, funcionalidades de consulta y herramientas de visualización de indicadores.
+
+También se espera contar con documentación técnica y funcional, evidencias de pruebas y registros de evaluación de calidad que permitan verificar el funcionamiento de la solución.
+
+El resultado será una herramienta digital que facilite el control operativo y proporcione información útil para mejorar la eficiencia de los establecimientos gastronómicos.
+
+## 14. Conclusión
+
+El proyecto propone una solución tecnológica para abordar las dificultades que enfrentan los restaurantes en el control de su producción y la gestión del desperdicio alimentario.
+
+Mediante la digitalización de operaciones, el almacenamiento centralizado de información y el análisis de indicadores, la plataforma busca mejorar la visibilidad de las pérdidas y facilitar decisiones orientadas a la eficiencia operativa.
+
+Su desarrollo permitirá integrar funcionalidades de gestión empresarial con prácticas de ingeniería y calidad de software, estableciendo una base para futuras mejoras y ampliaciones del sistema.
