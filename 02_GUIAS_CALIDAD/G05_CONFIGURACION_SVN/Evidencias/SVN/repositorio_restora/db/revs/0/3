@@ -1,0 +1,50 @@
+id: 3-1.0-3.r3/0
+type: dir
+pred: 3-1.0.r2/1405
+count: 2
+text: 2 227 1165 1165 7a6ecfff9b9d451dd097c156d4b8e939
+cpath: /branches/feature-g05
+copyfrom: 2 /trunk
+
+PLAIN
+K 11
+feature-g05
+V 16
+dir 3-1.0-3.r3/0
+END
+ENDREP
+id: 0-1.0.r3/216
+type: dir
+pred: 0-1.0.r1/487724
+count: 1
+text: 3 160 43 43 23ee4280f1cde9e25f374901d6916255
+cpath: /branches
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 16
+dir 0-1.0.r3/216
+K 4
+tags
+V 19
+dir 2-1.0.r1/487795
+K 5
+trunk
+V 17
+dir 3-1.0.r2/1405
+END
+ENDREP
+id: 0.0.r3/476
+type: dir
+pred: 0.0.r2/1670
+count: 3
+text: 3 357 106 106 bfd3ce56ee056c84f55c2694ea20eba8
+cpath: /
+copyroot: 0 /
+
+3-1._0.t2-2 add-dir false false /branches/feature-g05
+2 /trunk
+
+476 605
