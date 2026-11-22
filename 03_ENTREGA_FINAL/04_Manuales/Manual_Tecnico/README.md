@@ -7,7 +7,7 @@ Manual Técnico formal elaborado en **Typst** para la plataforma web **RESTORA**
 ## 📄 Documento Compilado
 
 El manual técnico se encuentra compilado en formato PDF de alta resolución:
-- 📌 **Archivo PDF:** [`manual_tecnico.pdf`](manual_tecnico.pdf)
+- 📌 **Archivo PDF:** [`Manual_Tecnico.pdf`](Manual_Tecnico.pdf)
 
 ---
 
@@ -17,13 +17,13 @@ Para recompilar el documento tras realizar modificaciones en el texto o configur
 
 ```bash
 # Situarse en este directorio
-cd 03_MANUAL_USUARIO_Y_TECNICO/MANUAL_TECNICO
+cd 03_INFORME_Y_ENTREGA_FINAL/04_Manuales/Manual_Tecnico
 
 # Compilar a PDF
-typst compile main.typ manual_tecnico.pdf
+typst compile main.typ Manual_Tecnico.pdf
 
 # Modo observador (recompila automáticamente al guardar cambios)
-typst watch main.typ manual_tecnico.pdf
+typst watch main.typ Manual_Tecnico.pdf
 ```
 
 ---
@@ -31,12 +31,12 @@ typst watch main.typ manual_tecnico.pdf
 ## 📂 Estructura de Archivos del Manual
 
 ```text
-MANUAL_TECNICO/
+Manual_Tecnico/
 ├── main.typ                         # Archivo maestro que orquesta las secciones
 ├── config.typ                       # Parámetros institucionales, portada y tipografía
 ├── plantilla.typ                    # Reglas de maquetación, encabezados y sangría francesa
 ├── referencias.bib                  # Bibliografía técnica y normativa (IEEE / ISO / W3C)
-├── manual_tecnico.pdf               # Documento PDF compilado
+├── Manual_Tecnico.pdf               # Documento PDF compilado
 ├── imagenes/                        # Galería de diagramas, mockups y evidencias de calidad
 │   ├── logo-izquierdo.png           # Escudo EPIS - UNSA
 │   ├── logo-derecho.png             # Escudo institucional UNSA

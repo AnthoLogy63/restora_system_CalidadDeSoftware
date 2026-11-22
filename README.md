@@ -4,7 +4,7 @@ RESTORA es una propuesta de plataforma web para pequeños y medianos restaurante
 
 ## Estado actual
 
-El proyecto se encuentra en la etapa de estructuración y planificación. Se ha creado la organización de carpetas para el desarrollo y la documentación de calidad. La aplicación, la base de datos y las pruebas están pendientes de implementación; los entregables se elaborarán durante las siguientes etapas.
+El repositorio ya contiene la aplicación, las nueve guías de calidad, los manuales de usuario y técnico, la matriz de trazabilidad y el registro de defectos. Los entregables se están organizando en `03_ENTREGA_FINAL`; el informe integrador y la presentación final todavía están pendientes de incorporar.
 
 La carpeta `proyecto-Calidad/` es la raíz de RESTORA y corresponde a `RESTORA/` en el esquema de `Estructura.txt`.
 
@@ -28,14 +28,9 @@ Los usuarios previstos son el administrador o gerente y el personal operativo. L
 ```text
 proyecto-Calidad/
 ├── 00_GESTION_GENERAL/
-│   ├── 01_Propuesta_Proyecto/
-│   └── 02_Organizacion/
-├── 01_APLICACION/
-│   ├── frontend/
-│   ├── backend/
-│   ├── database/
-│   │   └── migrations/
-│   └── config/
+│   ├── Plan_Trabajo_RESTORA.xlsx
+│   ├── Propuesta_Sistema_RESTORA.docx/.pdf
+│   └── RESTORA-Presentacion.pdf
 ├── 02_GUIAS_CALIDAD/
 │   ├── G01_REQUERIMIENTOS/
 │   ├── G02_PROCESO_REQUERIMIENTOS/
@@ -46,27 +41,29 @@ proyecto-Calidad/
 │   ├── G07_PRUEBAS_UNITARIAS/
 │   ├── G08_RENDIMIENTO_JMETER/
 │   └── G09_CALIDAD_SELENIUM/
-├── 03_INFORME_Y_ENTREGA_FINAL/
+├── 03_ENTREGA_FINAL/
+│   ├── Informe_Final_RESTORA.docx [pendiente]
+│   ├── Informe_Final_RESTORA.pdf [pendiente]
+│   ├── Sustentacion_RESTORA.pptx [pendiente]
 │   ├── 01_Informe_Integrador/
 │   ├── 02_Trazabilidad/
 │   ├── 03_Defectos/
 │   ├── 04_Manuales/
-│   ├── 05_Manifiesto/
-│   └── 06_Anexos/
-├── 04_SUSTENTACION/
-│   ├── 01_Diapositivas/
-│   ├── 02_Demostracion/
-│   └── 03_Resultados/
+│   │   ├── Manual_Usuario/
+│   │   └── Manual_Tecnico/
+│   └── 05_Manifiesto/
+├── SKILL-Informes/
+│   └── Plantilla.docx
+├── Descripción-Restora.txt
+├── Estructura.txt
 └── README.md
 ```
 
 | Carpeta | Contenido previsto |
 | --- | --- |
 | `00_GESTION_GENERAL` | Propuesta, problema, justificación, objetivos, alcance, integrantes, responsabilidades y validación del alcance. |
-| `01_APLICACION` | Interfaz, lógica de negocio, base de datos, migraciones y configuración de la futura aplicación. |
 | `02_GUIAS_CALIDAD` | Documentación y evidencias de requisitos, análisis, diseño, dimensionamiento, configuración, riesgos y pruebas. |
-| `03_INFORME_Y_ENTREGA_FINAL` | Informe integrador, trazabilidad, defectos, manuales, manifiesto de versiones y evidencias, y anexos. |
-| `04_SUSTENTACION` | Presentación, guion de demostración y resumen de resultados de calidad. |
+| `03_ENTREGA_FINAL` | Informe integrador y presentación final en la raíz; trazabilidad, defectos y manuales en sus subcarpetas. |
 
 ## Documentos de referencia
 
@@ -74,7 +71,7 @@ proyecto-Calidad/
 - [Estructura propuesta](Estructura.txt): esquema de carpetas y nombres de los entregables previstos.
 - [Organización de la aplicación](01_APLICACION/README.md): propósito de las carpetas reservadas para la implementación.
 
-Los archivos de entrega enumerados en `Estructura.txt` se crearán cuando se desarrolle su contenido. Las imágenes existentes se conservan en su ubicación original y su relación con el proyecto está pendiente de definir.
+La matriz de trazabilidad y el registro de defectos se encuentran en sus subcarpetas de entrega final, junto con sus informes y evidencias de apoyo. Los manuales y sus fuentes Typst están en `04_Manuales/`. El informe integrador y la presentación final están previstos en la raíz de `03_ENTREGA_FINAL`, pero aún no se han incorporado; `01_Informe_Integrador/` y `05_Manifiesto/` están vacías.
 
 ## Trabajo pendiente
 

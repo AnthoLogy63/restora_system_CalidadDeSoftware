@@ -1,68 +1,67 @@
 RESTORA/
 │
 ├── 00_GESTION_GENERAL/
-│   ├── 01_Propuesta_Proyecto/
-│   │   ├── Propuesta_RESTORA.docx
-│   │   ├── Problema_y_Justificacion.docx
-│   │   ├── Objetivos_y_Alcance.docx
-│   │   └── Usuarios_y_Beneficios.docx
-│   │
-│   └── 02_Organizacion/
-│       ├── Integrantes_y_Responsabilidades.xlsx
-│       └── Acta_Validacion_Alcance.pdf
-│
-├── 01_APLICACION/
-│   ├── frontend/
-│   ├── backend/
-│   ├── database/
-│   │   ├── schema.sql
-│   │   ├── migrations/
-│   │   └── seed_datos_prueba.sql
-│   ├── config/
-│   │   └── .env.example
-│   └── README.md
+│   ├── Plan_Trabajo_RESTORA.xlsx
+│   ├── Propuesta_Sistema_RESTORA.docx
+│   ├── Propuesta_Sistema_RESTORA.pdf
+│   └── RESTORA-Presentacion.pdf
 │
 ├── 02_GUIAS_CALIDAD/
 │   ├── G01_REQUERIMIENTOS/
+│   │   ├── Lab01_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   ├── Instrumentos_y_Resultados_Elicitacion_RESTORA.docx/.pdf
+│   │   └── Cronograma_G01_RESTORA.xlsx y archivos de apoyo
 │   ├── G02_PROCESO_REQUERIMIENTOS/
+│   │   ├── Lab02_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   ├── G02_Informe_seguimiento.docx/.pdf
+│   │   └── Gestor_Requisitos_G02.xlsx
 │   ├── G03_ANALISIS_DISENO/
+│   │   ├── Lab03_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   └── SDD_RESTORA_IEEE1016.docx/.pdf
 │   ├── G04_DIMENSIONAMIENTO/
+│   │   ├── Lab04_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   ├── Dimensionamiento_RESTORA.xlsx
+│   │   └── Memoria_Dimensionamiento_G04.docx/.pdf
 │   ├── G05_CONFIGURACION_SVN/
+│   │   ├── Lab05_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   └── archivos de política, respaldo y restauración SVN
 │   ├── G06_RIESGOS/
+│   │   ├── Lab06_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   ├── Matriz_Riesgos_RESTORA_G06.xlsx
+│   │   └── EVIDENCIAS/, HERRAMIENTAS/ y RESULTADOS/
 │   ├── G07_PRUEBAS_UNITARIAS/
+│   │   ├── Lab07_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   └── Catalogo_Pruebas_Unitarias_RESTORA.xlsx y archivos de apoyo
 │   ├── G08_RENDIMIENTO_JMETER/
+│   │   ├── Lab08_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│   │   └── scripts y archivos de apoyo de JMeter
 │   └── G09_CALIDAD_SELENIUM/
+│       ├── Lab09_Calidad de Software_Ajra_Barrios_Hancco_Valdivia.docx/.pdf
+│       └── scripts y archivos de apoyo de Selenium
 │
-├── 03_INFORME_Y_ENTREGA_FINAL/
-│   ├── 01_Informe_Integrador/
-│   │   ├── Informe_Final_RESTORA.docx
-│   │   └── Informe_Final_RESTORA.pdf
-│   │
+├── 03_ENTREGA_FINAL/
+│   ├── Informe_Final_RESTORA.pdf 
+│   ├── Informe_DIAPOSITIVAS.pdf 
 │   ├── 02_Trazabilidad/
-│   │   └── Matriz_Trazabilidad.xlsx
-│   │
+│   │   ├── Matriz_Trazabilidad_RESTORA.xlsx
+│   │   ├── Informe_Matriz_Trazabilidad_RESTORA.docx/.pdf
+│   │   ├── EVIDENCIAS/
+│   │   └── FUENTES/
 │   ├── 03_Defectos/
-│   │   └── Registro_General_Defectos.xlsx
-│   │
+│   │   ├── Registro_Defectos_RESTORA.xlsx
+│   │   ├── Informe_Registro_Defectos_RESTORA.docx/.pdf
+│   │   └── EVIDENCIAS/
 │   ├── 04_Manuales/
-│   │   ├── Manual_Usuario.pdf
-│   │   └── Manual_Tecnico.pdf
-│   │
-│   ├── 05_Manifiesto/
-│   │   └── Manifiesto_Versiones_Evidencias.xlsx
-│   │
-│   └── 06_Anexos/
-│       ├── Limitaciones_y_Terceros.docx
-│       └── Declaracion_Uso_IA.docx
+│   │   ├── Manual_Usuario/Manual_Usuario.pdf y fuentes Typst e imágenes
+│   │   └── Manual_Tecnico/Manual_Tecnico.pdf y fuentes Typst e imágenes
+│   └── 05_Manifiesto/             
 │
-├── 04_SUSTENTACION/
-│   ├── 01_Diapositivas/
-│   │   └── Sustentacion_RESTORA.pptx
-│   │
-│   ├── 02_Demostracion/
-│   │   └── Guion_Demostracion.docx
-│   │
-│   └── 03_Resultados/
-│       └── Resumen_Resultados_Calidad.pdf
+├── SKILL-Informes/
+│   └── Plantilla.docx
 │
-└── README.md
+├── Descripción-Restora.txt
+├── README.md
+├── Estructura.txt
+└── Trabajo_Final_Calidad_de_Software V1.pdf
+
+Nota: La carpeta 01_APLICACION se omite de este esquema para mantenerlo enfocado en la documentación y los entregables del curso.
