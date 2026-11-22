@@ -1,2 +1,12 @@
 # Dependencias instaladas; no versionar en ninguna carpeta del repositorio
 **/node_modules/
+
+# Archivos de sistema macOS / Windows
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
