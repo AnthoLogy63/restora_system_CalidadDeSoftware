@@ -1,0 +1,23 @@
+
+> turiston-project@0.1.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v3.2.7 C:/Users/36nue/Documents/CURSOS - 2026-B/CALIDAD DE SOFWTARE/LAB/proyecto-Calidad/01_APLICACION
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > cae a Gemini cuando Groq falla
+[voz] Groq Whisper respondió 500
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > devuelve null cuando ambos proveedores fallan
+[voz] Groq Whisper respondió 500
+
+stderr | src/lib/ai/transcripcion.test.ts > transcribirAudio > devuelve null cuando ambos proveedores fallan
+[voz] Gemini respondió 500
+
+····································································································································
+
+ Test Files  13 passed (13)
+      Tests  132 passed (132)
+   Start at  16:18:23
+   Duration  8.05s (transform 4.30s, setup 0ms, collect 17.85s, tests 1.71s, environment 9ms, prepare 8.14s)
+

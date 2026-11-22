@@ -7,10 +7,10 @@
 
 // Integrantes: agrega o quita líneas, cada uno va en su propia línea
 #let integrantes = (
-  "Ajra Huacso Jeans Anthony",
-  "Mathias Alonso Barrios Medina",
-  "Sergio Danilo Hancco Mullisaca",
-  "Ryan Fabian Valdivia Segovia",
+  "Ajra Huacso, Jeans Anthony",
+  "Barrios Medina, Mathias Alonso",
+  "Hancco Mullisaca, Sergio Danilo",
+  "Valdivia Segovia, Ryan Fabian",
 )
 #let docente = "Dr. José Rafael Delgado Bastidas"
 #let lugar   = "Arequipa, Perú"

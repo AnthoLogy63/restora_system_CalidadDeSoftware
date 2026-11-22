@@ -4,14 +4,17 @@ export function toCsv(rows: Record<string, unknown>[]): string {
 
   const escape = (value: unknown) => {
     if (value == null) return "";
-    const str = String(value);
-    if (/[",\n]/.test(str)) {
-      return `"${str.replace(/"/g, '""')}"`;
+    let str = String(value);
+    // Prevent spreadsheet formula injection in untrusted textual fields.
+    // Numeric values remain numeric, including negative amounts.
+    if (typeof value === "string" && /^[\u0000-\u0020]*[=+\-@]/.test(str)) {
+      str = `'${str}`;
     }
+    if (/[",\n\r]/.test(str)) return `"${str.replace(/"/g, '""')}"`;
     return str;
   };
 
-  const lines = [headers.join(",")];
+  const lines = [headers.map(escape).join(",")];
   for (const row of rows) {
     lines.push(headers.map((h) => escape(row[h])).join(","));
   }

@@ -1,0 +1,48 @@
+{
+  "fecha": "2026-11-22",
+  "guia": "G06 Gestión de riesgos RESTORA",
+  "tratamientos": [
+    {
+      "id": "R01",
+      "estado": "Implementado y verificado",
+      "control": "requireSession valida restauranteId",
+      "archivo_pruebas": "01_APLICACION/src/lib/auth.test.ts",
+      "pruebas_aprobadas": 3,
+      "resultados": [
+        "Tenant coincidente permitido",
+        "Tenant distinto rechazado con HTTP 403",
+        "Sin sesión rechazado con HTTP 401"
+      ]
+    },
+    {
+      "id": "R15",
+      "estado": "Implementado y verificado",
+      "control": "Neutralización de prefijos de fórmula en celdas textuales CSV",
+      "archivo_pruebas": "01_APLICACION/src/lib/csv.test.ts",
+      "pruebas_aprobadas": 8,
+      "resultados": [
+        "Neutralización de =, +, @ y prefijo de control/espacio",
+        "Número negativo preservado como valor numérico",
+        "Comillas y delimitadores escapados"
+      ]
+    }
+  ],
+  "ejecucion_focalizada": {
+    "comando": "npm test -- --reporter=verbose src/lib/csv.test.ts src/lib/auth.test.ts",
+    "archivos": 2,
+    "pruebas_aprobadas": 11,
+    "log": "RUN-G06-01-targeted.log"
+  },
+  "ejecucion_completa": {
+    "comando": "npm test -- --reporter=dot",
+    "archivos": 13,
+    "pruebas_aprobadas": 132,
+    "log": "RUN-G06-01-full.log"
+  },
+  "limites": [
+    "No se probaron todos los handlers/endpoints individualmente.",
+    "No se abrió el CSV en Excel o LibreOffice.",
+    "No se recalculó el riesgo residual; las metas de la matriz siguen siendo objetivos estimados.",
+    "Los demás tratamientos permanecen pendientes."
+  ]
+}

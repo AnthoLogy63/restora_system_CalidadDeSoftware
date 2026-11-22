@@ -1,0 +1,24 @@
+
+> turiston-project@0.1.0 test
+> vitest run --reporter=verbose src/lib/csv.test.ts src/lib/auth.test.ts
+
+
+ RUN  v3.2.7 C:/Users/36nue/Documents/CURSOS - 2026-B/CALIDAD DE SOFWTARE/LAB/proyecto-Calidad/01_APLICACION
+
+ ✓ src/lib/csv.test.ts > toCsv > cadena vacía cuando no hay filas 4ms
+ ✓ src/lib/csv.test.ts > toCsv > genera cabecera a partir de las claves de la primera fila 1ms
+ ✓ src/lib/csv.test.ts > toCsv > serializa varias filas 0ms
+ ✓ src/lib/csv.test.ts > toCsv > entrecomilla valores con coma, comillas o salto de línea 0ms
+ ✓ src/lib/csv.test.ts > toCsv > trata null y undefined como celda vacía 0ms
+ ✓ src/lib/csv.test.ts > toCsv > neutraliza valores textuales que podrían ejecutarse como fórmulas 0ms
+ ✓ src/lib/csv.test.ts > toCsv > conserva números negativos como números y no altera texto seguro 0ms
+ ✓ src/lib/csv.test.ts > toCsv > entrecomilla y neutraliza una fórmula con separadores 0ms
+ ✓ src/lib/auth.test.ts > requireSession tenant isolation (G06 R01) > permite acceder al restaurante asociado a la sesión 28ms
+ ✓ src/lib/auth.test.ts > requireSession tenant isolation (G06 R01) > rechaza con 403 una sesión que intenta acceder al restaurante de otro tenant 5ms
+ ✓ src/lib/auth.test.ts > requireSession tenant isolation (G06 R01) > rechaza solicitudes sin sesión autenticada con 401 2ms
+
+ Test Files  2 passed (2)
+      Tests  11 passed (11)
+   Start at  16:24:15
+   Duration  1.74s (transform 176ms, setup 0ms, collect 630ms, tests 48ms, environment 1ms, prepare 544ms)
+

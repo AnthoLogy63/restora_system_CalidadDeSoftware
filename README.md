@@ -42,10 +42,8 @@ proyecto-Calidad/
 │   ├── G08_RENDIMIENTO_JMETER/
 │   └── G09_CALIDAD_SELENIUM/
 ├── 03_ENTREGA_FINAL/
-│   ├── Informe_Final_RESTORA.docx [pendiente]
 │   ├── Informe_Final_RESTORA.pdf [pendiente]
-│   ├── Sustentacion_RESTORA.pptx [pendiente]
-│   ├── 01_Informe_Integrador/
+│   ├── Informe_DIAPOSITIVAS.pdf [pendiente]
 │   ├── 02_Trazabilidad/
 │   ├── 03_Defectos/
 │   ├── 04_Manuales/
@@ -71,7 +69,7 @@ proyecto-Calidad/
 - [Estructura propuesta](Estructura.txt): esquema de carpetas y nombres de los entregables previstos.
 - [Organización de la aplicación](01_APLICACION/README.md): propósito de las carpetas reservadas para la implementación.
 
-La matriz de trazabilidad y el registro de defectos se encuentran en sus subcarpetas de entrega final, junto con sus informes y evidencias de apoyo. Los manuales y sus fuentes Typst están en `04_Manuales/`. El informe integrador y la presentación final están previstos en la raíz de `03_ENTREGA_FINAL`, pero aún no se han incorporado; `01_Informe_Integrador/` y `05_Manifiesto/` están vacías.
+La matriz de trazabilidad y el registro de defectos se encuentran en sus subcarpetas de entrega final, junto con sus informes y evidencias de apoyo. Los manuales y sus fuentes Typst están en `04_Manuales/`. `Informe_Final_RESTORA.pdf` e `Informe_DIAPOSITIVAS.pdf` están previstos en la raíz de `03_ENTREGA_FINAL`, pero aún no se han incorporado. La carpeta `05_Manifiesto/` está vacía.
 
 ## Trabajo pendiente
 

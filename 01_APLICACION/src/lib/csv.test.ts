@@ -28,4 +28,21 @@ describe("toCsv", () => {
     const csv = toCsv([{ a: null, b: undefined, c: 0 }]);
     expect(csv.split("\n")[1]).toBe(",,0");
   });
+
+  it("neutraliza valores textuales que podrían ejecutarse como fórmulas", () => {
+    const csv = toCsv([
+      { igual: "=1+1", suma: "+cmd", arroba: "@SUM(A1:A2)", tab: "\t=1+1" },
+    ]);
+    expect(csv.split("\n")[1]).toBe("'=1+1,'+cmd,'@SUM(A1:A2),'\t=1+1");
+  });
+
+  it("conserva números negativos como números y no altera texto seguro", () => {
+    const csv = toCsv([{ monto: -3, texto: "café" }]);
+    expect(csv.split("\n")[1]).toBe("-3,café");
+  });
+
+  it("entrecomilla y neutraliza una fórmula con separadores", () => {
+    const csv = toCsv([{ texto: '=HYPERLINK("https://ejemplo.pe", "abrir")' }]);
+    expect(csv.split("\n")[1]).toBe('"\'=HYPERLINK(""https://ejemplo.pe"", ""abrir"")"');
+  });
 });
