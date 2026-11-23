@@ -1,0 +1,53 @@
+{
+  "proyecto": "RESTORA (Sistema de Gestión y Valorización de Residuos)",
+  "guia": "G09 - Gestión de Calidad con Selenium WebDriver",
+  "estandar": "ISO/IEC/IEEE 29119-3 (Defect Report Standard)",
+  "fecha_cierre": "2026-11-22",
+  "total_defectos_registrados": 3,
+  "defectos_abiertos": 0,
+  "defectos_mitigados": 3,
+  "defectos": [
+    {
+      "id": "DEF-G09-001",
+      "titulo": "Rechazo de peso negativo en formulario de entregas valorizables",
+      "tipo": "Validación de entrada y prevención de corrupción de datos",
+      "severidad": "Media",
+      "prioridad": "Alta",
+      "proceso_asociado": "Proceso 2: Trazabilidad de Valorización y Salida de Residuos",
+      "caso_de_prueba": "CP-05: Datos Inválidos",
+      "descripcion": "Si un operador o script intenta registrar una entrega con peso negativo (ej. -15.0 kg), el sistema no debe persistir la transacción en dev.db.",
+      "comportamiento_esperado": "El botón 'Guardar entrega' debe permanecer deshabilitado o la petición debe ser rechazada con código HTTP 400 (Zod schema validation).",
+      "comportamiento_observado": "El componente reactivo EntregasPage evalúa 'puedeGuardar = categoria && pesoValido && receptor.trim().length > 0', donde 'pesoValido = !isNaN(peso) && peso > 0'. El botón submit se deshabilita automáticamente y no se emiten peticiones erróneas.",
+      "estado": "CERRADO / MITIGADO POR DISENO",
+      "resolucion": "Validación en dos capas: validación reactiva en cliente (Vite) y esquema estricto Zod en backend (/api/restaurantes/[id]/entregas)."
+    },
+    {
+      "id": "DEF-G09-002",
+      "titulo": "Exposición potencial de UI en rutas privadas tras expiración o revocación de cookie",
+      "tipo": "Control de Acceso y Aislamiento Multi-Tenant",
+      "severidad": "Alta",
+      "prioridad": "Crítica",
+      "proceso_asociado": "Seguridad Transversal (RF-01, RF-02)",
+      "caso_de_prueba": "CP-03 (Restricción por rol) y CP-08 (Cierre de sesión)",
+      "descripcion": "Al forzar la navegación directa a rutas privadas sin cookie o al presionar el botón 'Atrás' del navegador tras cerrar sesión, se debe garantizar que ningún dato del restaurante sea visible.",
+      "comportamiento_esperado": "Redirección inmediata a /auth antes de renderizar componentes o disparar peticiones REST protegidas.",
+      "comportamiento_observado": "El guard 'requireSession' implementado en TanStack Router comprueba 'queryClient.ensureQueryData(sessionQueryOptions)' en 'beforeLoad'. Si la llamada a /api/auth/me falla (401), se lanza una redirección síncrona inmediata a /auth.",
+      "estado": "CERRADO / CONFORME",
+      "resolucion": "Protección a nivel de enrutador y cookie httpOnly SameSite Lax."
+    },
+    {
+      "id": "DEF-G09-003",
+      "titulo": "Obsolescencia del controlador heredado Internet Explorer en plataformas POSIX",
+      "tipo": "Compatibilidad de Entorno y Cross-Browser",
+      "severidad": "Baja",
+      "prioridad": "Media",
+      "proceso_asociado": "Infraestructura de Pruebas (RNF-05)",
+      "caso_de_prueba": "EJ-27 / Compatibilidad Multi-Navegador",
+      "descripcion": "El script de referencia original utilizaba 'webdriver.Ie()', incompatible con sistemas operativos modernos macOS y Linux.",
+      "comportamiento_esperado": "Ejecución portable y sin fricción de la suite sobre motores web modernos (Gecko y Chromium).",
+      "comportamiento_observado": "Selenium 4 y Selenium Manager integrados resuelven automáticamente geckodriver y chromedriver, habilitando pruebas E2E indistintamente en Firefox y Brave.",
+      "estado": "CERRADO / RESUELTO",
+      "resolucion": "Migración arquitectónica a Selenium 4 W3C WebDriver con soporte cross-browser nativo."
+    }
+  ]
+}

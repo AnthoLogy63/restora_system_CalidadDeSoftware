@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-11-22 18:14:28",
+  "navegador": "Firefox",
+  "tiempo_total": 18.88558602333069,
+  "total_casos": 8,
+  "casos_aprobados": 8,
+  "procesos_cubiertos": 3,
+  "evidencias_generadas": 19,
+  "casos": [
+    {
+      "codigo": "CP-01",
+      "nombre": "Acceso Correcto (Login Válido)",
+      "proceso": "Transversal (RF-01)",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp01_acceso_correcto_ok.png"
+    },
+    {
+      "codigo": "CP-02",
+      "nombre": "Credenciales Inválidas (Rechazo)",
+      "proceso": "Transversal (RF-01)",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp02_credenciales_invalidas_ok.png"
+    },
+    {
+      "codigo": "CP-03",
+      "nombre": "Restricción por Rol / Ruta Protegida",
+      "proceso": "Transversal (RF-02)",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp03_restriccion_rutas_protegidas_ok.png"
+    },
+    {
+      "codigo": "CP-04",
+      "nombre": "Registro Válido (Alta de Entrega)",
+      "proceso": "Proceso 2: Trazabilidad",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp04_registro_valido_entrega_ok.png"
+    },
+    {
+      "codigo": "CP-05",
+      "nombre": "Datos Inválidos (Validación y Rechazo)",
+      "proceso": "Proceso 2: Trazabilidad",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp05_datos_invalidos_rechazo_ok.png"
+    },
+    {
+      "codigo": "CP-06",
+      "nombre": "Consulta (Catálogo y Personal)",
+      "proceso": "Proceso 3: Analítica/Catálogo",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp06_consulta_catalogo_equipo_ok.png"
+    },
+    {
+      "codigo": "CP-07",
+      "nombre": "Cambio de Estado (CC-01 Reactivo)",
+      "proceso": "Proceso 3: CC-01",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp07_cambio_estado_reactivo_ok.png"
+    },
+    {
+      "codigo": "CP-08",
+      "nombre": "Cierre de Sesión (Logout Seguro)",
+      "proceso": "Transversal (RF-01)",
+      "estado": "PASÓ (OK)",
+      "duracion": 2.360698252916336,
+      "captura": "cp08_cierre_sesion_seguro_ok.png"
+    }
+  ],
+  "dictamen": "APTO CON OBSERVACIONES MENORES"
+}

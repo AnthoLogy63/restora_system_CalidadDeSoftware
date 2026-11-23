@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:selenium": "../02_GUIAS_CALIDAD/G09_CALIDAD_SELENIUM/.venv/bin/python ../02_GUIAS_CALIDAD/G09_CALIDAD_SELENIUM/ejecutar_todos.py"
+    "test:selenium": "../02_GUIAS_CALIDAD/G09_CALIDAD_SELENIUM/.venv/bin/python ../02_GUIAS_CALIDAD/G09_CALIDAD_SELENIUM/ejecutar_suite_g09.py",
+    "test:selenium:base": "../02_GUIAS_CALIDAD/G09_CALIDAD_SELENIUM/.venv/bin/python ../02_GUIAS_CALIDAD/G09_CALIDAD_SELENIUM/ejecutar_todos.py"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.9.1",

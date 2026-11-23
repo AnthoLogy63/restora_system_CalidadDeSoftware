@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Pruebas E2E Selenium — RESTORA</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .contenedor {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+        }
+        h1 {
+            color: #065f46;
+            margin-top: 0;
+            font-size: 26px;
+            border-bottom: 2px solid #10b981;
+            padding-bottom: 12px;
+        }
+        .meta-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .tarjeta-kpi {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .kpi-card {
+            flex: 1;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #cbd5e1;
+        }
+        .kpi-card.exito {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+        .kpi-numero {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+        }
+        .badge-ok {
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .badge-fail {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .proceso-tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        .link-evidencia {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .link-evidencia:hover {
+            text-decoration: underline;
+        }
+        .dictamen-box {
+            margin-top: 32px;
+            padding: 20px;
+            background: #f0fdf4;
+            border-left: 6px solid #16a34a;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>📊 RESTORA — Reporte de Calidad y Pruebas E2E (Selenium WebDriver)</h1>
+        
+        <div class="meta-header">
+            <div><strong>Práctica:</strong> Laboratorio 09 (UNSA)</div>
+            <div><strong>Fecha:</strong> 2026-11-22 18:14:28</div>
+            <div><strong>Navegador:</strong> Firefox</div>
+            <div><strong>Tiempo Total:</strong> 18.89 s</div>
+        </div>
+
+        <div class="tarjeta-kpi">
+            <div class="kpi-card exito">
+                <div class="kpi-numero">8 / 8</div>
+                <div>Casos Aprobados (100%)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-numero">3 / 3</div>
+                <div>Procesos Cubiertos</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-numero">19</div>
+                <div>Capturas de Evidencia</div>
+            </div>
+        </div>
+
+        <h2>Detalle de los 8 Casos Web Ejecutados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Caso de Prueba</th>
+                    <th>Proceso de Negocio</th>
+                    <th>Resultado</th>
+                    <th>Duración</th>
+                    <th>Evidencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><strong>CP-01</strong></td>
+            <td>Acceso Correcto (Login Válido)</td>
+            <td><span class="proceso-tag">Transversal (RF-01)</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp01_acceso_correcto_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-02</strong></td>
+            <td>Credenciales Inválidas (Rechazo)</td>
+            <td><span class="proceso-tag">Transversal (RF-01)</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp02_credenciales_invalidas_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-03</strong></td>
+            <td>Restricción por Rol / Ruta Protegida</td>
+            <td><span class="proceso-tag">Transversal (RF-02)</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp03_restriccion_rutas_protegidas_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-04</strong></td>
+            <td>Registro Válido (Alta de Entrega)</td>
+            <td><span class="proceso-tag">Proceso 2: Trazabilidad</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp04_registro_valido_entrega_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-05</strong></td>
+            <td>Datos Inválidos (Validación y Rechazo)</td>
+            <td><span class="proceso-tag">Proceso 2: Trazabilidad</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp05_datos_invalidos_rechazo_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-06</strong></td>
+            <td>Consulta (Catálogo y Personal)</td>
+            <td><span class="proceso-tag">Proceso 3: Analítica/Catálogo</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp06_consulta_catalogo_equipo_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-07</strong></td>
+            <td>Cambio de Estado (CC-01 Reactivo)</td>
+            <td><span class="proceso-tag">Proceso 3: CC-01</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp07_cambio_estado_reactivo_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+        <tr>
+            <td><strong>CP-08</strong></td>
+            <td>Cierre de Sesión (Logout Seguro)</td>
+            <td><span class="proceso-tag">Transversal (RF-01)</span></td>
+            <td><span class="badge-ok">PASÓ (OK)</span></td>
+            <td>2.36 s</td>
+            <td><a href="../EVIDENCIAS/cp08_cierre_sesion_seguro_ok.png" target="_blank" class="link-evidencia">📸 Ver Captura</a></td>
+        </tr>
+        
+            </tbody>
+        </table>
+
+        <div class="dictamen-box">
+            <h3 style="margin-top:0; color:#15803d;">📋 Dictamen de Liberación del Comité de Calidad</h3>
+            <p><strong>Resolución:</strong> <span style="color:#166534; font-weight:bold;">APTO CON OBSERVACIONES MENORES</span></p>
+            <p style="margin-bottom:0; font-size:13px; color:#334155;">
+                Las pruebas automatizadas E2E verifican satisfactoriamente los 8 flujos críticos sobre los 3 procesos de RESTORA.
+                La integración con los resultados de Requisitos (G01/G02: 100%), Riesgos (G06), Pruebas Unitarias (G07: 114 aprobadas, 85.7% cobertura)
+                y Rendimiento (G08: Apdex 1.000) valida la estabilidad del producto de software para su pase a producción.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

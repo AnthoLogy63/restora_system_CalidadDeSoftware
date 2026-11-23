@@ -1,0 +1,106 @@
+{
+  "descripcion": "Juegos de datos aislados para la suite automatizada de pruebas web con Selenium en RESTORA",
+  "version": "1.0.0",
+  "entorno": {
+    "frontend_url": "http://localhost:5173",
+    "backend_url": "http://localhost:3000"
+  },
+  "casos": {
+    "CP01_acceso_correcto": {
+      "email": "demo@circularaqp.pe",
+      "password": "demo1234",
+      "esperado": {
+        "restaurante": "El Buen Sabor AQP",
+        "usuario": "María Quispe",
+        "redireccion": "/dashboard"
+      }
+    },
+    "CP02_credenciales_invalidas": {
+      "email": "no_existe_usuario@circularaqp.pe",
+      "password": "PasswordInvalido123!",
+      "esperado": {
+        "permanece_en": "/auth",
+        "alerta_visible": true
+      }
+    },
+    "CP03_restriccion_rol_rutas_protegidas": {
+      "rutas_a_probar": [
+        "/dashboard",
+        "/register",
+        "/catalogo",
+        "/entregas",
+        "/predict"
+      ],
+      "esperado": {
+        "redireccion_forzada": "/auth"
+      }
+    },
+    "CP04_registro_valido": {
+      "proceso": "Proceso 2: Trazabilidad de Valorización y Salida de Residuos",
+      "ruta": "/entregas",
+      "entrega": {
+        "categoria": "CARTON",
+        "pesoKg": "22.5",
+        "receptor": "Recicladora San Martín AQP - Selenium E2E",
+        "fotografiaUrl": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b",
+        "constanciaUrl": "https://example.com/constancia-sel-2026.pdf",
+        "observaciones": "Lote certificado de cartón corrugado para valorización ambiental."
+      },
+      "esperado": {
+        "categoria_visible": "Cartón",
+        "receptor_visible": "Recicladora San Martín AQP - Selenium E2E"
+      }
+    },
+    "CP05_datos_invalidos": {
+      "proceso": "Proceso 2: Trazabilidad de Valorización y Salida de Residuos",
+      "ruta": "/entregas",
+      "casos_rechazados": [
+        {
+          "descripcion": "Peso negativo inválido",
+          "pesoKg": "-15.0",
+          "receptor": "Empresa Invalida",
+          "debe_bloquear": true
+        },
+        {
+          "descripcion": "Receptor vacío sin especificar",
+          "pesoKg": "10.0",
+          "receptor": "",
+          "debe_bloquear": true
+        }
+      ]
+    },
+    "CP06_consulta": {
+      "proceso": "Proceso 3: Analítica y Catálogo de Operación",
+      "ruta": "/catalogo",
+      "productos_esperados": [
+        "Arroz",
+        "Pollo",
+        "Aceite de cocina",
+        "Papa"
+      ],
+      "colaboradores_esperados": [
+        "Carlos Mamani",
+        "Luis Condori",
+        "Rosa Apaza"
+      ]
+    },
+    "CP07_cambio_estado": {
+      "proceso": "Proceso 3: Gestión de Catálogo y Personal (CC-01)",
+      "ruta": "/catalogo",
+      "entidad": "colaborador",
+      "objetivo_nombre": "Luis Condori",
+      "esperado": {
+        "accion": "alternar_capacitacion",
+        "actualizacion_reactiva": true
+      }
+    },
+    "CP08_cierre_sesion": {
+      "ruta_origen": "/dashboard",
+      "esperado": {
+        "redireccion": "/auth",
+        "cookie_limpia": true,
+        "retroceso_bloqueado": true
+      }
+    }
+  }
+}

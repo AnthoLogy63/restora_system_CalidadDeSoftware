@@ -28,6 +28,25 @@ interface PrediccionPlato {
   prediccion: number;
 }
 
+// Cache en memoria para resultados de prediccion (mejora de rendimiento)
+const prediccionCache = new Map<
+  string,
+  { timestamp: number; data: { entreno: EntrenoResultado; predicciones: PrediccionPlato[] } }
+>();
+const CACHE_TTL_MS = 60 * 1000; // 60 segundos de TTL
+
+export function invalidarCachePredicciones(restauranteId?: string) {
+  if (!restauranteId) {
+    prediccionCache.clear();
+    return;
+  }
+  for (const key of prediccionCache.keys()) {
+    if (key.startsWith(`${restauranteId}::`)) {
+      prediccionCache.delete(key);
+    }
+  }
+}
+
 const TRAIN_SCRIPT = join(process.cwd(), "predictor", "train.py");
 const PREDICT_SCRIPT = join(process.cwd(), "predictor", "predict.py");
 const RETRAIN_THRESHOLD = 0.2; // reentrena si el historial cambió más de 20%
@@ -120,10 +139,27 @@ export async function predecirVentas(
   restauranteId: string,
   fechaObjetivo: Date
 ): Promise<{ entreno: EntrenoResultado; predicciones: PrediccionPlato[] }> {
+  const fechaKey = fechaObjetivo.toISOString().slice(0, 10);
+  const cacheKey = `${restauranteId}::${fechaKey}`;
+  const useCache = process.env.DISABLE_PREDICTION_CACHE !== "true";
+
+  if (useCache) {
+    const cached = prediccionCache.get(cacheKey);
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+      return cached.data;
+    }
+  }
+
   const entreno = await entrenarModeloSiNecesario(restauranteId);
   const modelPath = getModelPath(restauranteId);
   const predicciones = await runPythonScript<PrediccionPlato[]>(PREDICT_SCRIPT, [modelPath], {
-    fechaObjetivo: fechaObjetivo.toISOString().slice(0, 10),
+    fechaObjetivo: fechaKey,
   });
-  return { entreno, predicciones };
+
+  const resultado = { entreno, predicciones };
+  if (useCache) {
+    prediccionCache.set(cacheKey, { timestamp: Date.now(), data: resultado });
+  }
+
+  return resultado;
 }
