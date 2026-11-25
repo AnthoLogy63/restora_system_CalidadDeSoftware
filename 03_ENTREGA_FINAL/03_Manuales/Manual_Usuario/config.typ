@@ -3,7 +3,7 @@
 // --- Portada: datos ---
 #let curso    = "CALIDAD DE SOFTWARE"
 #let titulo   = "MANUAL DE USUARIO"
-#let subtitulo = "Sistema Web de Gestión Inteligente y Valorización de Residuos Gastronómicos — RESTORA v1.0"
+#let subtitulo = "Sistema Web de Gestión Inteligente y Valorización de Residuos Gastronómicos — RESTORA v1.0.0"
 
 // Integrantes: agrega o quita líneas, cada uno va en su propia línea
 #let integrantes = (

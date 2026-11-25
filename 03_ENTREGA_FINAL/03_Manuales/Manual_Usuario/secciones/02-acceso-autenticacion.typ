@@ -1,14 +1,14 @@
 = Acceso al Sistema y Autenticación
 
-El módulo de autenticación implementa los requerimientos funcionales *FRQ-0001* (Iniciar sesión), *FRQ-0002* (Cerrar sesión), *FRQ-0003* (Administrar cuentas) y *FRQ-0004* (Asignar permisos por rol), protegiendo la confidencialidad mediante tokens de sesión seguros y cifrado de contraseñas con salting criptográfico (NFR-0002).
+El módulo de autenticación implementa los requerimientos funcionales *FRQ-0001* (Iniciar sesión), *FRQ-0002* (Cerrar sesión) y parcialmente *FRQ-0003* (Administrar cuentas: se registra una cuenta por restaurante). *FRQ-0004* (Asignar permisos por rol) no está implementado en esta versión, protegiendo la confidencialidad mediante tokens de sesión seguros y cifrado de contraseñas con salting criptográfico (NFR-0002).
 
 == Portal de Bienvenida y Acceso Web
 
-Al acceder a la dirección base del servidor (por defecto `http://localhost:3000` o `http://localhost:5173`), el usuario visualiza la pantalla de bienvenida de RESTORA, en la cual se presentan las capacidades de la solución y los enlaces directos a la aplicación operativa y al monitor de salud de servicios.
+Al acceder a la dirección base del servidor (en el entorno local, `http://localhost:3000` para la API y `http://localhost:8080` para la aplicación web), el usuario visualiza la pantalla de bienvenida de RESTORA, en la cual se presentan las capacidades de la solución y los enlaces directos a la aplicación operativa y al monitor de salud de servicios.
 
 #figure(
   image("../imagenes/01_portal_inicio.png", width: 90%),
-  caption: [Portal de inicio institucional de RESTORA v1.0],
+  caption: [Portal de inicio institucional de RESTORA v1.0.0],
 ) <fig-portal-inicio>
 
 Desde este portal, el usuario puede pulsar el botón *«Abrir Aplicación Frontend»* para ingresar a la interfaz interactiva alojada en el puerto de servicio web:

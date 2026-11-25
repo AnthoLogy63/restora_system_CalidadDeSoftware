@@ -43,7 +43,7 @@ Representa la cuenta de acceso administrativo (1:1 con `Restaurante`).
   [`restauranteId`], [`String`], [No], [Clave foránea única referenciando a `Restaurante(id)` con `onDelete: Cascade`.],
   [`nombre`], [`String`], [No], [Nombre completo del responsable de la cuenta.],
   [`email`], [`String`], [No], [Correo electrónico de acceso (índice único global).],
-  [`passwordHash`], [`String`], [No], [Hash criptográfico de la contraseña (SHA-256 con salt).],
+  [`passwordHash`], [`String`], [No], [Hash de la contraseña derivado con scrypt y salt aleatorio.],
   [`resetToken`], [`String`], [Sí], [Token único temporal para restablecimiento de clave.],
   [`resetTokenExpiresAt`], [`DateTime`], [Sí], [Fecha límite de expiración del token de recuperación.],
   [`createdAt`], [`DateTime`], [No], [Fecha de alta del usuario en el sistema.]

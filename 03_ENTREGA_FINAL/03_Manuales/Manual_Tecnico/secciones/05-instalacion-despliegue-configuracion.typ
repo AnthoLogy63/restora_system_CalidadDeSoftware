@@ -36,11 +36,14 @@ El archivo `.env` debe configurarse con los siguientes parámetros:
 DATABASE_URL="file:./dev.db"
 
 # Clave secreta para firma criptográfica de tokens JWT (reemplazar en producción)
-AUTH_SECRET="restora-super-secret-key-calidad-software-2026-unsa"
+AUTH_SECRET="change-me-to-a-long-random-string"
 
 # Ruta absoluta o relativa al ejecutable de Python del entorno virtual
 # En Linux / macOS:
 PYTHON_BIN="predictor/.venv/bin/python"
+
+# Interruptor general del asistente conversacional ("false" lo desactiva)
+ASISTENTE_HABILITADO="true"
 # En Windows (PowerShell):
 # PYTHON_BIN="predictor/.venv/Scripts/python.exe"
 

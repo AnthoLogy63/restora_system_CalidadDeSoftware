@@ -40,7 +40,7 @@ La selección de tecnologías responde a rigurosos criterios de rendimiento, man
 El sistema implementa un modelo de seguridad multi-tenant robusto basado en el aislamiento estricto por `restauranteId`:
 
 === Generación y Firma de Sesiones
-Al registrarse o iniciar sesión exitosamente en `/api/auth/login`, el backend autentica las credenciales comparando el hash de la contraseña (generado mediante SHA-256 con salt criptográfico individual). Si la autenticación es conforme, la biblioteca `jose` emite un JSON Web Token (JWT) firmado con el secreto `AUTH_SECRET`:
+Al registrarse o iniciar sesión exitosamente en `/api/auth/login`, el backend autentica las credenciales comparando el hash de la contraseña (derivado con scrypt y un salt aleatorio individual, y verificado con comparación en tiempo constante). Si la autenticación es conforme, la biblioteca `jose` emite un JSON Web Token (JWT) firmado con el secreto `AUTH_SECRET`:
 
 ```ts
 // Extracto de src/lib/auth.ts: Emisión de Token de Sesión JWT

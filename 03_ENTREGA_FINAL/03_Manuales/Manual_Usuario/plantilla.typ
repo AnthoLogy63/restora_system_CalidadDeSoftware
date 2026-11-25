@@ -145,7 +145,7 @@
 
   // ---------- Contenido: el texto se sangra según el nivel del último título ----------
   // Se aplana el contenido en una lista de elementos.
-  let aplanar(c) = if c.has("children") {
+  let aplanar(c) = if c.has("children") and c.func() not in (table, grid, stack) {
     c.children.map(aplanar).flatten()
   } else { (c,) }
 

@@ -5,7 +5,7 @@ Esta sección proporciona respuestas directas a las situaciones operativas más 
 == Preguntas Frecuentes (FAQ)
 
 === ¿Qué hacer si se ingresó un dato erróneo al registrar una operación?
-Si un cocinero registró por equivocación un peso o seleccionó una causa incorrecta, el administrador puede ingresar a la sección *«Historial»*, localizar la transacción mediante el filtro de fecha y plato, y seleccionar la opción *«Editar»* para corregir el valor. El sistema recalculará inmediatamente la pérdida económica y actualizará los totales consolidados.
+Si se registró por equivocación un peso o una causa incorrecta, la pantalla *«Historial»* permite localizar la transacción con los filtros de fecha y turno y *eliminarla* con el icono de papelera; después se vuelve a registrar el turno con los datos correctos (el sistema no permite repetir la misma fecha y turno mientras exista el registro). La edición directa de un registro existente no está disponible en la interfaz de esta versión. Al eliminar, el sistema recalcula los totales consolidados.
 
 === ¿Por qué el formulario rechaza que las porciones vendidas superen a las preparadas?
 Por regla fundamental de integridad de negocio (*RF-0008*), no es posible despachar a mesa una cantidad de porciones superior a las que fueron efectivamente cocinadas en el turno. Si hubo preparaciones adicionales imprevistas, debe incrementarse primero el campo *«Porciones Preparadas»*.

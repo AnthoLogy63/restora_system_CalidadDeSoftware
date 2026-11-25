@@ -1,6 +1,6 @@
 = Introducción General
 
-El presente *Manual de Usuario* ha sido elaborado para guiar a los operadores, jefes de cocina y administradores gastronómicos en la operación integral de *RESTORA* (versión 1.0), un sistema de información web concebido para optimizar la gestión operativa, cuantificar los desperdicios alimentarios y promover la economía circular en el sector de restaurantes turísticos de la ciudad de Arequipa @fao2013.
+El presente *Manual de Usuario* ha sido elaborado para guiar a los operadores, jefes de cocina y administradores gastronómicos en la operación integral de *RESTORA* (corte v1.0.0 del 22/11/2026), un sistema de información web concebido para optimizar la gestión operativa, cuantificar los desperdicios alimentarios y promover la economía circular en el sector de restaurantes turísticos de la ciudad de Arequipa @fao2013.
 
 En el marco del Trabajo Final Integrador de la asignatura *Calidad de Software* de la Universidad Nacional de San Agustín (UNSA), RESTORA implementa y verifica los principios de calidad establecidos a lo largo de las nueve guías de laboratorio, asegurando trazabilidad desde la especificación de requerimientos según IEEE 830 @ieee830 hasta las pruebas automatizadas con Selenium y pruebas de carga con JMeter.
 
@@ -15,22 +15,22 @@ El propósito fundamental de este manual es suministrar instrucciones paso a pas
 
 == Perfiles de Usuario y Matriz de Roles
 
-RESTORA incorpora un esquema de autorización y control de acceso basado en roles (RBAC), el cual diferencia las responsabilidades operativas de las administrativas para salvaguardar la confidencialidad e integridad de la información sensible:
+En esta versión RESTORA ofrece *una sola cuenta por restaurante*: quien inicia sesión accede a todas las funciones del establecimiento (registro del turno, entregas, catálogo, análisis, reportes y perfil). La separación entre administrador y personal operativo con permisos distintos fue solicitada como cambio CC-02 y se *rechazó para esta versión* por su impacto; queda prevista para una versión posterior. Mientras tanto, quien administre la cuenta debe compartir la contraseña solo con el personal autorizado.
 
 #table(
   columns: (1.5fr, 2fr, 2.5fr),
   inset: 7pt,
   align: (left, left, left),
   table.header(
-    [*Rol del Sistema*], [*Perfil de Usuario*], [*Alcance de Permisos y Funcionalidades*],
+    [*Perfil previsto*], [*Quién es*], [*Situación en esta versión*],
   ),
   [Administrador / Gerente],
   [Propietario, administrador de operaciones o supervisor general del restaurante.],
-  [Acceso completo al sistema: configuración del establecimiento, fijación de línea base semanal, gestión de cuentas y colaboradores, edición del catálogo de alimentos, visualización de costos económicos, generación de reportes consolidados y predicción de mermas.],
-  
+  [Usa la cuenta del restaurante con acceso completo.],
+
   [Jefe de Cocina / Personal Operativo],
   [Chef de partida, maestro de cocina o responsable de estación de pesaje.],
-  [Registro de jornadas diarias de producción (porciones preparadas y vendidas), pesaje y clasificación de residuos orgánicos/inorgánicos, consulta del historial diario de operaciones y registro de entregas para valorización.],
+  [Sin cuenta ni permisos propios; los registros del personal se cargan desde la cuenta del restaurante.],
 )
 
 == Requisitos del Entorno de Ejecución

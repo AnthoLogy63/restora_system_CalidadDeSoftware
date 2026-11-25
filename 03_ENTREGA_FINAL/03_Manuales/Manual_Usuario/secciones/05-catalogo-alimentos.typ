@@ -22,22 +22,17 @@ Este factor es el que multiplica automáticamente a la masa pesada en el módulo
 
 == Procedimiento para Añadir un Nuevo Alimento
 
-Para dar de alta un nuevo plato en el catálogo del restaurante:
+Para dar de alta un nuevo producto en el catálogo del restaurante:
 
 1. Ingrese a la sección *«Catálogo»* desde el menú de navegación.
-2. Pulse el botón *«+ Nuevo Alimento»* ubicado en la parte superior derecha de la tabla.
-3. Complete el formulario emergente:
-   - Ingrese el nombre descriptivo del plato.
-   - Seleccione la categoría correspondiente.
-   - Especifique el tamaño de porción estándar en gramos.
-   - Ingrese el costo estimado de los ingredientes por porción en moneda nacional (PEN / S/.).
-4. Presione el botón *«Guardar en Catálogo»*. El nuevo ítem quedará inmediatamente disponible en las listas desplegables del registro diario de operaciones.
+2. En la parte superior escriba el *nombre del producto* y su *costo en soles (S/)* por unidad.
+3. Presione el botón *«Agregar»*. El producto queda disponible en las listas del registro diario de operaciones.
 
 == Actualización y Mantenimiento de Costos
 
 Debido a las fluctuaciones estacionales en los precios de los insumos agrícolas en los mercados de Arequipa (como la cebolla, el rocoto, el queso paria o la carne de res):
 
-1. Localice el alimento que desea actualizar en la tabla maestra.
-2. Haga clic en el botón *«Editar»* (icono de lápiz) correspondiente a la fila del producto.
-3. Actualice el costo unitario de la porción con el valor vigente.
-4. Presione *«Actualizar»*. Los registros históricos previos conservarán el costo con el que fueron grabados originalmente (garantizando consistencia contable histórica), mientras que las nuevas operaciones aplicarán el costo actualizado.
+La interfaz actual no permite editar el costo de un producto existente. Para aplicar un costo vigente:
+
+1. Agregue un producto nuevo con el costo actualizado, como se explicó arriba.
+2. Elimine el producto anterior con el icono de papelera. Si ya tiene registros históricos, el sistema *no lo borra*: lo marca como *Inactivo* (cambio CC-01), de modo que los registros previos conservan el costo con el que se grabaron. Un producto inactivo puede volver a usarse con el botón *«Reactivar»*.

@@ -1,88 +1,86 @@
 = Aseguramiento de la Calidad y Verificación (Guías G01 a G09)
 
-El desarrollo del sistema RESTORA se rigió por el ciclo metodológico integral de nueve guías de laboratorio del curso de *Calidad de Software*, articulando la trazabilidad desde los requisitos iniciales hasta la entrega formal con dictamen de liberación.
+El desarrollo del sistema RESTORA se acompañó del ciclo de nueve guías de laboratorio del curso de *Calidad de Software*. Esta sección resume lo que cada guía aportó al producto y su estado al *25 de noviembre de 2026*, con las cifras que constan en los archivos del repositorio. Los detalles y las limitaciones de cada guía están en el informe final integrador (`03_ENTREGA_FINAL/Informe_Final_RESTORA`).
 
 == Resumen de Trazabilidad Integral
 
 #table(
   columns: (1fr, 1.8fr, 2.5fr, 1.5fr),
   table.header([*Guía*], [*Tema y Propósito*], [*Aplicación Directa al Producto RESTORA*], [*Evidencia Principal*]),
-  [G01], [Requerimientos], [Especificación ERS según IEEE 830: 10 RF y 5 RNF con criterios de aceptación medibles.], [Documento ERS versionado, matrices de trazabilidad e instrumentos de elicitación.],
-  [G02], [Proceso de Requisitos], [Control de flujo en gestor REM; análisis e implementación del cambio CC-01 (baja lógica de productos).], [Fichas de cambio, historial de transiciones y evidencia de código migrado.],
-  [G03], [Análisis y Diseño], [Descripción del diseño de software (SDD) bajo IEEE 1016; diagramas UML de clases, secuencia y casos de uso.], [SDD formal, archivos fuente PlantUML y galería de mockups responsivos.],
-  [G04], [Dimensionamiento], [Medición funcional mediante NESMA y COSMIC; estimación de esfuerzo, plazo y costos en PEN con COCOMO II.], [Libro editable con fórmulas paramétricas y análisis de sensibilidad $plus.minus 20$ %.],
-  [G05], [Configuración (SVN)], [Control de versiones en Apache Subversion: ramas, resolución de conflictos y generación del tag `v1.0.0`.], [Historial de 8 revisiones, log de fusión controlada y repositorio portable SVN.],
-  [G06], [Gestión de Riesgos], [Aplicación de metodología MAGERIT v3 con PILAR; tratamiento de amenazas y controles técnicos implantados.], [Proyecto PILAR, matriz de riesgos activa y evidencia de salvaguardas (JWT/Zod).],
-  [G07], [Pruebas Unitarias], [Diseño y ejecución de suite automatizada con Vitest; cobertura $> 80$ % e inyección de defecto controlado.], [114 casos de prueba, reporte V8 coverage y prueba de regresión fallida/corregida.],
-  [G08], [Rendimiento (JMeter)], [Evaluación no gráfica de 4 perfiles de carga (nominal, estrés 10-25-50, picos, estabilidad de 15 min).], [Scripts JMX, bitácoras JTL, dashboards HTML y análisis de Apdex / $p_{95}$.],
-  [G09], [Calidad Web (Selenium)], [Automatización E2E con Selenium WebDriver 4 cubriendo los 3 procesos de negocio; dictamen de liberación.], [Suite de 10 scripts Python, esperas explícitas, cross-browser y dictamen final.]
+  [G01], [Requerimientos], [Especificación en REM 1.2.2 con 20 requisitos funcionales (FRQ-0001 a FRQ-0020) y 8 no funcionales (NFR-0001 a NFR-0008), con criterios de aceptación.], [Informe G01, archivo `.rem` e instrumentos de elicitación.],
+  [G02], [Proceso de Requisitos], [Gestor de cambios: CC-01 (inactivación lógica de productos) implementada y probada; CC-02 (roles) rechazada para v1.0.0.], [Gestor_Requisitos_G02.xlsx y evidencias del cambio.],
+  [G03], [Análisis y Diseño], [Descripción del diseño (SDD) con IEEE 1016, diagramas UML y tres casos de uso.], [SDD, fuentes PlantUML y mockups.],
+  [G04], [Dimensionamiento], [328 puntos de función NESMA sin ajustar, 82 CFP (COSMIC) y COCOMO II con 36,38 persona-mes y 11,51 meses. El costo de S/ 109 140 usa una tarifa supuesta.], [Libros de cálculo y memoria de G04; sin horas reales para contrastar.],
+  [G05], [Configuración (SVN)], [Repositorio Subversion con 8 revisiones, un conflicto resuelto y la etiqueta `Version_1.0.0`, que coincide con los archivos de `01_APLICACION` del corte.], [Dump restaurable y registro de revisiones.],
+  [G06], [Gestión de Riesgos], [MAGERIT con matriz de 15 activos y 30 escenarios. De 12 tratamientos propuestos, 2 están implementados y probados: R01 (acceso por restaurante) y R15 (neutralización de fórmulas en CSV).], [Matriz G06 y pruebas `auth.test.ts` y `csv.test.ts`.],
+  [G07], [Pruebas Unitarias], [Suite Vitest de 132 pruebas aprobadas en 13 archivos; cobertura de 100 % de líneas y 95,69 % de ramas en 5 archivos de lógica de negocio, medida en G07.], [Catálogo de pruebas y reportes de cobertura.],
+  [G08], [Rendimiento (JMeter)], [7 perfiles medidos con 217 543 muestras y 0 % de error, más una comparación antes y después de una caché de predicciones.], [Archivos `.jtl` y dashboards de G08.],
+  [G09], [Calidad Web (Selenium)], [Suite de 8 casos sobre los 3 procesos, con reporte y registro de defectos.], [Reportes de ejecución y evidencias de G09.]
 )
 
 == Requisitos y Gestión de Cambios (G01 y G02)
 
-=== Línea Base de Requisitos Funcionales y No Funcionales
-- *RF-01 (Autenticación y Sesión):* Acceso mediante credenciales seguras y emisión de JWT en cookie httpOnly.
-- *RF-02 (Aislamiento Multi-Tenant):* Restricción estricta de acceso a datos según el `restauranteId` del usuario.
-- *RF-03 (Registro Multi-Ítem de Operación):* Captura atómica de ventas, producción y residuos por fecha y turno.
-- *RF-04 (Cálculo Automatizado de Pérdidas):* Conversión inmediata de masa descartada (kg) a soles (PEN) usando el catálogo.
-- *RF-05 (Gestión de Catálogo de Productos):* Registro de productos con precio unitario y control de estado activo/inactivo.
-- *RF-06 (Trazabilidad de Entregas Valorizables):* Registro de salidas a reciclaje con evidencia fotográfica y número de constancia.
-- *RF-07 (Motor de Reglas Expertas R1-R10):* Generación de alertas operativas ante mermas anómalas o falta de capacitación.
-- *RF-08 (Dashboard de Indicadores):* Visualización consolidada de KPIs de sostenibilidad y prevención de desperdicios.
-- *RF-09 (Asistente Conversacional Resiliente):* Chat con IA en cascada Gemini -> Groq -> Motor Determinista.
-- *RF-10 (Reportes y Exportación CSV):* Generación de instantáneas inmutables de periodos operativos con descarga en CSV.
-- *RNF-01 (Tiempo de Respuesta):* Latencia $p_{95} <= 2.0$ segundos bajo carga esperada.
-- *RNF-02 (Seguridad Criptográfica):* Almacenamiento de contraseñas mediante funciones unidireccionales con salt.
-- *RNF-03 (Disponibilidad y Resiliencia):* Operación continua del asistente guiado aun sin conexión a proveedores de IA.
-- *RNF-04 (Cobertura de Código de Negocio):* Mínimo 80 % de cobertura de líneas en el paquete de lógica de negocio.
-- *RNF-05 (Compatibilidad Multi-Navegador):* Ejecución sin discrepancias visuales ni funcionales en Chrome, Firefox y Brave.
+=== Línea Base de Requisitos
+La línea base tiene 28 requisitos (20 funcionales y 8 no funcionales). De los funcionales, 11 están implementados por completo, 8 de forma parcial y 1 no está implementado; los principales son:
+
+- *FRQ-0001 y FRQ-0002 (Sesión):* acceso con credenciales y JWT en cookie httpOnly; cierre de sesión.
+- *FRQ-0003 y FRQ-0004 (Cuentas y roles):* se registra una cuenta por restaurante; la asignación de permisos por rol *no está implementada* (CC-02 rechazada).
+- *FRQ-0005 (Catálogo):* productos con costo y estado activo o inactivo.
+- *FRQ-0006 a FRQ-0013 (Operación):* registro por fecha y turno de ventas, producción y desperdicios, y cálculo de la pérdida en soles con el costo del catálogo.
+- *FRQ-0014 a FRQ-0018:* historial con filtros, panel de indicadores y reportes con exportación CSV.
+- *Asistente conversacional:* cascada Gemini, Groq y modo guiado determinista cuando no hay claves configuradas.
+- *NFR-0006 (Tiempo de respuesta):* p95 de 2 s como meta, contrastada en G08.
+- *NFR-0007 (Compatibilidad):* Chrome y Edge; los e2e se ejecutaron en Chromium y Selenium en Firefox.
 
 === Gestión del Cambio CC-01 (Inactivación Lógica de Productos)
-Para evitar la rotura de relaciones foráneas en registros antiguos de merma, la solicitud CC-01 introdujo el atributo `activo: Boolean @default(true)` en el esquema Prisma, sustituyendo los comandos SQL destructivos por actualizaciones lógicas seguras.
+Para evitar la rotura de relaciones en registros antiguos de merma, la solicitud CC-01 introdujo el atributo `activo: Boolean @default(true)` en el esquema Prisma: un producto con historial se inactiva en lugar de eliminarse, y puede reactivarse desde el catálogo. El cambio está cubierto por pruebas unitarias y e2e.
 
 == Dimensionamiento y Estimación Paramétrica (G04)
 
-Se aplicaron mediciones funcionales sobre la frontera del sistema RESTORA:
-- *NESMA:* Conteo detallado arrojando 184 Puntos de Función No Ajustados (PFNA) y 166 Puntos de Función Ajustados (PFA) tras considerar factores de influencia de comunicaciones y procesamiento distribuido.
-- *COSMIC:* Medición de 92 Puntos de Función COSMIC (CFP) basada en movimientos elementales de Entrada (E), Salida (X), Lectura (R) y Escritura (W).
-- *COCOMO II:* Esfuerzo estimado en $17.5$ personas-mes para la variante orgánica calibrada. Se proyectó un plazo de $4.8$ meses para un equipo de 3 desarrolladores, con una inversión estimada de S/ 42,000 PEN considerando tarifas de desarrollo regional y costos de coordinación.
+- *NESMA:* 328 puntos de función sin ajustar sobre la frontera del sistema.
+- *COSMIC:* 82 puntos de función COSMIC (CFP), a partir de los movimientos de datos.
+- *COCOMO II:* 36,38 persona-mes y 11,51 meses. El costo de S/ 109 140 usa una tarifa supuesta de S/ 3 000 por persona-mes, por lo que es una referencia ilustrativa y no se contrastó con horas reales.
 
 == Gestión de Configuración y Control de Versiones SVN (G05)
 
-La configuración del código se gobernó mediante un repositorio Subversion (*Apache SVN*):
-- Estructura canónica: `/trunk` (línea principal de desarrollo), `/branches` (ramas de aislamiento para cambios) y `/tags` (etiquetas congeladas de versiones).
-- Se documentaron 8 revisiones formales, destacando la creación de la rama `branches/cambio-cc01-inactivacion`, la simulación y resolución controlada de conflictos en el archivo de rutas `route.ts`, y el etiquetado de la versión final de entrega bajo `tags/v1.0.0`.
+La configuración del código se gestionó en un repositorio Subversion de demostración local:
+- Estructura `/trunk`, `/branches` y `/tags`.
+- 8 revisiones realizadas el 19/11/2026, un conflicto resuelto y la etiqueta `Version_1.0.0`.
+- El repositorio se entregó como volcado (dump) restaurable; el desarrollo diario del producto se hizo con Git.
 
-== Gestión de Riesgos de Seguridad con MAGERIT / PILAR (G06)
+== Gestión de Riesgos de Seguridad con MAGERIT (G06)
 
-Se aplicó la metodología MAGERIT v3 mediante la herramienta PILAR y matrices de análisis cuantitativo:
-- *Activos Clave:* Base de datos SQLite (`dev.db`), Secretos de sesión (`AUTH_SECRET`), API REST del backend, Modelos de ML (`.joblib`) y Archivos de constancia de entrega.
-- *Amenazas Evaluadas:* Inyección de datos maliciosos, interceptación o suplantación de sesión JWT, corrupción de base de datos local por cortes de energía, agotamiento de cuota de APIs externas y manipulación de parámetros de URL.
-- *Tratamiento:* Se implantaron salvaguardas efectivas: validación estricta de tipos con Zod, cookies httpOnly SameSite Lax, fallback determinista en el chat IA y respaldos programados de `dev.db`.
+La matriz de G06 inventaría 15 activos (base SQLite `dev.db`, secreto `AUTH_SECRET`, API REST, modelos `.joblib`, entre otros) y 30 escenarios, de los cuales 16 son de nivel alto y 14 moderados.
+
+- *Tratamientos implementados y probados (22/11/2026):* *R01*, `requireSession` valida el restaurante de la sesión (3 pruebas); *R15*, `toCsv` neutraliza celdas que empiezan con `=`, `+`, `-` o `@` (8 pruebas).
+- *Controles ya presentes en el diseño:* validación de entradas con Zod, cookie httpOnly con SameSite Lax y asistente con modo guiado cuando no hay proveedores de IA.
+- *Pendientes:* 10 de los 12 tratamientos, entre ellos el respaldo y la restauración de SQLite, el secreto de ejemplo y la cuenta demo. El riesgo residual no se recalculó y PILAR quedó sin activos cargados.
 
 #figure(
   image("../imagenes/QA_Riesgos.png", width: 88%),
-  caption: [Matriz de Evaluación de Riesgos y controles aplicados en RESTORA.]
+  caption: [Vista de la matriz de riesgos de G06 (hoja de escenarios).]
 )
 
 == Pruebas Unitarias y Cobertura con Vitest (G07)
 
-Se implementó una suite automatizada de pruebas unitarias sobre los tres módulos centrales de negocio (`costo.ts`, `estadisticas.ts`, `recomendaciones.ts`) y los esquemas de validación Zod (`registroOperacion.ts` y `residuo.ts`):
+La suite cubre funciones de negocio como `costo.ts`, `estadisticas.ts`, `recomendaciones.ts`, los esquemas Zod, las contraseñas, la exportación CSV y el control de acceso por restaurante.
 
 === Catálogo y Ejecución de la Suite
-La suite consta de *114 casos de prueba automatizados*, cubriendo escenarios válidos, casos límite, datos inválidos y propagación de excepciones. Se ejecuta mediante el comando:
+El 25/11/2026 la suite dio *132 pruebas aprobadas en 13 archivos*; el informe de G07 documenta 114 de una ejecución anterior. Se ejecuta con:
 
 ```bash
-npm test -- --coverage
+npm test
 ```
+
+La cobertura (100 % de líneas y 95,69 % de ramas en 5 archivos de negocio) proviene de la ejecución documentada en G07; no incluye rutas HTTP, persistencia real ni frontend.
 
 #figure(
   image("../imagenes/cobertura_index.png", width: 92%),
-  caption: [Reporte de Cobertura de Pruebas Unitarias con V8: Cobertura $> 80$ % en la lógica de negocio.]
+  caption: [Reporte de cobertura de pruebas unitarias con V8 (alcance de 5 archivos de negocio).]
 )
 
 === Ensayo de Inyección de Defecto Controlado
-Para verificar que el framework de pruebas detecta alteraciones en las reglas de negocio, se alteró deliberadamente la fórmula de costeo en `src/lib/costo.ts`:
+Para verificar que la suite detecta alteraciones en las reglas de negocio, se alteró deliberadamente la fórmula de costeo en `src/lib/costo.ts`:
 
 ```ts
 // Código original correcto:
@@ -92,54 +90,76 @@ const costoTotal = Number((producto.costoUnitario * cantidadKg).toFixed(2));
 // const costoTotal = Number((producto.costoUnitario + cantidadKg).toFixed(2));
 ```
 
-Al ejecutar la prueba `src/lib/costo.test.ts`, Vitest capturó inmediatamente el fallo de aserción (obtenido $15.00$ frente al esperado $36.00$ PEN):
+Al ejecutar `src/lib/costo.test.ts`, Vitest capturó el fallo de aserción (se obtuvo $15.00$ frente al esperado $36.00$ PEN):
 
 #figure(
   image("../imagenes/defecto.png", width: 88%),
-  caption: [Evidencia de fallo capturado por Vitest tras la inyección del defecto controlado.]
+  caption: [Fallo capturado por Vitest tras la inyección del defecto controlado.]
 )
 
-Tras restaurar el archivo original a su estado íntegro, la suite recuperó su tasa de aprobación del 100 %.
+Tras restaurar el archivo original, la suite volvió a aprobar todas sus pruebas.
 
 == Pruebas de Rendimiento con Apache JMeter (G08)
 
-Las pruebas de rendimiento evaluaron el comportamiento del backend Next.js bajo cuatro perfiles de carga no gráfica:
+Las pruebas se ejecutaron en modo no gráfico con JMeter 5.6.3 sobre el backend Next.js, con perfiles más cortos que los del enunciado. Resultados recalculados de los archivos `.jtl`:
+
+#table(
+  columns: (2.6fr, 1fr, 1.3fr, 1fr, 1fr),
+  table.header([*Perfil*], [*Muestras*], [*Throughput*], [*p95*], [*Error*]),
+  [Humo (1 hilo)], [2 407], [161 req/s], [24 ms], [0 %],
+  [Carga (20 hilos web y 2 de predicción, 120 s)], [53 203], [443 req/s], [108 ms], [0 %],
+  [Estrés con 10, 30 y 50 hilos (45 s cada uno)], [52 874], [409, 393 y 373 req/s], [63, 184 y 309 ms], [0 %],
+  [Picos (60 hilos, 30 s)], [9 069], [303 req/s], [479 ms], [0 %],
+  [Estabilidad (10 hilos, 300 s)], [99 990], [333 req/s], [80 ms], [0 %],
+)
 
 #figure(
   image("../imagenes/05_dashboard_apdex_carga.png", width: 88%),
-  caption: [Dashboard de JMeter: Índice de satisfacción Apdex (1.000) bajo carga nominal.]
+  caption: [Dashboard de JMeter del perfil de carga.]
 )
 
-+ *Carga Nominal (10 usuarios concurrentes durante 5 minutos):* El sistema exhibió una tasa de error de $0.00$ % y un tiempo de respuesta percentil $p_{95} = 42$ ms, superando holgadamente el umbral de 2 segundos.
-+ *Estrés Escalonado (10, 25 y 50 usuarios, 3 minutos por escalón):* Evaluó la capacidad de absorción ante incrementos sostenidos de concurrencia:
+- *Cuello de botella:* la predicción de demanda, un subproceso de Python de cerca de 1 s por solicitud (p95 de hasta 1 857 ms en el pico). Aun así, se cumple la meta de p95 de 2 s.
+- *Mejora medida:* una caché de 60 s en `prediccion.ts` redujo la media de `POST /predicciones` de 1 097 a 25 ms en una corrida de 45 s con la misma consulta repetida (antes y después en `antes.jtl` y `despues.jtl`). La ganancia con consultas variadas sería menor.
+- *Límites:* la estabilidad duró 5 minutos y no los 15 del enunciado, por lo que no se puede descartar una fuga de memoria a más largo plazo. El script `run_all.sh` con `ACADEMIC=1` permite los perfiles largos, pero no hay resultados de esa ejecución.
 
 #figure(
   image("../imagenes/09_estres_escalonado.png", width: 88%),
-  caption: [Curva de respuesta bajo prueba de estrés escalonado de 10 a 50 usuarios.]
+  caption: [Dashboard de JMeter del perfil de estrés escalonado.]
 )
-
-+ *Pico de Demanda (salto súbito de 10 a 50 usuarios):* El servidor mantuvo la estabilidad sin reinicios ni pérdidas de paquetes HTTP.
-+ *Estabilidad o Soak Test (10 usuarios sostenidos por 15 minutos):* Monitoreo continuo de memoria RAM y CPU descartando fugas de memoria (*memory leaks*) en el proceso Node.js.
 
 == Pruebas Automatizadas de Aceptación con Selenium WebDriver (G09)
 
-Se implementó una batería de 10 ejercicios funcionales end-to-end (E2E) con Selenium WebDriver 4 en Python, evaluando la navegación, autenticación, selects dinámicos, switches de estado y esperas explícitas:
+La suite `test_casos_negocio.py` de G09 automatiza 8 casos con Selenium 4 y esperas explícitas sobre la aplicación, y cubre los tres procesos de negocio:
+
+#table(
+  columns: (0.7fr, 2fr, 3fr),
+  table.header([*Caso*], [*Escenario*], [*Qué comprueba*]),
+  [CP-01], [Acceso correcto], [La URL deja `/auth` y aparece el restaurante.],
+  [CP-02], [Credenciales inválidas], [Alerta visible y permanencia en `/auth`.],
+  [CP-03], [Rutas privadas sin sesión], [Redirección a `/auth` (no hay autorización por rol).],
+  [CP-04], [Registro válido de entrega], [La entrega aparece en la vista tras guardar.],
+  [CP-05], [Datos inválidos], [El botón Guardar queda deshabilitado con peso negativo o sin receptor.],
+  [CP-06], [Consulta], [Productos y colaboradores visibles.],
+  [CP-07], [Cambio de estado], [El estado de capacitación cambia al accionar el control.],
+  [CP-08], [Cierre de sesión], [Vuelve a `/auth` y el botón atrás no reabre la vista.]
+)
 
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
   figure(
-    image("../imagenes/08_ej9_explicit_wait_restora.png", width: 100%),
-    caption: [Prueba E2E con Espera Explícita (WebDriverWait) sobre elementos reactivos.]
+    image("../imagenes/cp01_acceso_correcto_ok.png", width: 100%),
+    caption: [CP-01, acceso correcto.]
   ),
   figure(
-    image("../imagenes/10_ej27_crossbrowser_firefox.png", width: 100%),
-    caption: [Prueba Cross-Browser ejecutada exitosamente sobre Mozilla Firefox.]
+    image("../imagenes/cp05_datos_invalidos_rechazo_ok.png", width: 100%),
+    caption: [CP-05, validación de datos inválidos.]
   )
 )
 
-=== Dictamen de Calidad y Decisión de Liberación
-Integrando los resultados de requisitos verificados (100 %), cobertura unitaria (85.7 %), índice Apdex de rendimiento ($1.000$) y suites Selenium (100 % aprobadas), el Comité de Calidad emite el siguiente dictamen técnico:
+El reporte del 22/11/2026 registra 8 de 8 casos aprobados en Firefox. La duración por caso es una estimación (tiempo total entre 8) y el reporte no cubre otros navegadores.
 
-> *DICTAMEN FINAL:* #text(weight: "bold")[APTO CON OBSERVACIONES MENORES]
-> *Observación:* Se recomienda incorporar en el siguiente ciclo la exportación nativa de reportes a PDF y la vinculación directa con balanzas electrónicas mediante Web Serial API.
+=== Estado de la Decisión de Liberación
+El informe final integrador emite un dictamen *provisional de «no apto» para liberar la versión 1.0.0*, por estas razones: el producto tiene una sola cuenta por restaurante (CC-02 rechazada) y el enunciado exige dos roles; quedan 10 tratamientos de riesgo pendientes; los perfiles de rendimiento fueron más cortos que los pedidos; y el número de versión no es coherente entre documentos. El equipo también redactó un dictamen en `G09_CALIDAD_SELENIUM/DICTAMEN_LIBERACION.md` que concluye «apto con observaciones menores»; varias de las cifras que cita no coinciden con las evidencias y deben corregirse antes de usarlo.
+
+> *Mejoras recomendadas:* exportación nativa de reportes a PDF, integración con balanzas electrónicas mediante Web Serial API y una cola de tareas para el reentrenamiento del modelo.

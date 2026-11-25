@@ -140,7 +140,7 @@
   }
 
   // ---------- Contenido: el texto se sangra según el nivel del último título ----------
-  let aplanar(c) = if c.has("children") {
+  let aplanar(c) = if c.has("children") and c.func() not in (table, grid, stack) {
     c.children.map(aplanar).flatten()
   } else { (c,) }
 
