@@ -6,15 +6,15 @@
 
 - **Curso:** Calidad de Software
 - **Semestre:** 2026-B (Semestre VIII)
-- **Docente:** M en C Jesús Martín Silva Fernández
+- **Docente:** José Rafael Delgado Bastidas
 - **Práctica:** Guía de Laboratorio N° 09 — Gestión de Calidad con Selenium
 - **Aplicación Objetivo:** **RESTORA** (Sistema de Gestión y Valorización de Residuos Orgánicos para Restaurantes Turísticos de Arequipa)
 - **Repositorio de Aplicación:** `01_APLICACION/` (Frontend SPA TanStack Router en `:5173`, Backend Next.js API en `:3000`)
 - **Integrantes del Equipo de Aseguramiento de Calidad:**
-  - Ajra Chara, Kervin
-  - Barrios Aragon, Roberto Carlos
-  - Hancco Quispe, Sebastian David
-  - Valdivia Choquehuanca, Ronald
+  - Ajra Huacso, Jeans Anthony
+  - Barrios Medina, Mathias Alonso
+  - Hancco Mullisaca, Sergio Danilo
+  - Valdivia Segovia, Ryan Fabián
 
 ---
 

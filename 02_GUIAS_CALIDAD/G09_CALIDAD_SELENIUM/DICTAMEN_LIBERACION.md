@@ -10,11 +10,11 @@
 
 - **Fecha de Evaluación:** 22 de Noviembre de 2026
 - **Comité Revisor de Aseguramiento de Calidad:**
-  - Ajra Chara, Kervin
-  - Barrios Aragon, Roberto Carlos
-  - Hancco Quispe, Sebastian David
-  - Valdivia Choquehuanca, Ronald
-- **Docente Evaluador:** M en C Jesús Martín Silva Fernández
+  - Ajra Huacso, Jeans Anthony
+  - Barrios Medina, Mathias Alonso
+  - Hancco Mullisaca, Sergio Danilo
+  - Valdivia Segovia, Ryan Fabián
+- **Docente Evaluador:** José Rafael Delgado Bastidas
 - **Curso:** Calidad de Software (Semestre VIII - 2026-B)
 - **Marco Metodológico:** Integración y Consolidación de Guías G01 a G09
 
@@ -100,10 +100,10 @@ Por todo lo expuesto, el producto de software **RESTORA v1.0.0** se declara téc
 
 $$\begin{array}{ccc}
 \rule{5cm}{0.4pt} & \quad & \rule{5cm}{0.4pt} \\
-\textbf{Roberto Carlos Barrios Aragon} & & \textbf{Kervin Ajra Chara} \\
+\textbf{Mathias Alonso Barrios Medina} & & \textbf{Jeans Anthony Ajra Huacso} \\
 Responsable de Pruebas Unitarias & & Responsable de Rendimiento \\
 \\
 \rule{5cm}{0.4pt} & \quad & \rule{5cm}{0.4pt} \\
-\textbf{Sebastian David Hancco Quispe} & & \textbf{Ronald Valdivia Choquehuanca} \\
+\textbf{Sergio Danilo Hancco Mullisaca} & & \textbf{Ryan Fabián Valdivia Segovia} \\
 Responsable de Calidad Web (Selenium) & & Coordinador de Aseguramiento de Calidad
 \end{array}$$
